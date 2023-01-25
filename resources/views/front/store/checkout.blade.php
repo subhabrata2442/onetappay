@@ -38,7 +38,7 @@
                                     </a>
                                  </div>
                               </td>
-                              <td class="text-start">
+                              <td class="text-start text-nowrap">
                                  <div class="crt-product-name">
                                     <a href="#">Natural Jute Bags with Luxury Padded Handles</a>
                                  </div>

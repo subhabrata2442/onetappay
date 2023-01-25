@@ -33,125 +33,129 @@
 <section class="sec-gap-btm">
   <div class="container-fluid left-right-gap">
     <div class="hotel-list-wrap d-flex">
-      <div class="hotel-list-lft">
+      <button type="button" class="mobile-filter filter_btn d-md-none"><i class="fa-solid fa-utensils"></i> menu</button>
+      <div class="hotel-list-lft mobile-sort">
         <div class="filter-accrodian accordion sticky-bar" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="list1">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList1" aria-expanded="true" aria-controls="collapseList1"> Sorte by </button>
-            </h2>
-            <div id="collapseList1" class="accordion-collapse collapse show" aria-labelledby="list1" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <div class="filter-list-wrap">
-                  <ul>
-                    <li class="radio">
-                      <input type="radio" id="a" name="radio">
-                      <label for="a">Most popular</label>
-                    </li>
-                    <li class="radio">
-                      <input type="radio" id="b" name="radio">
-                      <label for="b">Rating</label>
-                    </li>
-                  </ul>
+          <button type="button" class="mobile-filter-close filter_btn_close d-md-none"><i class="fa-solid fa-xmark"></i></button>
+          <div class="mobile-scroll">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="list1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList1" aria-expanded="true" aria-controls="collapseList1"> Sorte by </button>
+              </h2>
+              <div id="collapseList1" class="accordion-collapse collapse show" aria-labelledby="list1" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="filter-list-wrap">
+                    <ul>
+                      <li class="radio">
+                        <input type="radio" id="a" name="radio">
+                        <label for="a">Most popular</label>
+                      </li>
+                      <li class="radio">
+                        <input type="radio" id="b" name="radio">
+                        <label for="b">Rating</label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="list2">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList2" aria-expanded="false" aria-controls="collapseList2"> Cuisines </button>
-            </h2>
-            <div id="collapseList2" class="accordion-collapse collapse" aria-labelledby="list2" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <div class="filter-list-wrap">
-                  <ul>
-                    <li class="checkbox">
-                      <input type="checkbox" id="aa" name="">
-                      <label for="aa">Most popular</label>
-                    </li>
-                    <li class="checkbox">
-                      <input type="checkbox" id="bb" name="">
-                      <label for="bb">Rating</label>
-                    </li>
-                  </ul>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="list2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList2" aria-expanded="false" aria-controls="collapseList2"> Cuisines </button>
+              </h2>
+              <div id="collapseList2" class="accordion-collapse collapse" aria-labelledby="list2" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="filter-list-wrap">
+                    <ul>
+                      <li class="checkbox">
+                        <input type="checkbox" id="aa" name="">
+                        <label for="aa">Most popular</label>
+                      </li>
+                      <li class="checkbox">
+                        <input type="checkbox" id="bb" name="">
+                        <label for="bb">Rating</label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="list3">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList3" aria-expanded="false" aria-controls="collapseList3"> Catagories </button>
-            </h2>
-            <div id="collapseList3" class="accordion-collapse collapse" aria-labelledby="list3" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <div class="filter-list-wrap">
-                  <ul>
-                    <li class="radio">
-                      <input type="radio" id="aaa" name="radio">
-                      <label for="aaa">Most popular</label>
-                    </li>
-                    <li class="radio">
-                      <input type="radio" id="bbb" name="radio">
-                      <label for="bbb">Rating</label>
-                    </li>
-                  </ul>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="list3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList3" aria-expanded="false" aria-controls="collapseList3"> Catagories </button>
+              </h2>
+              <div id="collapseList3" class="accordion-collapse collapse" aria-labelledby="list3" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="filter-list-wrap">
+                    <ul>
+                      <li class="radio">
+                        <input type="radio" id="aaa" name="radio">
+                        <label for="aaa">Most popular</label>
+                      </li>
+                      <li class="radio">
+                        <input type="radio" id="bbb" name="radio">
+                        <label for="bbb">Rating</label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="list4">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList4" aria-expanded="false" aria-controls="collapseList4"> Feature </button>
-            </h2>
-            <div id="collapseList4" class="accordion-collapse collapse" aria-labelledby="list4" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <div class="filter-list-wrap">
-                  <ul>
-                    <li class="radio">
-                      <input type="radio" id="aaa" name="radio">
-                      <label for="aaa">Most popular</label>
-                    </li>
-                    <li class="radio">
-                      <input type="radio" id="bbb" name="radio">
-                      <label for="bbb">Rating</label>
-                    </li>
-                  </ul>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="list4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList4" aria-expanded="false" aria-controls="collapseList4"> Feature </button>
+              </h2>
+              <div id="collapseList4" class="accordion-collapse collapse" aria-labelledby="list4" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="filter-list-wrap">
+                    <ul>
+                      <li class="radio">
+                        <input type="radio" id="aaa" name="radio">
+                        <label for="aaa">Most popular</label>
+                      </li>
+                      <li class="radio">
+                        <input type="radio" id="bbb" name="radio">
+                        <label for="bbb">Rating</label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="list5">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList5" aria-expanded="false" aria-controls="collapseList5"> Date & Time </button>
-            </h2>
-            <div id="collapseList5" class="accordion-collapse collapse" aria-labelledby="list5" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <div class="filter-list-wrap">
-                  <ul>
-                    <li class="radio">
-                      <input type="radio" id="aaa" name="radio">
-                      <label for="aaa">Most popular</label>
-                    </li>
-                    <li class="radio">
-                      <input type="radio" id="bbb" name="radio">
-                      <label for="bbb">Rating</label>
-                    </li>
-                  </ul>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="list5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList5" aria-expanded="false" aria-controls="collapseList5"> Date & Time </button>
+              </h2>
+              <div id="collapseList5" class="accordion-collapse collapse" aria-labelledby="list5" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="filter-list-wrap">
+                    <ul>
+                      <li class="radio">
+                        <input type="radio" id="aaa" name="radio">
+                        <label for="aaa">Most popular</label>
+                      </li>
+                      <li class="radio">
+                        <input type="radio" id="bbb" name="radio">
+                        <label for="bbb">Rating</label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="list6">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList6" aria-expanded="false" aria-controls="collapseList6"> Price </button>
-            </h2>
-            <div id="collapseList6" class="accordion-collapse collapse" aria-labelledby="list6" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <div class="filter-list-wrap">
-                  <div class="price-range-slider">
-                    <div id="slider-range" class="range-bar"></div>
-                    <p class="range-value">
-                      <input type="text" id="amount" readonly>
-                    </p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="list6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList6" aria-expanded="false" aria-controls="collapseList6"> Price </button>
+              </h2>
+              <div id="collapseList6" class="accordion-collapse collapse" aria-labelledby="list6" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div class="filter-list-wrap">
+                    <div class="price-range-slider">
+                      <div id="slider-range" class="range-bar"></div>
+                      <p class="range-value">
+                        <input type="text" id="amount" readonly>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,6 +246,19 @@
 </section>
 @push('scripts') 
 <script src="{{ asset('public/front/js/search.js/?t='.time()) }}"></script> 
+<script>
+    $(document).on('click', '.filter_btn', function(){
+      $(this).hide();
+      $('.mobile-sort').addClass('sort_open');
+      $('body').append(`<div class="modal-backdrop fade show"></div>`).addClass("sort-popup");      
+    });
+    $(document).on('click', '.filter_btn_close', function(){
+      $('.filter_btn').show();
+      $('.mobile-sort').removeClass('sort_open');
+      $('body').removeClass("sort-popup");
+      $('body').find('.modal-backdrop').remove();
+    });
+  </script> 
 <script>
 $(".firstOrderSlider").owlCarousel({
     loop: false,

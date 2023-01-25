@@ -1,0 +1,177 @@
+.section-grey2 {
+	background: #fff;
+	background-size: cover;
+	padding: 60px 0;
+	position: relative;
+	z-index: 1;
+}
+.box-grey {
+/* background: rgba(255,255,255,.8); */
+}
+.top10 {
+	margin-top: 10px;
+}
+.grey-fields {
+	background: #f9f9f9;
+	border: #f0eded 1px solid;
+	color: #1e1e1e;
+	padding: 9px 10px;
+	width: auto;
+}
+.full-width {
+	width: 100%;
+}
+p.text-small {
+	font-size: 12px;
+}
+.top15 {
+	margin-top: 15px;
+}
+.section-label a.section-label-a,  .section-label .section-label-a {
+	color: #333;
+	display: block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	position: relative;
+}
+.section-label a.section-label-a span, .section-label .section-label-a span {
+	background: #fff;
+	position: relative;
+	z-index: 2;
+	padding: 0 8px 0 0;
+}
+.bold {
+	font-weight: bold;
+}
+.section-label a.section-label-a b, .section-label .section-label-a b {
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 1;
+}
+.orange-button, .razorpay-payment-button {
+	background: #f75d34;
+	border: 1px solid #f75d34;
+	color: #fff;
+	-webkit-appearance: button;
+	cursor: pointer;
+	padding: 8px 25px;
+	display: inline-block;
+}
+.previous-button {
+	background: #ffd7cc;
+	border: 1px solid #ffd7cc;
+	color: #3d3d3d;
+	-webkit-appearance: button;
+	cursor: pointer;
+	padding: 8px 25px;
+	display: inline-block;
+	cursor: pointer;
+}
+.nxtPrev {
+	display: flex;
+}
+.nxtPrev li:not(:last-child) {
+	margin-right: 15px;
+}
+.footer {
+	position: relative;
+	z-index: 1;
+}
+.error {
+	color: #f00;
+}
+.regBanner {
+	height: 150px;
+	background-size: cover !important;
+	position: relative;
+	z-index: 2;
+}
+.regModel {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	max-width: 560px;
+}
+.main-header {
+	z-index: 3;
+}
+.section-grey2 h1 {
+	margin-bottom: 30px;
+	border-bottom: #ddd 1px solid;
+	padding-bottom: 15px;
+}
+.successInner {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 50px;
+	box-shadow: rgba(0,0,0,.1) 0 9px 20px -10px;
+	border-radius: 18px;
+	background: #fff;
+}
+.successInner span {
+	display: block;
+	font-size: 60px;
+	color: #11883e;
+	margin-bottom: 10px;
+}
+.successArea {
+	padding: 60px 0;
+}
+.successArea p {
+	font-size: 16px;
+	color: #666;
+}
+.successInner a {
+	background: #ff6c00;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px 30px;
+	font-weight: 600;
+	margin-top: 30px;
+	border-radius: 10px;
+}
+.successInner a:hover {
+	background: #c55200;
+}
+.red_border {
+	border: 2px solid red !important;
+}
+
+.date-pick-caln .calendar {
+	margin: 0;
+	max-width: 50%;
+	flex: 0 0 50%;
+  }
+
+  .date-pick-caln {
+	max-width: unset;
+	margin-right: calc(var(--bs-gutter-x) * -0.5);
+	margin-left: calc(var(--bs-gutter-x) * -0.5);
+	margin-bottom: 0;
+}
+
+.date-pick-caln.time-pick-wrap {
+	margin: 0;
+}
+.time-pick-wrap .time-pick-head {
+	margin: 0 0 15px 0;
+}
+
+.time-pick-wrap ul li a {
+	margin: 0;
+}
+.nxt-prv-btn-wrap {
+	margin-top: 20px;
+}
+.gaust-input-wrap .gaust-input-style {
+	padding: 0 15px;
+}
+.gaust-txtare-wrap .gaust-txtare-style {
+	padding: 10px 15px;
+	height: 160px;
+}

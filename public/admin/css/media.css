@@ -1,0 +1,1566 @@
+@media only screen and (max-width : 2560px) {
+.the-stem-approach p img {width:40% !important}
+}
+@media only screen and (max-width : 1920px) {
+.logo a {
+	font-size: 32px;
+}
+.lpart .dscroll {
+	overflow-x: hidden;
+}
+}
+@media only screen and (max-width : 1660px) {
+}
+@media only screen and (max-width : 1366px) {
+.logo a {
+	font-size: 2.4vw;
+}
+}
+ @media only screen and (max-width : 1350px) {
+.childList h5 a {
+	font-size: 18px;
+}
+.childList h5 {
+	margin-bottom: 8px;
+	padding-right: 0;
+}
+.childList ul {
+	padding-right: 0;
+}
+.childList {
+	font-size: 13px;
+	margin: 0 0 15px;
+}
+.btmRight .commonBtn.pre {
+	font-size: 11px;
+	padding: 6px 10px;
+}
+}
+@media only screen and (max-width : 1280px) {
+}
+@media only screen and (max-width : 1135px) {
+.cbtn a {
+	padding: 10px 25px;
+}
+.c_icon span.icons33 {
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
+}
+.c_icon span.icons33 img {
+	width: 45%
+}
+.cbtn a {
+	padding: 10px 15px;
+}
+.dashBox a {
+	font-size: 16px;
+}
+.dashBox a span {
+	font-size: 18px;
+}
+h2 {
+	font-size: 2vw;
+}
+.errorTxt {
+	font-size: 11px;
+}
+.specialOne {
+	padding-left: 173px;
+}
+.someWords {padding:30px 0}
+
+}
+@media only screen and (max-width : 1024px) {
+.m-t-100 {
+	margin-top: 50px;
+}
+.inforiGht {
+	width: calc(100% - 156px);
+	float: right;
+}
+.cpic {
+	width: 146px;
+	float: left;
+}
+.aboutBox h5 a {
+	font-size: 20px;
+}
+.snkSeaResultInner .aboutBox p {
+	font-size: 16px;
+}
+.aboutBox p span {
+	font-size: 14px !important;
+}
+.snkSeaResultInner.meet_team img {width:100%;}
+.team_wrap .affix {top: 120px !important;}
+}
+@media only screen and (max-width : 1000px) {
+body {
+	margin-top: 69px;
+}
+header {
+	position: fixed;
+	top: 0;
+}
+.navArea {
+	padding-right: 15px;
+}
+.searchBtn {
+	right: -42px;
+	bottom: 8px;
+}
+.searchBtn a {
+	font-size: 23px;
+}
+
+.topNav {
+	margin: 0;
+}
+
+.topNav ul li h6 {
+	font-size: 10px;
+	margin-top: 9px;
+}
+.topNav ul li .mailIcon img {
+	width: 28px;
+	height: auto;
+}
+.topNav ul li {
+	padding-left: 34px;
+}
+.topNav ul li:first-child {
+	padding-left: 34px;
+}
+.autowidthR.social ul {
+	margin-top: 0;
+}
+.topNav ul {
+	margin-top: 8px;
+}
+.logBtn {
+	font-size: 14px;
+	font-family: 'bpreplaybold';
+	display: block;
+	float: left;
+}
+.btmNav {
+	float: right;
+	width: auto;
+	padding: 0 13px 5px;
+	position: relative;
+	display: block;
+}	
+}
+@media screen and (max-width:991px) {
+/*.m-T-120 {
+	margin-top: 76px;
+}*/
+footer {
+	padding: 10px 0;
+	font-size: 13px;
+}
+body {
+	font-size: 13px;
+}
+.dashBox a .proPics {
+	width: 150px;
+}
+.dashMain {
+	top: 56%;
+}
+.dashBox a {
+	padding: 40px 10px 40px 160px;
+}
+.loginBox2 {
+	padding: 38px 25px;
+	text-align: center;
+}
+.parentIocn {
+	width: 25%;
+	float: none;
+	padding-right: 0;
+	margin: 0 auto;
+}
+.loginMain .autowidthL.text-center {
+	padding: 5% 0;
+	width: 100%;
+}
+.loginMain .autowidthL .commonBtn {
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+.loginMain h2 {
+	margin-bottom: 15px;
+}
+.loginMain .dcell.signin {
+	width: 50%;
+}
+.tabMain .nav-tabs li a {
+	border-radius: 0px;
+	padding: 10px 13px;
+	font-size: 13.5px;
+}
+.leftPart {
+	width: 277px;
+}
+.wrapMain {
+	padding-left: 277px;
+}
+.newchild label, .newchild .textBox {
+	font-size: 13px; height: 20px;
+}
+.fieldBox {
+	margin-bottom: 12px;
+}
+.specialOne {
+	padding-left: 145px;
+}
+.newchild label.btn-bs-file {
+	font-size: 13px;
+	height: 32px;
+}
+.hdrBtnArea ul li a {
+	font-size: 13px;
+	font-weight: 600;
+	padding: 7px 16px;
+}
+.hdrBtnArea ul li {
+	margin: 0 3px;
+	float: left;
+}
+
+
+/*--nav--*/
+.menu-responsive {
+	background: none;
+	border: medium none;
+	cursor: pointer;
+	display: block;
+	left: -46px;
+	padding: 9px 6px 6px;
+	z-index: 99999;
+	position: absolute;
+	top: 1px;
+}
+.menu-responsive.menu_responsiveTo {
+	background: #4169E1;
+}
+.menu-responsive span,  .menu_responsiveTo span {
+	display: block;
+	width: 20px;
+	height: 2px;
+	background: #fff;
+	margin-bottom: 3px;
+}
+.navigation {
+	margin: 0;
+	background: #fff;
+	display: block;
+	position: fixed !important;
+	height: 100%;
+	top: 0;
+	right: 0;
+	-ms-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-webkit-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	-moz-transform: translateX(260px);
+	-webkit-transform: translateX(260px);
+	-o-transform: translateX(260px);
+	-ms-transform: translateX(260px);
+	transform: translateX(260px);
+	width: 260px !important;
+	z-index: 9999;
+	text-align: left;
+}
+.navigation.left0 {
+	-moz-transform: translateX(0px);
+	-webkit-transform: translateX(0px);
+	-o-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+	-moz-box-shadow: rgba(0, 0, 0, .3) -10px 0 11px 17px;
+	-webkit-box-shadow: rgba(0, 0, 0, .3) -10px 0 11px 17px;
+	box-shadow: rgba(0, 0, 0, .3) -10px 0 11px 17px;
+	overflow-y: auto;
+}
+.navigation.left0 .menu-responsive {
+	left: 4px;
+}
+.navigation ul {
+	width: 100%;
+	display: block;
+}
+.navigation ul ul {
+	display: none;
+	background: #000000;
+}
+.navigation ul li {
+	float: left;
+	width: 100%;
+	border-top: 1px dashed #d4d4d4;
+	position: relative;
+}
+.navigation ul li ul.submenu {
+	opacity: 1;
+	padding: 5px 10px;
+	position: static;
+	visibility: visible;
+	box-shadow:none !important;
+	width:100%;
+	float:left;
+}
+
+.navigation .navAreaInnerBox:last-child li:first-child ul.submenu li {
+	width: 100%; padding:0;
+}
+.navigation .navAreaInnerBox:last-child li:first-child ul.submenu {
+	width: 100%;
+}
+.navigation ul li:hover ul.submenu {
+	 opacity: 1; 
+	 visibility: visible; 
+	 top: calc(100% + 5px); 
+	 display: none;
+	 
+}
+.navigation ul li a {
+	display: block;
+	padding: 15px 15px;
+}
+.btmNav ul li.active a,  .btmNav ul li a:hover {
+	color: #4169E1;
+}
+.navigation ul li span {
+	cursor: pointer;
+	display: block;
+	height: 40px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: 30px;
+}
+header.sticky nav ul li a {
+	color: #666;
+}
+.navigation ul li:hover ul {
+	display: none;
+}
+nav ul li ul.submenu {
+	opacity: 1;
+	padding: 5px 10px;
+	position: static;
+	visibility: visible;
+	display: none;
+	width: 100%;
+	background: #f2f2f2;
+	box-shadow: none;
+}
+nav ul li ul.submenu li {
+	width: 100%;
+}
+nav ul li ul.submenu li img {
+	width: 17px;
+}
+.navigation ul li.sub_menu_open span::after {
+	content: "+";
+	left: 0;
+	color: #000;
+	font-size: 24px;
+	margin: auto;
+	width: 15px;
+	height: 15px;
+	opacity: 1;
+	position: absolute;
+	right: 5px;
+	top: -15px;
+	bottom: 0;
+}
+.navigation ul li.sub_menu_open span.open::after {
+	content: "x";
+	font-size: 15px;
+	height: 6px;
+	width: 10px;
+}
+.menu_responsiveTo span {
+	opacity: 0;
+}
+.menu_responsiveTo:after {
+	position: absolute;
+	content: "\f061";
+	top: 0px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	font-family: FontAwesome;
+	color: #fff;
+	font-size: 18px;
+}
+.navigation ul li a {
+	color: #666;
+}
+nav ul li ul {
+	float: left;
+	opacity: 1;
+	padding: 10px;
+	position: static;
+	top: calc(100% - 0px);
+	visibility: visible;
+}
+nav ul li ul li {
+	border: none !important;
+}
+nav ul li ul li ul {
+	display: block !important;
+	float: left;
+	width: 100%;
+	border: none;
+}
+nav ul li ul li ul li h5 {
+	font-size: 13px;
+}
+nav ul li ul li ul li a {
+	padding: 0 !important;
+}
+
+.logo {
+	width: 270px;
+	padding: 0 15px 0 0;
+}
+.hdrBtnArea {
+	float: right;
+	width: auto;
+	padding: 0 15px;
+	margin: 9px 0 0 0;
+}
+.someWords {
+	margin-top: 106px;
+}
+.fourGridInner  h4 {
+	font-size: 15px;
+	padding: 0px;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 0;
+	font-weight: 600;
+}
+body {
+margin: 0 0 380px 0;
+}
+.leftS {
+	width: 220px !important;
+	float: left;
+}
+.rightS {
+	width: calc(100% - 220px);
+	padding-left: 20px;
+}
+
+.paGes .admitionLeft {
+	width: 220px;
+	float: left;
+}
+.paGes .admitionRight {
+	width: calc(100% - 220px);
+	padding-left: 20px;
+}
+.snkSeaResultInner img {width:33.333%; margin: 0 10px 10px;}
+.tabConInn h4 small {float:left; width:100%; margin:8px 0;}
+.meet_team .aboutBox {
+	padding: 10px;
+}
+.m-t-104 {
+	margin-top: 90px;
+}
+
+}
+@media only screen and (max-width : 960px) {
+.childList {
+	font-size: 12.5px;
+}
+h3 {
+	font-size: 20px;
+}
+h2 {
+	font-size: 3vw;
+}
+.dtop {text-align:center;}
+.dtop .autowidthL ,.dtop .autowidthR {width:100%; float:left;}
+.dtop .commonBtn ,.dtop .commonBtn2{
+	padding: 5px 15px;
+	font-size: 13px;
+	margin-top:10px;
+}
+.dtop h3 {
+	font-size: 25px;
+}
+.resScroll {width:1000px; overflow-y: scroll;}
+.afsl-container .afsltpInnerBox ul li {
+	padding: 5px 10px;
+}
+.formHeader li {
+	font-size: 12px;
+}
+}
+ @media only screen and (max-width : 910px) {
+.childList .btmRight span {
+	width: 33.333%;
+	float: left;
+	margin: 0;
+	padding: 0 2px 4px;
+}
+.childList .btmRight span a {
+	display: block;
+}
+.childList .btmRight span:first-child, .childList .btmRight span:nth-child(2) {
+	width: 50%
+}
+.btmRight .commonBtn.pre {
+	font-size: 10px;
+	padding: 6px 8px;
+}
+}
+ @media only screen and (max-width : 900px) {
+.inforiGht {
+	width: calc(100% - 110px);
+}
+.cpic {
+	width: 100px;
+}
+.childList ul {
+	margin-bottom: 0;
+	padding-right: 0;
+}
+.childList h5 {
+	margin-bottom: 0;
+}
+.childList h5 a {
+	font-size: 15px;
+}
+.childList {
+	font-size: 12px;
+}
+}
+ @media only screen and (max-width : 885px) {
+.logo a {
+	font-size: 3.4vw;
+}
+.cusModal h2 {
+	font-size: 18px;
+}
+}
+ @media only screen and (max-width : 880px) {
+.dashBox a span {
+	font-size: 15px;
+}
+.dashBox a .proPics {
+	width: 120px;
+}
+.dashBox a {
+	padding: 40px 10px 40px 130px;
+	font-size: 14px;
+}
+.loginBox2 {
+	padding: 48px 25px;
+}
+
+}
+
+ @media only screen and (max-width: 828px) {
+.topNav ul li:nth-child(2),  .topNav ul li:nth-child(3) {
+	display: none;
+}
+.searchBtn {
+	right: -42px;
+	bottom: 4px;
+}
+}
+
+ @media only screen and (max-width : 826px) {
+.cpic {
+	width: 80px;
+}
+.inforiGht {
+	width: calc(100% - 90px);
+}
+.childList ul li.value {
+	padding: 0 5px 0 0;
+}
+.tabFrmLeft .nav-tabs li a {
+	font-size: 12px;
+	padding: 7px 10px;
+}
+}
+@media only screen and (max-width : 768px) {
+.dashWrap {
+	height: 90vh;
+}
+	
+.tabMain .nav-tabs li a {
+	padding: 10px 10px;
+	font-size: 12px;
+}
+.wrapMain {
+	padding-left: 228px;
+	position: relative;
+}
+.leftPart {
+	width: 228px;
+  }
+
+.newchild h3 {
+	font-size: 16px;
+	margin: 0 0 5px;
+} 
+h6 {
+	font-size: 14px;
+}
+.full768 .col-sm-7 , .full768 .col-sm-5 , .full768 .col-sm-8 , .full768 .col-sm-4 {
+	width: 100%;
+}
+#mother .fieldBox , #father .fieldBox {
+	margin-bottom:10px;
+}
+#menu3 .p-l-20 {
+	padding-left: 0;
+}
+.srcArea {
+	width: 200px;
+	margin-right: 30px;
+}
+.mailPhone {padding-left:15px;}
+
+}
+@media only screen and (max-width : 767px) {
+h5 {
+	font-size: 15px;
+}
+nav ul li a {
+	font-size: 14px;
+}
+nav ul {
+	margin: 8px 0 0;
+}
+h2 {
+	font-size: 2.8vw;
+}
+.rightnav {
+	display: block;
+}
+.bodyright {
+	min-height: 500px;
+}
+.innerbaNNer {
+	width: 100%;
+	padding-left: 0;
+}
+.lpart {
+	display: block;
+	width: 250px;
+	position: fixed;
+	left: -250px;
+	z-index: 999;
+	height: 100%;
+	box-shadow: -4px 0px 3px 0px rgba(0,0,0,0.15);
+	-webkit-box-shadow: -4px 0px 3px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: -4px 0px 3px 0px rgba(0,0,0,0.15);
+	-o-box-shadow: -4px 0px 3px 0px rgba(0,0,0,0.15);
+	text-align: left;
+}
+.lpart.slideout {
+	left: 0px !important;
+}
+.loginMain .dcell.signin {
+	width: 50%;
+}
+
+.loginBox {
+	padding: 15px;
+}
+.prograMes li {
+	text-align: left;
+}
+.prograMes li:nth-child(2) {
+	padding-left: 40px;
+}
+.prograMes #collapseFour li:nth-child(2) {
+	padding-left: 15px;
+}
+.prograMes #collapseFour .tableMain3 strong {
+	float: left;
+}
+.prograMes #collapseFour .tableMain3 span {
+	float: right;
+}
+.tableMain3 {
+	margin-top: 15px;
+}
+.p15 {
+	padding: 10px;
+}
+.datepicker {
+	margin-bottom: 10px !important;
+}
+.wrapMain {
+	padding-left: 0;
+}
+.childList {
+	font-size: 11px;
+}
+.childList .btmRight span:first-child, .childList .btmRight span:nth-child(2) {
+	width: 100%
+}
+.cpic {
+	width: 65px;
+}
+.inforiGht {
+	width: calc(100% - 72px);
+}
+.childList h5 a {
+	font-size: 14px;
+}
+footer {
+	padding: 10px 0;
+}
+.bodyright {
+	padding:15px;
+}
+.full768 .col-sm-7 , .full768 .col-sm-5 , .full768 .col-sm-8 , .full768 .col-sm-4 {
+	width: 50%;
+}
+.full768 .cCountry , .full768 .cStat , .full768 .cCity , .full768 .cZip{
+	width: 50% !important;
+}
+.intro .commonBtn {
+	padding: 8px 10px;
+	font-size: 12.5px;
+}
+.p-h-60 {
+	padding: 0 15px;
+}
+.someWordsRight h2 {
+	font-size: 25px;
+	margin: 0px 0 8px;
+}
+.someWordsRight h4 {
+	font-size: 20px;
+}
+.someWordsRight a {
+	margin-top: 12px;
+}
+.contact h3 {
+	font-size:20px;
+}
+.taBLe tr th {
+	padding:5px 8px;
+	font-size: 14px;
+}
+.welcomeNote h2 {
+	font-size: 25px;
+}
+.child_ages {margin:12px 0 0;}
+.parentsFormContainer h3 {
+	font-size: 16px;
+}
+.stepwizard-step p {
+	font-size: 14px;
+}
+.btn-circle {
+	font-size: 16px !important;
+	height: 30px;
+	line-height: 18px;
+	width: 30px;
+}
+.parent table {display:block; width:100%; float:left;}
+.parent table tr td{display:block; width:100%; float:left; text-align:left; padding:0 0 5px;}
+.dirDate ,.dirDate2 {
+	margin-top: 0;
+}
+.borderTop {
+	padding: 10px 0;
+	border-top: #333 2px solid;
+}
+.childAge {margin:10px 0 0;}
+.ofcnotes .textBox.txtaea {
+	height: 250px !important;
+}
+.founderPic {
+	width: 120px;
+}
+.founder_text {
+	width: calc(100% - 120px);
+}
+}
+@media only screen and (max-width : 736px) {
+.lpart .dscroll {
+	height: 325px;
+	overflow-y: scroll;
+}
+.dashBox a span {
+	font-size: 14px;
+}
+.dashBox a .proPics {
+	width: 100px;
+}
+.dashBox a {
+	padding: 40px 10px 40px 110px;
+	font-size: 13px;
+}
+.mCustomScrollbar {
+	height:auto !important
+}
+.p-l-310 , .p-l-85, .p-l-95, .p-l-102, .p-l-120 , .p-l-150 , .p-l-170, .p-l-270, .p-l-200 , .p-l-210 , .p-l-230 , .p-l-180 , .p-l-120 , .p-l-100 ,.p-l-150 , .p-l-50 ,.p-l-70 , .p-l-310 ,.p-l-400 ,.p-l-410{
+	padding-left: 0;
+}
+.sltAreaTxt {
+	position: static;
+	width:100%;
+	float:left;
+	margin-bottom:6px;
+}
+.sltAreaTxt small {
+	display: inline-block;
+}
+.logPerson ul li {
+	margin-left: 8px;
+}
+.mailPhone ul li {
+	margin-right: 8px;
+}
+/*body {
+	 margin: 0 0 62px; 
+}*/	
+}
+@media only screen and (max-width : 700px) {
+.cpic {
+	width: 100%; margin-bottom:10px;
+}	
+.inforiGht {
+	width: 100%;
+}
+.childList {
+	font-size: 13px;
+}
+.childList h5 a {
+	font-size: 16px;
+}	
+}
+@media only screen and (max-width : 667px) {
+.lpart .dscroll {
+	height: 278px;
+	overflow-y: scroll;
+}
+.loginMain .dcell {
+	width: 100% !important;
+	float: left;
+	display: block;
+	padding: 0;
+}
+h2 {
+	font-size: 4vw;
+}
+.cusModal h2 {
+	font-size: 16px; 
+}
+.intro {
+	padding: 15px 15px;
+}
+.accordianMain .panel-body {
+	padding: 15px 15px;
+}
+.bodyright {
+	padding: 50px 0 20px;
+}
+.formInner {
+	padding: 15px 0;
+}
+.m-v-50 {
+	margin:15px 0;
+}
+.logo {
+	width: 224px;
+	padding: 0 15px;
+}
+.rightBtns ul {
+	margin-top: 10px;
+}
+/*.m-T-120 {
+	margin-top: 72px;
+}*/
+.hdrBtnArea {
+	padding: 0 15px;
+	margin: 6px 0;
+}
+.leftS {
+	position: static !important;
+	width: 100% !important;
+	float: left;
+}
+.rightS {
+	width: 100%;
+	padding-left: 0;
+}
+.leftS .nav-tabs > li {
+	width: 33.333%;
+	float: left;
+	margin-bottom: 4px;
+}
+.galTab .nav-tabs > li.active > a::after {
+	display:none;
+}
+
+.dtop .commonBtn, .dtop .commonBtn2 {
+	padding: 5px 12px;
+	font-size: 12px;
+	margin: 5px 2px 0;
+}
+
+.m-t-5 {
+	margin-top: 9px;
+}
+.expAreaFull .autowidthL , .expAreaFull .autowidthR {
+	width:100%;
+	float:left;
+	}
+.expAreaFull .genders .autowidthL{
+	width:auto;
+	float:left;
+	}	
+.expAreaFull .genders .autowidthR {
+	width:auto;
+	float:right;
+	margin:10px 0;
+	}	
+.tabFrmLeft .nav-tabs li a {
+	font-size: 10px;
+	padding: 7px 5px;
+}	
+.actk span {float:left !important ;width:100%; margin:5px 0 0 10px;}	
+.p-v-30 {
+	padding: 15px 0;
+}
+}
+@media only screen and (max-width : 640px) {
+.full640 {
+	text-align: center
+}
+.full640 .col-xs-4 {
+	width: 49%;
+	float: none;
+	display: inline-block;
+}
+.lpart .dscroll {
+	height: 325px;
+	overflow-y: scroll;
+}
+.nav-tabs > li {
+	float: left;
+	margin-bottom: -1px;
+	text-align: center;
+	width: 25%;
+}
+.dashBox a .proPics {
+	width: 100%;
+	float: left;
+	position: relative;
+	margin-bottom: 15px;
+	height: 150px;
+}
+.dashBox a {
+	padding: 10px;
+	font-size: 16px;
+	text-align: center;
+}
+.dashBox a span {
+	font-size: 18px;
+}
+.upPic {
+	width: 130px;
+}
+}
+ @media only screen and (max-width : 600px) {
+h1 {
+	font-size: 6vw;
+}
+.childList {
+	font-size: 11px;
+}
+.childList h5 a {
+	font-size: 14px;
+}
+.full768 .col-sm-7 , .full768 .col-sm-5 , .full768 .col-sm-8 {
+	width: 100%;
+}
+.dashMain {
+	position: static;
+	transform: none;
+	top:0;
+	width:100%;
+	float:left;
+	margin-top:15px;
+}
+.loginMain .dcell {
+	height: auto;
+	margin-bottom:15px;
+}
+.mailPhone {display:none;}
+.mLeft {float:left;}
+.tTxt {
+	padding: 15px 15px;
+	width: 160px;
+}
+.tSlide {
+	width: calc(100% - 160px);
+	padding: 15px;
+}
+
+footer {
+	padding: 30px 0 15px;
+	position:static; float:left;
+}
+body {
+	margin: 0;
+}
+.dtop h3 {
+	font-size: 22px;
+}
+.tabConInn {
+	max-height: 250px;
+	min-height: 200px;
+}
+.finalSubmitInner {
+	height: 200px;
+}
+.paGes .admitionLeft {
+	width: 100%;
+	float: left;
+	margin-bottom:15px;
+}
+.admitionLeftInner{
+	width: 100% !important;
+	position:static !important;
+	float:left;
+	display:none;
+}
+.paGes .admitionRight {
+	width: 100%;
+	padding-left: 0;
+}
+.paGes .admitionLeftInner ul li {
+	margin: 0;
+	position: relative;
+	width: 100%;
+	float: left;
+}
+.paGes .admitionLeftInner ul li a {
+	font-size: 14px;
+}
+.filTerBtn {display:block;}
+
+}
+@media only screen and (max-width : 568px) {
+.lpart .dscroll {
+	height: 220px;
+	overflow-y: scroll;
+}
+.parentCombination {
+	width: auto !important;
+}
+.childList ul li.value {
+	width:auto; float:left;
+}
+.childList ul li.inFormation {
+	width: auto;  float:left;
+}
+.childList {
+	font-size: 13px;
+}
+.childList .btmRight .commonBtn.pre {
+	font-size: 10px;
+	padding: 6px 3px;
+}
+.childList ul {
+	margin-bottom: 2px;
+}
+.bodyright {
+	padding: 25px 0 20px;
+}
+.locaTions {width:100% !important}
+
+.footerBox br {display:none;}
+.m-t-104 {
+	margin-top: 90px;
+}
+.full568 .col-xs-6 {
+	width: 100%;
+}
+
+}
+@media only screen and (max-width : 545px) {
+.logo a {
+	font-size: 4.2vw;
+}
+nav ul {
+	margin: 6px 0 0;
+}
+.dashBox a {
+	font-size: 14px;
+}
+.dashBox a span {
+	font-size: 16px;
+}
+.dashBox {
+	width: 50%;
+	display: block;
+	padding: 0 10px;
+	float: left;
+}
+.dashMain {
+	top: 50%;
+}
+.full545 .col-xs-6 {
+	width: 100%;
+}
+.full545 .col-xs-4 {
+	width: 100%;
+}
+.accordianMain .panel-title a {
+	padding: 10px 10px;
+	font-size: 14px;
+}
+.commonBtn {
+	padding: 6px 15px;
+	font-size: 14px;
+}
+label {
+	font-size: 13px !important;
+}
+
+.topNav {
+    display: none;
+}
+.btmNav {
+    padding: 17px 32px 5px 10px;
+}
+.p-h-40 {
+	padding: 0 20px;
+}
+.someWords {
+	margin-top: 90px;
+}
+.someWordsRight a {
+	padding: 7px 25px;
+	margin-top: 30px;
+}
+.tesTi .carousel-indicators {
+	left: 79%;
+}
+.galTab .nav-tabs > li > {padding:0 1px}
+.galTab .nav-tabs > li > a {
+	font-size: 12px; padding:10px 5px !important;
+}
+.rightS .row {
+	margin: 0 -6px;
+}
+.rightS .col-xs-6 {
+	padding: 0 6px;
+}
+.locations span.iconBox {
+	top: 0px;
+	color: #fff;
+	font-size: 22px;
+	width: 30px;
+}
+.photo .imgContainer {
+	margin: 6px 0;
+}
+.videoGal iframe {
+	height: 115px;
+	display: block;
+}
+.snkSeaResultInner img {width:45%; margin: 0 10px 10px;}
+.tabFrmLeft ul {
+	display: block;
+}
+.tabFrmLeft ul li {
+	width: 100%;
+}
+.tabFrmLeft .nav-tabs li a {
+	font-size: 14px;
+	padding: 7px 10px;
+}
+h4 {
+	font-size: 16px;
+}
+#signature-pad {
+	width: 100% !important;
+}
+.panel-title {
+	font-size: 14px;
+}
+}
+
+
+@media only screen and (max-width : 480px) {
+.full480 .col-xs-4 {
+	width: 50%;
+}
+.full480 .col-xs-6 {
+	width: 100%;
+}
+.flinks ul li a {
+	padding: 0;
+	font-size: 12px;
+}
+
+.full640 .col-xs-4 {
+	width: 100%;
+	float: left;
+	margin-bottom: 15px;
+}
+nav ul li {
+	width: auto;
+	float: left;
+	padding: 0 5px;
+}
+.lpart .dscroll {
+	height: 450px;
+}
+/*body.noscroll {
+	overflow: hidden;
+}*/
+.logo {
+	width: 160px;
+}
+.rightBtns ul li a i {
+	line-height: 25px;
+}
+.rightBtns ul li {
+	line-height: 25px;
+	padding: 0 10px;
+}
+/*.m-T-120 {
+	margin-top: 90px;
+}
+.m-T-120 {
+	margin-top: 70px;
+}*/
+.rightBtns ul {
+	margin-top: 15px;
+}
+.lpart {
+	top: 65px;
+}
+.dashBox a {
+	font-size: 13px;
+}
+.dashBox a span {
+	font-size: 14px;
+}
+
+h3 {
+	font-size: 16px;
+}
+.mychild .row {
+	margin-right: -7px;
+	margin-left: -7px;
+}
+.mychild .col-md-6.col-sm-6.col-xs-6{
+	padding-left:7px !important; padding-right:7px !important;
+}
+h4 {
+	font-size: 18px;
+}
+.full768 .col-xs-7 , .full768 .col-xs-5 , .full768 .col-xs-8 , .full768 .col-xs-4 {
+	width: 100%;
+}
+.formInner {
+	padding:10px;
+	box-shadow:none !important;
+}
+.newchild .accordianMain .panel-body {
+	background: #f8f8f8;
+	padding: 0;
+}
+.newchild .accordianMain .panel-title a {
+	padding: 10px;
+	font-size: 14px;
+}
+.newchild .accordianMain h6 {
+	margin-bottom:8px;
+}
+.intro .commonBtn {
+	padding: 5px 10px;
+	font-size: 12px;
+}
+.newchild h3 {
+	font-size: 14px;
+	margin: 0 0 5px;
+}
+.rightBtns ul li {
+	padding: 0 5px;
+}
+.rightBtns .dDown li a {
+	padding: 5px 10px;
+	font-size:13px;
+}
+.rightBtns ul.dDown {
+	top: calc(100% - -5px);
+}
+
+.hdrBtnArea {
+	padding: 0 15px;
+	margin: 4px 0;
+}
+.hdrBtnArea ul li a {
+	font-size: 12px;
+	padding: 4px 16px 2px;
+}
+.menu-responsive {
+	top: 6px;
+}
+.tesTi .dTable {width:100%; float:left; display:block;}
+.tesTi .dcell {width:100%; float:left; display:block;}
+.tTxt {
+	padding:35px 15px;
+}
+/*.m-t-104 {
+	margin-top: 78px;
+}*/
+h2 {
+	font-size: 5vw;
+}
+.snkSeaResultInner img {
+	width:100%;
+	margin: 0 0 10px;
+}
+.srcArea {
+	width: 180px;
+	margin: 0;
+	float: right;
+	/* padding-right: 0; */
+}
+.mLeft {
+	float: left;
+	width: 100%;
+	padding-right: 37px;
+}
+.tabConInn {
+	border: none;
+	padding: 0;
+}
+.commonBtn {
+	padding: 4px 12px;
+	font-size: 13px;
+}
+.dotBorder {
+	padding:15px 0;
+}
+}
+
+ @media only screen and (max-width: 479px) {
+footer .col-xs-6 {
+	width: 100%;
+}
+.someWordsInner.dTable {width:100%; float:left; display:block;}
+.someWordsInner .dcell {width:100%; float:left; display:block; text-align:center;}
+.hdrBtnArea {
+	padding: 0 15px 0 0;
+	margin: 4px 0;
+}
+.dtop h3 {
+	font-size: 20px;
+}
+.upPic {
+	width: 100px;
+}
+.progress {
+	margin-bottom: 8px;
+}
+.tabFrmLeft .btn {
+	padding: 4px 8px;
+	font-size: 14px;
+}
+.commonBtn.btn-md {
+	padding: 5px 10px;
+	font-size: 13px;
+}
+ }
+
+@media only screen and (max-width : 414px) {
+nav ul li {
+	padding: 0 5px;
+	float: none;
+	display: inline-block;
+}
+nav ul li a {
+	font-size: 13px;
+}
+nav ul {
+	padding: 0;
+}
+.lpart .dscroll {
+	height: 650px;
+}
+.dashBox {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.dashBox a {
+	font-size: 15x;
+}
+.dashBox a span {
+	font-size: 18px;
+}
+.full414 .col-xs-4 {
+	width: 100%;
+}
+.prograMes li:first-child {
+	width: 100%;
+}
+.prograMes li:last-child {
+	padding-left: 40px;
+}
+.prograMes li {
+	width: auto;
+}
+.intro .commonBtn {
+	padding: 6px 15px;
+	font-size: 14px;
+}
+.full414 .col-xs-6 {
+	width: 100%;
+}
+.full768 .cCountry, .full768 .cStat, .full768 .cCity, .full768 .cZip , .parentCombination {
+	width: 100% !important;
+}
+.specialOne label {
+	position: static;
+	width: 100%;
+}
+.specialOne {
+	padding-left: 0;
+}
+/*.logo {
+	width: 150px;
+	float: none;
+	margin: 0 auto;
+}*/
+header {
+	padding: 5px 0 5px;
+}
+.autowidthR.rightBtns {width:100%; float:left; text-align:center;}
+.rightBtns ul li {
+	width: auto;
+	float: none;display:inline-block;
+}
+.rightBtns ul {
+	margin-top: 0;
+}
+.hdrBtnArea ul li a {
+	font-size: 11px;
+	padding: 4px 10px 2px;
+}
+.logo {
+	margin: 4px 0 0 0;padding: 0 10px;
+}
+.hdrBtnArea {
+	padding: 0 10px 0 0;
+	margin: 4px 0;
+}
+.hdrBtnArea ul li {
+	margin: 0 1px;
+	float: left;
+}
+.commonBtn {
+	padding: 4px 12px;
+	font-size: 11.5px;
+}
+.meet_team .aboutBox .dTable , .founderPic , .founder_text{
+	display: block;
+	width: 100%;
+	float:left;
+	padding:0px;
+}
+.founderPic img {width:150px !important; margin-bottom:10px !important;}
+}
+@media only screen and (max-width : 384px) {
+h1 {
+	font-size: 7vw;
+}
+.full384 .col-xs-6 {
+	width: 100%;
+}
+.iconBox2 span {
+	width: 60%;
+	display: inline-block;
+}
+.lpart .dscroll {
+	height: 485px;
+}
+.rightBtns ul li {
+	padding: 0 5px;
+	font-size: 12px;
+}
+.rightBtns ul li i.fa-caret-down {
+	margin-left: 0px;
+}
+.rightBtns ul li a i {
+	font-size: 14px;
+}
+.m-t-104 {
+	margin-top: 86px;
+}
+h2 {
+	font-size: 6vw;
+}
+.srcArea {
+	width: 155px;
+}
+.mailPhone ul li a, .logPerson ul li a {
+	font-size: 12px;
+}
+.menu-responsive {
+	left: -36px;
+}
+.mLeft {
+	padding-right: 25px;
+}
+}
+@media only screen and (max-width : 375px) {
+h5 {
+	font-size: 13.5px;
+}
+.lpart .dscroll {
+	height: 580px;
+}
+
+.logo {
+	width: 130px;
+}
+.nav-tabs > li {
+	width: 100%;
+}
+.rightBtns ul {
+	margin-top: 8px;
+}
+.rightBtns ul li {
+	padding: 0 5px;
+}
+.lpart {
+	top: 60px;
+}
+
+
+}
+@media only screen and (max-width : 320px) {
+.lpart .dscroll {
+	height: 450px;
+}
+.prograMes li:nth-child(3) {
+	padding-left: 40px;
+}
+}
+ @media only screen and (max-width : 240px) {
+}

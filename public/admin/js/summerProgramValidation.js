@@ -1,0 +1,54 @@
+validationKeyUp(".child_first_name", ".eroFname");
+validationKeyUp(".child_last_name", ".eroLname");
+validateOnSelect(".child_gender", ".eroGender");
+validationKeyUp(".child_address", ".eroPrimaryAddr");
+validateOnSelect(".child_state", ".eroState");
+validateOnSelect(".child_city", ".eroCity");
+validationKeyUp(".child_zip", ".eroZip");
+validationKeyUp(".child_phone", ".eroChildPhone");
+validationKeyUp(".child_email", ".eroChildEmail");
+validationKeyUp(".child_tshirt", ".eroTshirt");
+validationKeyUp(".here_about_stem", ".eroAcademy");
+validationKeyUp(".referred_by", ".eroReferredBy");
+validationKeyUp(".child_assessment", ".eroAssement");
+validationKeyUp(".child_uniform_size", ".erouniForm");
+validationKeyUp(".child_visited_center", ".eroVisit");
+validateOnSelect(".child_enrollment_date", ".eroEnrole");
+//Parent Info
+validationKeyUp(".mother_name", ".eroMName");
+validationKeyUp(".mother_email", ".eroMEmail");
+validationKeyUp(".mother_mobile", ".eroMPhone");
+validationKeyUp(".father_name", ".eroFName");
+validationKeyUp(".father_email", ".eroFEmail");
+validationKeyUp(".father_mobile", ".eroFPhone");
+validationKeyUp(".other_parent_name", ".eroOthName");
+validationKeyUp(".other_parent_email", ".eroOthEmail");
+validationKeyUp(".other_parent_mobile", ".eroOthPhone");
+validationKeyUp(".employer_name", ".eroEmpName");
+validationKeyUp(".employer_email", ".eroEmpEmail");
+validationKeyUp(".employer_phone", ".eroEmpPhone");
+validationKeyUp(".employer_address", ".eroEmpAddr");
+validationKeyUp(".employer_emails", ".eroEmpEmails");
+validationKeyUp(".emergency_contact_name", ".eroEmrName");
+validationKeyUp(".emergency_contact_relation", ".eroEmrRel");
+validationKeyUp(".emergency_contact_phone", ".eroEmrPhone");
+
+//Enrollment
+validationKeyUp(".physician_name", ".eroPhysician");
+validationKeyUp(".physician_phone", ".eroPhysicianPhone");
+//Authrize
+validationKeyUp(".authorize_name", ".eroAuthName");
+validationKeyUp(".authorize_relation", ".eroAuthRelation");
+validationKeyUp(".authorize_address", ".eroAuthAddr");
+validationKeyUp(".authorize_phone", ".eroAuthPhone");
+
+//Child photo
+validationKeyUp(".enroll_child_grade", ".eroEnrChild");
+validateOnSelect(".child_consent", ".eroConcern");
+validationKeyUp(".transportation_medium", ".eroTransport");
+validationKeyUp(".consent_limitation", ".eroLimit");
+validationKeyUp(".child_relation", ".eroRelatn");
+validateOnSelect(".selectAll", ".eroAcceptance");
+validateOnSelect(".acceptances", ".eroAggrement");
+validationKeyUp(".parent_location", ".eroLocation");
+validationKeyUp(".single_parent_name", ".eroSingleName");

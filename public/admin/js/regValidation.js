@@ -1,0 +1,23 @@
+validationKeyUp(".parent_first_name", "comneror");
+validationKeyUp(".parent_last_name", "comneror");
+validationKeyUp(".street_name", "comneror");
+validateOnSelect(".child_city", "comneror");
+validationKeyUp(".parent_email", "comneror");
+//validationKeyUp(".parent_alter_email", "comneror");
+//additional
+validationKeyUp(".additn_first_name", "comneror");
+validationKeyUp(".additn_last_name", "comneror");
+validationKeyUp(".additn_street_name", "comneror");
+validateOnSelect(".additn_city_name", "comneror");
+validationKeyUp(".additn_parent_email", "comneror");
+validationKeyUp(".additn_parent_alter_email", "comneror");
+//Login Info
+validationKeyUp(".user_name", "comneror");
+validationKeyUp(".password", "comneror");
+validationKeyUp(".verify_password", "comneror");
+validateOnSelect(".first_questions", "comneror");
+validateOnSelect(".second_questions", "comneror");
+validateOnSelect(".third_questions", "comneror");
+validationKeyUp(".first_answer", "comneror");
+validationKeyUp(".second_answer", "comneror");
+validationKeyUp(".third_answer", "comneror");

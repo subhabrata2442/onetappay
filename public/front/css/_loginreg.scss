@@ -1,0 +1,121 @@
+
+.login-reg-sec{
+    padding: 60px 0;
+}
+.login-reg-wrap{
+    .login-reg-lft{
+        flex: 0 0 50%;
+        max-width: 50%;
+        .spin-plate{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+    .login-reg-rgt{
+        flex: 0 0 50%;
+        max-width: 50%;
+        .login-reg-from-wrap{
+            box-shadow: 6.359px 10.177px 17.43px 3.57px rgba(94, 94, 94, 0.1);
+            background: #fff;
+            padding: 70px 30px;
+            margin: 50px;
+            h3{
+                font-size: 3vw;
+                text-transform: capitalize;
+                text-align: center;
+                padding-bottom: 30px;
+                color: #ff6600;
+            }
+            .reg-from-wrap{
+                max-width: 600px;
+                width: 100%;
+                margin: 0 auto;
+                .allredy-log-reg{
+                    p{
+                        color: #a7a7a7;
+                        text-align: center;
+                        a{
+                            color: #ff6600;
+                            text-decoration: underline;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+                .log-reg-btn-wrap {
+                    margin: 20px 0 10px 0;
+                    .log-reg-btn{
+                        height: 44px;
+                        line-height: 44px;
+                        text-align: center;
+                        padding: 0 5px;
+                        background: #ff6600;
+                        color: #fff;
+                        border: none;
+                        width: 100%;
+                        border-radius: 0.25rem;
+                        text-transform: capitalize;
+                        font-weight: 600;
+                        &:hover{
+                            background: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.phone-prefix{
+    .iti{
+        width: 100%;
+    }
+}
+.fa-spin-slow{
+    animation-name: spinchiken;
+    animation-duration: 100000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    @keyframes spinchiken {
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+}
+.lbl-head{
+    font-weight: 600;
+}
+.log-input-wrap{
+    margin-bottom: 10px;
+    .log-input-style{
+        height: 50px;
+        padding: 5px;
+        border: 1px solid #d0cfcf;
+        border-radius: 5px;
+        background: #fff;
+    }
+}
+.right-icon{
+    .log-input-style{
+        padding-right: 40px;
+    }
+    .right-icon-box{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        text-align: center;
+        line-height: 48px;
+        padding: 0 10px;
+    }
+}
+.forgot-pass{
+    color: #a7a7a7;
+    &:hover{
+        color: #ff6600;
+    }
+}
+.ckbox-lft-gap{
+    padding-left: 3px;
+}

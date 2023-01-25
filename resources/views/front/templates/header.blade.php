@@ -64,6 +64,10 @@
                     </div>
                   </div>
                   <div class="basket-product-list-wrap basket-items-sec"> 
+                    <div class="no-cart">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                      <p>Your basket is empty</p>
+                    </div>
                     <!--<div class="basket-product-list d-flex">
                       <div class="basket-product-list-lft">
                         <div class="basket-product-list-img"> <a href="#"> <img class="img-block" src="https://onetabpay.aqualeafitsol.com/public/front/images/first-order/first-order1.jpg" alt=""> </a> </div>

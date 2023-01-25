@@ -8,6 +8,7 @@
 
 <!-- Fonts -->
 <link rel="stylesheet" href="{{ asset('public/front/fonts/stylesheet.css') }}" media="all">
+<link rel="stylesheet" href="{{ asset('public/front/css/fontawesome.css') }}" media="all">
 <!-- Owl Style -->
 <link rel="stylesheet" href="{{ asset('public/front/css/owl.carousel.min.css') }}" media="all">
     <!-- Ui -->
@@ -15,7 +16,7 @@
 <!-- Style -->
 <link rel="stylesheet" href="{{ asset('public/front/toast/jquery.toast.css') }}" media="all">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
-<link rel="stylesheet" href="{{ asset('public/front/css/style.css') }}" media="all">
+<link rel="stylesheet" href="{{ asset('public/css/app.css') }}" media="all">
 <link rel="stylesheet" href="{{ asset('public/front/css/custom.css') }}" media="all">
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo"></script>

@@ -1,6 +1,10 @@
 @extends('layouts.front.frontLayout')
 @section('frontContent')
 @include('front.templates.header')
+
+@php
+$country_code=isset($default_address_book->country_code)?$default_address_book->country_code:'';
+@endphp
 <section class="cart-sec-page">
   <div class="container-fluid left-right-gap">
     <div class="row">
@@ -10,26 +14,29 @@
         </div>
       </div>
       @if(count($cartinfo)>0)
-      <div class="col-12">
-        <div class="row g-4">
-          <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-            <div class="table-responsive cart-list-wrap code-box-wrap">
-              <table class="table mb-0">
-                <thead class="text-nowrap">
-                  <tr>
-                    <th style="width: 50px;">Delete</th>
-                    <th>Image</th>
-                    <th class="text-start">Name</th>
-                    <th class="text-center">Quantity</th>
-                    <th class="text-end">Unit Price</th>
-                    <th class="text-end">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach($cartinfo as $cart)
-                @php
-                	$item_img=Helpers::item_logo($cart['image']);
-                @endphp
+      <form class="forms has-validation-callback" action="{{route('order_place.save')}}" method="POST" id="order_place_form" onsubmit="return false;">
+        @csrf
+        <div class="col-12">
+          <div class="row g-4">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+              <div class="table-responsive cart-list-wrap code-box-wrap">
+                <table class="table mb-0">
+                  <thead class="text-nowrap">
+                    <tr>
+                      <th style="width: 50px;">Delete</th>
+                      <th>Image</th>
+                      <th class="text-start">Name</th>
+                      <th class="text-center">Quantity</th>
+                      <th class="text-end">Unit Price</th>
+                      <th class="text-end">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                  @foreach($cartinfo as $cart)
+                  @php
+                  $item_img=Helpers::item_logo($cart['image']);
+                  @endphp
                   <tr>
                     <td><button type="button" class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></button></td>
                     <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="{{$item_img}}"> </a> </div></td>
@@ -44,121 +51,134 @@
                     <td class="text-end text-nowrap">${{$cart['price']}}</td>
                     <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">{{$cart['grand_total']}}</span></td>
                   </tr>
-                @endforeach
-                </tbody>
-                <tfoot class="text-nowrap">
-                  <tr>
-                    <td class="text-end" colspan="5"><strong>Total :</strong></td>
-                    <td class="text-end"><strong><span class="d-block">$ {{$total_cart_amount}}</span></strong></td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-            <div class="code-box-wrap">
-              <h4>Address</h4>
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="log-input-wrap">
-                    <input type="text" name="" id="" class="form-control log-input-style" placeholder="Address">
+                  @endforeach
+                    </tbody>
+                  
+                  <tfoot class="text-nowrap">
+                    <tr>
+                      <td class="text-end" colspan="5"><strong>Total :</strong></td>
+                      <td class="text-end"><strong><span class="d-block">$ {{$total_cart_amount}}</span></strong></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <div class="code-box-wrap">
+                <h4>Address</h4>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="log-input-wrap">
+                      <input type="text" name="street" id="street" class="form-control log-input-style" placeholder="Address" value="{{ $default_address_book->street ?? "" }} " required="required">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="log-input-wrap">
-                    <input type="text" name="" id="" class="form-control log-input-style" placeholder="City">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="log-input-wrap">
+                      <input type="text" name="city" id="city" class="form-control log-input-style" placeholder="City" value="{{ $default_address_book->city ?? "" }} " required="required">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="log-input-wrap">
-                    <input type="text" name="" id="" class="form-control log-input-style" placeholder="State">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="log-input-wrap">
+                      <input type="text" name="state" id="state" class="form-control log-input-style" placeholder="State" value="{{ $default_address_book->state ?? "" }} " required="required">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="log-input-wrap">
-                    <input type="text" name="" id="" class="form-control log-input-style" placeholder="Zip Code">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="log-input-wrap">
+                      <input type="text" name="zipcode" id="zipcode" class="form-control log-input-style" placeholder="Zip Code" value="{{ $default_address_book->zipcode ?? "" }} " required="required">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="log-input-wrap">
-                    <input type="text" name="" id="" class="form-control log-input-style" placeholder="Location">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="log-input-wrap">
+                      <input type="text" name="location_name" id="location_name" class="form-control log-input-style" placeholder="Location" value="{{ $default_address_book->location_name ?? "" }} " required="required">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="log-select-wrap">
-                    <select class="form-control log-select-style selectOption_1">
-                      <option> Select Country </option>
-                    </select>
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="log-select-wrap">
+                      <select class="form-control log-select-style selectOption_1" name="country" id="country" required>
+                        <option value="">Select Country</option>
+                        
+                              @foreach($countrie as $country)
+                      
+                        <option value="{{ $country->sortname }}" {{ ($country_code == $country->sortname) ? 'selected="selected"' : '' }} >{{$country->name}}</option>
+                        
+                      
+                              @endforeach
+                    
+                    
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="code-box-wrap">
+              <div class="code-box-wrap">
                 <h4>Stripe card details</h4>
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
-                      <label>Name</label>
-                      <input type="text" name="" id="" class="form-control log-input-style" placeholder="Name">
+                      <label>Card Holder Name</label>
+                      <input type="text" name="card_holder_name" id="card_holder_name" class="form-control log-input-style" placeholder="Name" required="required">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
                       <label>Card Number</label>
-                      <input type="text" name="" id="" class="form-control log-input-style" placeholder="xxxx xxxx xxxx xxxx">
+                      <input type="text" name="card_number" id="card_number" class="form-control log-input-style only-numeric" placeholder="xxxx xxxx xxxx xxxx" maxlength="16" autocomplete="off" required aria-required="true" >
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                     <div class="log-input-wrap">
                       <label>Ex. Month</label>
-                      <input type="text" name="" id="" class="form-control log-input-style" placeholder="MM">
+                      <input type="text" name="card_exp_month" id="card_exp_month" class="form-control log-input-style only-numeric" placeholder="MM" required="required">
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                     <div class="log-input-wrap">
                       <label>Ex. Year</label>
-                      <input type="text" name="" id="" class="form-control log-input-style" placeholder="YYYY">
+                      <input type="text" name="card_exp_year" id="card_exp_year" class="form-control log-input-style only-numeric" placeholder="YYYY" required="required">
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                     <div class="log-input-wrap">
                       <label>CVV</label>
-                      <input type="text" name="" id="" class="form-control log-input-style" placeholder="XXX">
+                      <input type="text" name="card_cvc" id="card_cvc" class="form-control log-input-style only-numeric" placeholder="XXX" required="required">
                     </div>
                   </div>
                 </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="code-box-wrap sticky-bar">
-              <h4>Your cart details</h4>
-              <div class="table-responsive text-nowrap cart-list-wrap">
-                <table class="table mb-0">
-                  <tbody>
-                    <tr>
-                      <td>Sub-Total :</td>
-                      <td class="text-end">$<span id="sub_total">{{$total_cart_amount}}</span></td>
-                    </tr>
-                    <tr>
-                      <td>Shipping Rate :</td>
-                      <td class="text-end">$<span id="shipping_charge">0.00</span></td>
-                    </tr>
-                    <tr>
-                      <td>Taxes :</td>
-                      <td class="text-end">$<span id="total_vat">0.00</span></td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td><strong>Total pay :</strong></td>
-                      <td class="text-end"><strong>$<span id="total_pay">{{$total_cart_amount}}</span></strong></td>
-                    </tr>
-                  </tfoot>
-                </table>
               </div>
-              <div class="crt-chkout"> <a href="#" class="cmn-abtn">Continue</a> </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="code-box-wrap sticky-bar">
+                <h4>Your cart details</h4>
+                <div class="table-responsive text-nowrap cart-list-wrap">
+                  <table class="table mb-0">
+                    <tbody>
+                      <tr>
+                        <td>Sub-Total :</td>
+                        <td class="text-end">$<span id="sub_total">{{$total_cart_amount}}</span></td>
+                      </tr>
+                      <tr>
+                        <td>Shipping Rate :</td>
+                        <td class="text-end">$<span id="shipping_charge">0.00</span></td>
+                      </tr>
+                      <tr>
+                        <td>Taxes :</td>
+                        <td class="text-end">$<span id="total_vat">0.00</span></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td><strong>Total pay :</strong></td>
+                        <td class="text-end"><strong>$<span id="total_pay">{{$total_cart_amount}}</span></strong></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <div class="crt-chkout">
+                  <button type="submit" class="cmn-abtn">Continue</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
       @else
       <div class="col-12">
         <div class="row align-items-center justify-content-center h-100">
@@ -169,92 +189,10 @@
           </div>
         </div>
       </div>
-      @endif
-    </div>
+      @endif </div>
   </div>
-</section>
-<section class="order-success-sec">
-  <div class="container-fluid left-right-gap">
-    <div class="row justify-content-center">
-      <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
-        <div class="order-success"> <span class="success-icon"><i class="fa-solid fa-check"></i></span>
-          <h3>Order successful</h3>
-          <p>Thank you so much for your order.</p>
-          <table class="table mb-0">
-            <thead>
-              <tr>
-                <th class="text-start"><strong>Total</strong></th>
-                <th class="text-end"><strong>$2254.36</strong></th>
-              </tr>
-            </thead>
-            <tbody class="bb-none">
-              <tr>
-                <td class="text-start"><strong>5</strong> Sugar Marmalade</td>
-                <td class="text-end">$256.00</td>
-              </tr>
-              <tr>
-                <td class="text-start"><strong>2</strong> Mission Hill </td>
-                <td class="text-end">$256.00</td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="table mb-0">
-            <tbody class="bb-none">
-              <tr>
-                <td class="text-start"><strong>Subtotal</strong></td>
-                <td class="text-end"><strong>$2254.36</strong></td>
-              </tr>
-              <tr>
-                <td class="text-start">Service fee</td>
-                <td class="text-end">$10.00</td>
-              </tr>
-              <tr>
-                <td class="text-start">Delivery fee</td>
-                <td class="text-end">$10.00</td>
-              </tr>
-              <tr>
-                <td class="text-start">Tax</td>
-                <td class="text-end">$10.00</td>
-              </tr>
-              <tr>
-                <td class="text-start">Tip</td>
-                <td class="text-end">$10.00</td>
-              </tr>
-            </tbody>
-            <tfoot class="bb-none2">
-              <tr>
-                <td class="text-start">
-                  <ul class="payment-card d-flex">
-                    <li><i class="fa-brands fa-cc-stripe"></i></li>
-                    <li>
-                      <strong>visa ****3698</strong>
-                      <p>27/01/2023</p>
-                    </li>
-                  </ul>
-                </td>
-                <td class="text-end"><strong>$2368.00</strong></td>
-              </tr>
-            </tfoot>
-          </table>
-          <a href="{{url('/')}}" class="back-to-home">back to home</a> </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="not-found-wrap d-flex align-items-center justify-content-center" style="background: url('https://onetabpay.aqualeafitsol.com/public/front/images/404.jpg')">
-  <div class="eror-404-text">
-    <h3>404</h3>
-    <p>Nothing to see here. try another link</p>
-    <a href="/" class="error-bkhome">back to home</a> </div>
 </section>
 @push('scripts') 
-{{-- <script>
-      $(document).ready(function(){
-         var bodyHeight = $(document).height();
-         var fotterHeight = $('.footer').outerHeight();
-         $('body').css({"padding-bottom": fotterHeight, "min-height": bodyHeight});
-         $('.footer').css({"position": "absolute", "bottom": "0"});
-      });
-   </script>  --}}
+<script src="{{ asset('public/front/js/cart.js/?t='.time()) }}"></script> 
 @endpush
 @endsection

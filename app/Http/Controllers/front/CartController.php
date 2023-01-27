@@ -7,13 +7,15 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-
+use Stripe\Stripe;
 use App\Category;
 use App\Merchant;
 use App\Common;
 use App\User;
 use App\Item;
-
+use App\AddressBook;
+use App\Countrie;
+use App\Order;
 use Helpers;
 use Session;
 use Auth;
@@ -48,12 +50,17 @@ class CartController extends Controller {
 			$total_cart_item = count($getCartTotal);
 		}
 		
+		$user_id				= Session::get('user_id');
+		$default_address_book 	= AddressBook::where('user_id',$user_id)->where('as_default',1)->first();
+		$countrie				= Countrie::All();
+		
+		
 		
 		//$img=Helpers::item_logo('');
 		
 		//echo '<pre>';print_r($cartinfo);exit;
 		
-		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','location','city','cartinfo','total_cart_item','total_cart_amount'));
+		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','location','city','cartinfo','total_cart_item','total_cart_amount','default_address_book','countrie'));
 	}
 	
 	
@@ -181,6 +188,228 @@ class CartController extends Controller {
 		
 		echo json_encode($return_data);
 
+	}
+	
+	
+	public function orderPlaceRequest(Request $request){
+		//print_r($_POST);exit;
+		$street 			= Input::post('street');
+		$city 				= Input::post('city');
+		$state 				= Input::post('state');
+		$zipcode 			= Input::post('zipcode');
+		$location_name 		= Input::post('location_name');
+		$country_code 		= Input::post('country');
+		
+		$card_holder_name	= Input::post('card_holder_name');
+		$card_number 		= Input::post('card_number');
+		$card_exp_month 	= Input::post('card_exp_month');
+		$card_exp_year 		= Input::post('card_exp_year');
+		$card_cvc 			= Input::post('card_cvc');
+		
+		$country_info		= Countrie::where('sortname',$country_code)->first();
+		$country_name		= isset($country_info->name)?$country_info->name:'';
+		$IP 				= Helpers::get_ip();
+		
+		$item_number		= 1;
+		$currency 			= 'usd';
+		
+		$total_cart_amount=0;
+		$total_cart_item=0;
+		$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
+		$grand_total		= 0;
+		$total_cart_item	= 0;
+		$total_cart_amount  = 0;
+		if($getCartTotal){
+			for($i=0;$i<count($getCartTotal);$i++){
+				$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
+			}
+			$total_cart_amount=number_format($grand_total,2,'.','');
+			$total_cart_item = count($getCartTotal);
+		}
+		
+		$order_total		= $total_cart_amount;
+		$sub_total			= $total_cart_amount;
+		$grand_total		= $total_cart_amount;
+		$tax				= 0;
+		$service_fee		= 0;
+		$discount			= 0;
+		
+		$user_id			= Session::get('user_id');
+		$cart_id			= Session::get('cart_id');
+		$merchant_id		= Session::get('cart_merchant_id');
+		
+		$order_info		= Common::getSingelData([], 'order', ['order_id'], 'order_id', 'DESC');
+		$order_id 		= isset($order_info->order_id)?$order_info->order_id:'0';
+		$order_id		= $order_id+1;
+		$token			= date('Yd').$order_id;
+		
+		$user_info 		= Common::getSingelData($where=['id'=>$user_id],$table='users',$data=['id','first_name','last_name','email','phone'],'id','ASC');
+		
+		$created_at		= date('Y-m-d H:i s');
+		
+		$data_order=array(
+			'merchant_id'			=> $merchant_id,
+			'cart_id'				=> $cart_id,		
+			'payment_type'			=> 'Stripe',
+			'sub_total'				=> $sub_total,
+			'gross_total'			=> $grand_total,
+			'status'				=> 'pending',
+			'tax' 					=> $tax,
+			'service_fee' 			=> $service_fee,
+			'discount' 				=> $discount,
+			'ip_address'			=> $IP,
+			'order_id_token'		=> $token,
+			'payment_status' 		=> 0,	
+			'order_status' 			=> 1,	
+			'user_id' 				=> $user_id,
+			'customer_email' 		=> $user_info->email,
+			'customer_name' 		=> $user_info->first_name.' '.$user_info->last_name,
+			'customer_phone' 		=> $user_info->phone,
+			'created_at'			=> date('Y-m-d h:i:s a'),
+		);
+		
+		//print_r($data_order);exit;
+		
+		$order_id=Common::insert_get_id($table="order",$data_order);
+		
+		if($order_id!=''){
+			$data_order_delivery_address=array(
+				'order_id'			=> $order_id,
+				'user_id'			=> $user_id,		
+				'street'			=> $street,
+				'city'				=> $city,
+				'state'				=> $state,
+				'zipcode'			=> $zipcode,
+				'location_name' 	=> $location_name,
+				'country' 			=> $country_name,
+				'contact_phone' 	=> $user_info->phone,
+				'formatted_address'	=> $street,
+				'area_name'			=> $street,
+				'first_name'		=> $user_info->first_name,
+				'last_name' 		=> $user_info->last_name,
+				'contact_email' 	=> $user_info->email,
+				'created_at'		=> $created_at
+			);
+			
+			Common::insert_get_id($table="order_delivery_address",$data_order_delivery_address);
+			
+			$addressBookCheck=AddressBook::where('user_id',$user_id)->get();
+			if(count($addressBookCheck)==0){
+				$data_general=array(
+					'user_id'		=> $user_id,
+					'street'		=> $street,
+					'city'			=> $city,
+					'state'			=> $state,
+					'zipcode'		=> $zipcode,
+					'location_name'	=> $location_name,
+					'country_code'	=> $country_code,
+					'as_default'	=> 1,
+					'created_at'	=> $created_at
+				);
+				Common::insert_get_id($table="address_book", $data_general);
+			}	
+		}
+		
+		$secret_key 		= 'sk_test_51J0fT9SAQKpdsVUhAbrNrCE8MNBaHkM8Ue8HfCUonaqVnNuHnzmI2rJAkKoBhW8c8yIfamrybqdVOBZ29L6Ij1GA00yBnmozw1';
+		
+		$description	= 'Food Order';
+		$customer_data  = ['name' => $card_holder_name, 'description' => $description, 'email' => $user_info->email, "address" => ["city" => $city, "country" => $country_name, "line1" => $street, "line2" => $location_name, "postal_code" => $zipcode]];
+		
+		Stripe::setApiKey($secret_key);
+		$stripe = new \Stripe\StripeClient($secret_key);
+		$return 		= ['success' => 0, 'message' => ''];
+		try {
+			$card_token=\Stripe\Token::create(array(
+				"card" => array(
+					"number" 	=> $card_number,
+					"exp_month" => $card_exp_month,
+					"exp_year" 	=> $card_exp_year,
+					"cvc"		=> $card_cvc
+					)
+				)
+			);
+			try {
+				$customer = \Stripe\Customer::create(array_merge(['source' => $card_token->id], $customer_data));
+				try {
+					$charge=\Stripe\Charge::create(array(
+						'customer' => $customer->id,
+						"amount" => ($order_total * 100),
+						"currency" => $currency,
+						"description" => $description
+					));
+				} catch (\Exception $e) {
+					$return['message'] = $e->getMessage();
+				}
+				if($charge){
+					$chargeJson = $charge->jsonSerialize();
+					//print_r($chargeJson);exit;
+					if($chargeJson['amount_refunded'] == 0 && empty($chargeJson['failure_code']) && $chargeJson['paid'] == 1 && $chargeJson['captured'] == 1){
+						$transactionID  = $chargeJson['balance_transaction'];
+						$paidAmount     = $chargeJson['amount'];
+						$paidAmount     = $paidAmount;
+						$paidCurrency   = $chargeJson['currency'];
+						$payment_status = $chargeJson['status'];
+						// Retrieve subscription data
+						$subsData = $chargeJson;
+						//All code for order table
+						
+						$data_payment_order=array(
+							'user_id'			=> $user_id,
+							'payment_type'		=> 'Stripe',
+							'payment_reference'	=> $transactionID,
+							'order_id'			=> $order_id,
+							'raw_response'		=> json_encode($subsData),
+							'card_holder_name'	=> $card_holder_name,
+							'card_number'		=> $card_number,
+							'card_exp_month'	=> $card_exp_month,
+							'card_exp_year'		=> $card_exp_year,
+							'card_cvc'			=> $card_cvc,
+							'created_at'		=> $created_at
+						);
+						
+						
+						
+						Common::insert_get_id($table="payment_order", $data_payment_order);
+						
+						Session::put('last_order_token', $token);
+						Common::updateData($table="cart_items",$uId = "ses_id", $cart_id, $data = ['is_order' =>'Y','order_id' =>$order_id]);
+						$return['success'] 	= 1;
+						$return['token'] 	= $token;
+						$return['message'] 	= 'Success';
+						
+						//print_r($return);exit;
+					}else{
+						$return['message'] = 'Charge creation failed!';
+					}	
+				}
+				
+			} catch (\Exception $e) {
+				$return['message'] = $e->getMessage();
+			}
+		} catch (\Exception $e) {
+			$return['message'] = $e->getMessage();
+		}
+		
+		return response()->json([$return]);
+	}
+	
+	public function order_success(){
+		$title		= 'Order Pay';
+		$breadcumbs	= 'checkout';
+		$active		= 'checkout';
+		
+		$token 		= Input::get('id');
+		
+		
+		
+		$orderDetails = array();
+		if(isset($token)){
+			if(!empty($token)){
+				$orderDetails = Common::getOrderDetails($token);
+			}
+		}
+				
+		return view('front.success_page', compact('title','breadcumbs','active','orderDetails'));
 	}
 	
 	

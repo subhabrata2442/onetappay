@@ -16,6 +16,7 @@
         "maatwebsite/excel": "^3.1",
         "paypal/rest-api-sdk-php": "^1.13",
         "simplesoftwareio/simple-qrcode": "^2.0",
+        "stripe/stripe-php": "^10.4",
         "twilio/sdk": "^6.6",
         "tymon/jwt-auth": "^1.0"
     },

@@ -134,13 +134,16 @@ class UserController extends Controller {
 			
 			$user_id		= Session::get('user_id');
 			
-			$is_defaul_address=0;
+			/*$is_defaul_address=0;
 			if($defaul_address==1){
 				$is_defaul_address=1;
 				
 				$default_address_data=array('as_default'=> 0);
 				Common::updateData($table="address_book", "user_id", $user_id, $default_address_data);
-			}
+			}*/
+			
+			$default_address_data=array('as_default'=> 0);
+			Common::updateData($table="address_book", "user_id", $user_id, $default_address_data);
 			
 			if($address_id!=''){
 				$data_general=array(
@@ -150,7 +153,7 @@ class UserController extends Controller {
 					'zipcode'		=> $zipcode,
 					'location_name'	=> $location_name,
 					'country_code'	=> $country_code,
-					'as_default'	=> $is_defaul_address
+					'as_default'	=> 1
 				);
 				Common::updateData($table="address_book", "user_id", $user_id, $data_general);
 				$return_data['success_message'] = '<span>Update Address successfully</span>';
@@ -163,7 +166,7 @@ class UserController extends Controller {
 					'zipcode'		=> $zipcode,
 					'location_name'	=> $location_name,
 					'country_code'	=> $country_code,
-					'as_default'	=> $is_defaul_address,
+					'as_default'	=> 1,
 				);
 				Common::insert_get_id($table="address_book", $data_general);
 				$return_data['success_message'] = '<span>Address successfully added</span>';

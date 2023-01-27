@@ -119,12 +119,10 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="log-select-wrap">
                             <select class="form-control log-select-style selectOption_1" name="country" id="country" required>
-                              <option value="">Select</option
-                            @foreach($countrie as $country)
-                              >
-                              <option value="{{$country->sortname}}">{{$country->name}}</option>
-                                 
-                            @endforeach
+                              <option value="">Select Country</option>
+                              @foreach($countrie as $country)
+                              <option value="{{ $country->sortname }}">{{$country->name}}</option>
+                              @endforeach
                             
                             </select>
                           </div>
@@ -169,7 +167,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                       <tr class="odd">
                         <td class=" sorting_1">{{$address->street}}
                           @if($address->as_default==1)
-                          <div class="options">Default Address</div>
+                          <div class="isDefaultAddress">Default Address</div>
                           @endif </td>
                         <td class="">{{$address->city}}</td>
                         <td class=""><a href="javascript:;" class="delete_address_btn" data-id="{{$address->id}}"><i class="fa fa-times"></i></a></td>

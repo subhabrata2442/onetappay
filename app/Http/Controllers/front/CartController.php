@@ -48,9 +48,12 @@ class CartController extends Controller {
 			$total_cart_item = count($getCartTotal);
 		}
 		
-		//echo '<pre>';print_r($cartinfo);
 		
-		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','location','city'));
+		//$img=Helpers::item_logo('');
+		
+		//echo '<pre>';print_r($cartinfo);exit;
+		
+		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','location','city','cartinfo','total_cart_item','total_cart_amount'));
 	}
 	
 	

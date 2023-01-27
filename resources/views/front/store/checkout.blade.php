@@ -2,119 +2,11 @@
 @section('frontContent')
 @include('front.templates.header')
 <section class="cart-sec-page">
-<<<<<<< HEAD
   <div class="container-fluid left-right-gap">
     <div class="row">
       <div class="col-12">
         <div class="sec-wrap-heading">
           <h3>Cart Items</h3>
-=======
-   <div class="container-fluid left-right-gap">
-      <div class="row">
-         <div class="col-12">
-               <div class="sec-wrap-heading">
-                  <h3>Shopping Cart</h3>
-               </div>
-         </div>
-         <div class="col-12">
-            <div class="row g-4">
-               <div class="col-lg-8 col-md-8 col-sm-12 col-12">                 
-                  <div class="table-responsive cart-list-wrap code-box-wrap">
-                     <table class="table mb-0 tabgle_gap">
-                        <thead class="text-nowrap">
-                              <tr>
-                                 <th style="width: 50px;">Delete</th>
-                                 <th>Image</th>
-                                 <th class="text-start">Name</th>
-                                 <th class="text-center">Quantity</th>
-                                 <th class="text-end">Unit Price</th>
-                                 <th class="text-end">Total</th>
-                              </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <button type="button" class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></button>
-                              </td>
-                              <td>
-                                 <div class="crt-product-img">
-                                    <a class="d-block" href="#">
-                                       <img class="img-block" src="https://onetabpay.aqualeafitsol.com/public/upload/image/180_180/2213581674492238.jpg?v=1674565732">
-                                    </a>
-                                 </div>
-                              </td>
-                              <td class="text-start text-nowrap">
-                                 <div class="crt-product-name">
-                                    <a href="#">Natural Jute Bags with Luxury Padded Handles</a>
-                                 </div>
-                              </td>
-                              <td class="text-center">
-                                 <div class="crt-product-qty2">
-                                    <div class="d-flex qty-item-add align-items-center">
-                                       <button type="button" class="qty-add sub controls2"><i class="fa-solid fa-minus"></i></button>
-                                       <input type="number" class="form-control qty-show count qty qtyInput2" min="1" max="" value="1">
-                                       <button type="button" class="qty-add add controls2"><i class="fa-solid fa-plus"></i></button>
-                                    </div>
-                                 </div>
-                              </td>
-                              <td class="text-end text-nowrap">$4.00</td>
-                              <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">4.00</span></td>
-                           </tr>                                            
-                        </tbody>
-                        <tfoot class="text-nowrap">
-                              <tr>
-                                 <td class="text-end" colspan="5"><strong>Total :</strong></td>
-                                 <td class="text-end"><strong><span class="d-block">$ 127.00</span></strong></td>
-                              </tr>
-                        </tfoot>
-                     </table>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                  <div class="code-box-wrap sticky-bar">
-                     <h4>Your cart details</h4>
-                     <div class="table-responsive text-nowrap cart-list-wrap">
-                        <table class="table mb-0">
-                           <tbody>
-                              <tr>
-                                 <td>Sub-Total :</td>
-                                 <td class="text-end">$<span id="sub_total">127.00</span></td>
-                              </tr>
-                              <tr>
-                                 <td>Shipping Rate :</td>
-                                 <td class="text-end">$<span id="shipping_charge">0.00</span></td>
-                              </tr>
-                              <tr>
-                                 <td>Vat :</td>
-                                 <td class="text-end">$<span id="total_vat">12.70</span></td>
-                              </tr>                                    
-                           </tbody>
-                           <tfoot>
-                              <tr>
-                                 <td><strong>Total pay :</strong></td>
-                                 <td class="text-end"><strong>$<span id="total_pay">139.70</span></strong></td>
-                              </tr>
-                           </tfoot>
-                        </table>
-                     </div>
-                     <div class="crt-chkout">
-                        <a href="#" class="cmn-abtn">Continue</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-12">
-            <div class="row align-items-center justify-content-center h-100">
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
-                    <div class="no-cart-found">
-                        <span class="empty-cart-icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                        <h3>Your basket is empty</h3>
-                        <a href="{{url('/')}}" class="contiue-shop">continue shopping</a>
-                    </div>
-                </div>
-            </div>
->>>>>>> 184ab0bc76747427e2cfd8b93a32b9a0f9efc68d
         </div>
       </div>
       @if(count($cartinfo)>0)

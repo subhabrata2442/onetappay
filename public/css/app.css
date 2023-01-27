@@ -10529,17 +10529,6 @@ body {
   background: #fff;
   line-height: 1.5;
 }
-body::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: url(../images/food-pattern.svg) repeat;
-  height: 100%;
-  width: 100%;
-  opacity: 0.12;
-  z-index: -1;
-}
 
 /*--Custom-css---*/
 .img-block {
@@ -11118,17 +11107,6 @@ textarea:focus {
 
 textarea {
   resize: none;
-}
-
-.selectOption_1 {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: rgba(255, 255, 255, 0) url(../images/downarrow.png) center right 10px no-repeat;
-  background-size: 13px;
-  padding-right: 28px;
-  border: none;
-  width: 100%;
 }
 
 ::-webkit-scrollbar-track {
@@ -13056,7 +13034,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   text-align: center;
   padding: 0 35px;
   background: #ff6600;
-  color: #fff;
+  color: #fff !important;
   border: none;
   border-radius: 0.25rem;
   text-transform: capitalize;
@@ -13873,6 +13851,48 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   z-index: -1;
 }
 
+.information-wrap {
+  box-shadow: 0 5px 7px -1px rgba(94, 94, 94, 0.08);
+  background: #fff;
+  padding: 1rem;
+  height: 100%;
+}
+.information-wrap .avatar-wrap {
+  width: 130px;
+  margin: 0 auto;
+}
+.information-wrap .avatar-wrap .avatar-img {
+  width: 100%;
+  display: block;
+  height: 130px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.information-wrap .connected-wrap {
+  margin-top: 0.6rem;
+}
+
+.avatar-upload {
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  padding: 0 35px;
+  background: #ff6600;
+  color: #fff !important;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  width: 100%;
+}
+.avatar-upload:hover {
+  background: #000;
+}
+
+.btn-lft-icon i {
+  margin-right: 0.5rem;
+}
+
 .login-reg-sec {
   padding: 60px 0;
 }
@@ -13968,6 +13988,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border: 1px solid #d0cfcf;
   border-radius: 5px;
   background: #fff;
+}
+
+.log-select-wrap {
+  margin-bottom: 10px;
+}
+.log-select-wrap .log-select-style {
+  height: 50px;
+  padding: 5px;
+  border: 1px solid #d0cfcf;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .right-icon .log-input-style {

@@ -1,0 +1,19 @@
+body::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../images/food-pattern.svg) repeat;
+    height: 100%;
+    width: 100%;
+    opacity: .12;
+    z-index: -1;
+}
+.selectOption_1 {
+    appearance: none;
+    background: rgba(255, 255, 255, 0) url(../images/downarrow.png) center right 10px no-repeat;
+    background-size: 13px;
+    padding-right: 28px;
+    border: none;
+    width: 100%;
+}

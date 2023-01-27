@@ -6,13 +6,13 @@
 <section class="profile-sec">
   <div class="container-fluid left-right-gap">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 mb-5">
         <div class="search-wraps text-center">
           <h3>My Profile</h3>
         </div>
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-        <div class="responsive-tabs">
+      <div class="col-lg-9 col-md-8 col-sm-12 col-12">
+        <div class="responsive-tabs mt-0">
           <ul class="nav nav-pills" role="tablist">
             <li class="nav-item"> <a id="tab-A" href="#pane-A" class="nav-link active" data-bs-toggle="tab" role="tab">profile</a> </li>
             <li class="nav-item"> <a id="tab-B" href="#pane-B" class="nav-link" data-bs-toggle="tab" role="tab">address book</a> </li>
@@ -81,6 +81,58 @@
                                 aria-labelledby="heading-B">
                 <div class="card-body">
                   <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="log-input-wrap">
+                        <input type="text" name="" id="" class="form-control log-input-style" placeholder="Address">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="log-input-wrap">
+                        <input type="text" name="" id="" class="form-control log-input-style" placeholder="City">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="log-input-wrap">
+                        <input type="text" name="" id="" class="form-control log-input-style" placeholder="State">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="log-input-wrap">
+                        <input type="text" name="" id="" class="form-control log-input-style" placeholder="Zip Code">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="log-input-wrap">
+                        <input type="text" name="" id="" class="form-control log-input-style" placeholder="Location">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="log-select-wrap">
+                        <select class="form-control log-select-style selectOption_1">
+                          <option> Select Country </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="checkbox ps-1">
+                        <input type="checkbox" id="defaul-address">
+                        <label for="defaul-address">Set as default</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-between mt-3">
+                    <div class="col-auto">
+                      <div class="pro-btn-wrap btn-lft-icon">
+                        <a href="#" class="pro-btn-new"><i class="fa-solid fa-reply"></i>back</a>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="pro-btn-wrap">
+                        <button type="submit" class="pro-btn-new">save</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-12">
                       <div class="pro-btn-wrap">
                         <button type="submit" class="pro-btn-new">add new address</button>
@@ -133,8 +185,7 @@
               <div class="card-header" role="tab" id="heading-E">
                 <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-E" aria-expanded="true" aria-controls="collapse-E"> credit cards </a> </h5>
               </div>
-              <div id="collapse-E" class="collapse" data-bs-parent="#content" role="tabpanel"
-                                aria-labelledby="heading-E">
+              <div id="collapse-E" class="collapse" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-E">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-12">
@@ -149,17 +200,17 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-        <div class="box-grey rounded" style="margin-top:0;">
-          <div class="avatar-wrap"> <img src="{{$user_logo}}" class="img-circle"> </div>
-          <div class="center top10"> <a href="javascript:;" id="single_uploadfile" data-progress="single_uploadfile_progress" data-preview="avatar-wrap" style="cursor: pointer;"> Browse </a> </div>
+      <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+        <div class="box-grey information-wrap" style="margin-top:0;">
+          <div class="avatar-wrap"> <img src="{{$user_logo}}" class="avatar-img"> </div>
+          <div class="center top10"> <a href="javascript:;" id="single_uploadfile" class="avatar-upload" data-progress="single_uploadfile_progress" data-preview="avatar-wrap" style="cursor: pointer;"> Browse </a> </div>
           <div class="single_uploadfile_progress"></div>
-          <div class="line-top line-bottom center"> Update your profile picture </div>
-          <div class="connected-wrap">
+          <div class="text-center mt-2"> Update your profile picture </div>
+          <div class="connected-wrap text-center">
             <div class="mytable web">
-              <div class="mycol  col-1 center"> <i class="ion-social-dribbble i-big"></i> </div>
+              {{-- <div class="mycol  col-1 center"> <i class="ion-social-dribbble i-big"></i> </div> --}}
               <!--col-->
-              <div class="mycol  col-2"> <span class="small">Connected as</span><br>
+              <div class="mycol  col-12"> <span class="small">Connected as</span><br>
                 <span class="bold">david121@gmail.com</span> </div>
               <!--col--> 
             </div>

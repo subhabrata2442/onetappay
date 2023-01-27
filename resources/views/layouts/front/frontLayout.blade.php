@@ -5,6 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ $title or 'No title'}}</title>
+{{-- Favicon --}}
+<link rel="icon" type="image/ico" href="{{ asset('public/front/images/favicon.ico') }}">
 
 <!-- Fonts -->
 <link rel="stylesheet" href="{{ asset('public/front/fonts/stylesheet.css') }}" media="all">
@@ -17,6 +19,7 @@
 <link rel="stylesheet" href="{{ asset('public/front/toast/jquery.toast.css') }}" media="all">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
 <link rel="stylesheet" href="{{ asset('public/css/app.css') }}" media="all">
+<link rel="stylesheet" href="{{ asset('public/front/css/images.css') }}" media="all">
 <link rel="stylesheet" href="{{ asset('public/front/css/custom.css') }}" media="all">
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo"></script>

@@ -18,7 +18,7 @@
           <div class="login-area-lft">
             @if(Auth::user() && $user_type==3)
             <ul class="d-flex login-menu-wrap align-items-center">
-              <li><a href="javascript:;" class="reg-nav user-profile"><i class="fa-solid fa-circle-user"></i>{{$userName}}</a></li>
+              <li><a href="{{url('/profile')}}" class="reg-nav user-profile"><i class="fa-solid fa-circle-user"></i>{{$userName}}</a></li>
               <li><a href="{{url('/logout')}}" class="reg-nav user-signout"><i class="fa-solid fa-right-from-bracket"></i>sign out</a></li>
               <li><a href="{{url('/merchant/signup')}}" class="reg-nav">Restaurant Signup</a></li>
             </ul>

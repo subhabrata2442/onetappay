@@ -70,7 +70,10 @@ Route::prefix('profile')->name('profile.')->middleware('checkmemberauth')->group
 //Route::prefix('profile')->name('profile.')->group(function () {
 	Route::get('/', 'front\UserController@profile')->name('profile');
 	Route::post('updateClientProfile', 'front\UserController@updateClientProfile')->name('profile.save');
+	Route::post('updateClientAddress', 'front\UserController@updateClientAddress')->name('address.save');
 	//Route::get('/signup-success', 'front\MerchantController@success')->name('signup.success');
+	
+	Route::post('delete_address', 'front\UserController@delete_address');
 });
 
 

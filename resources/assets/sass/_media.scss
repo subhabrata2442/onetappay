@@ -208,7 +208,70 @@
 
 @media only screen and (max-width: 768px) {}
 
-@media only screen and (max-width: 767px) {}
+@media only screen and (max-width: 767px) {
+    // Mobile sort filter
+    .mobile-filter {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 15px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 0.6rem 1rem;
+        border: none;
+        font-size: .9rem;
+        text-transform: capitalize;
+        border-radius: 0.4rem;
+        z-index: 5;
+        i{
+            margin-right: .3rem;
+        }
+    }
+    .hotel-list-wrap{
+        .mobile-sort{
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 10px;
+            position: fixed;
+            width: calc(100% - 25%);
+            left: 50%;
+            z-index: 5;
+            bottom: -100%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease-in-out;
+            .mobile-scroll{
+                height: 300px;
+                overflow-y: auto;
+                padding-right: 5px;
+            }
+            .mobile-filter-close {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 30px;
+                width: 30px;
+                background: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                border-radius: 50%;
+                top: -45px;
+                border: none;
+            }
+            &.sort_open{
+                bottom: 15px;
+            }
+        }
+    }
+    .sort-popup {
+        overflow: hidden;
+        .modal-backdrop{
+            z-index: 4;
+            &.fade {
+                transition: opacity 0.9s linear;
+            }
+        }
+    }
+    // Mobile sort filter
+}
 
 @media only screen and (max-width: 736px) {}
 

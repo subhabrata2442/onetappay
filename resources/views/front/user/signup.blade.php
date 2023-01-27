@@ -16,7 +16,7 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
           <h1>Login &amp; Signup</h1>
           <p>sign up to start ordering</p>
         </div>
-        <div class="col-md-6 border">
+        <div class="col-md-6">
           <div class="box-grey rounded">
             <div class="section-label bottom20"> <a class="section-label-a"> <i class="ion-android-contact i-big"></i> <span class="bold" style="background:#fff;"> Log in to your account</span> <b></b> </a> </div>
             <form class="forms has-validation-callback" action="{{route('login')}}" method="POST" id="user_login_form" onsubmit="return false;">
@@ -25,22 +25,22 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
               <input type="hidden" id="login_redirect_to" name="redirect_to" value="{{$redirect_to}}" />
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="Email" required="required" type="text" value="" name="email" id="username">
+                  <input class="grey-fields full-width" placeholder="Email" required="required" type="text" value="" name="email" id="username">
                 </div>
               </div>
               <!--row-->
               
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="Password" required="required" type="password" value="" name="password" id="password">
+                  <input class="grey-fields full-width" placeholder="Password" required="required" type="password" value="" name="password" id="password">
                 </div>
               </div>
               <!--row-->
               
-              <div class="row top15">
+              <div class="row top15 align-items-center">
                 <div class="col-md-6"> <a href="javascript:;" class="forgot-pass-link2 block orange-text text-center"> Forgot Password <i class="ion-help"></i> </a> </div>
                 <div class="col-md-6">
-                  <input type="submit" value="Login" class="green-button medium full-width">
+                  <input type="submit" value="Login" class="orange-button medium full-width">
                 </div>
               </div>
             </form>
@@ -54,11 +54,11 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
                 <div class="section-label bottom20"> <a class="section-label-a"> <i class="ion-unlocked i-big"></i> <span class="bold" style="background:#fff;"> Forgot Password</span> <b></b> </a> </div>
                 <div class="row top15">
                   <div class="col-md-12 ">
-                    <input class="grey-fields" placeholder="Email address" type="text" value="" name="username-email" id="username-email">
+                    <input class="grey-fields full-width" placeholder="Email address" type="text" value="" name="username-email" id="username-email">
                   </div>
                 </div>
                 <!--row-->
-                <input type="submit" value="Retrieve Password" class="top10 green-button medium full-width">
+                <input type="submit" value="Retrieve Password" class="top10 orange-button medium full-width">
                 <div class="top10"> <a href="javascript:;" class="back-link  orange-text text-center"> Close </a> </div>
               </div>
               <!--box-grey--> 
@@ -70,7 +70,7 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
         <!--END LEFT CONTENT--> 
         
         <!--RIGHT CONTENT-->
-        <div class="col-md-6 border">
+        <div class="col-md-6">
           <div class="box-grey rounded top-line-green">
             <form class="forms has-validation-callback" action="{{route('signup.save')}}" method="POST" id="user_signup_form" onsubmit="return false;">
               @csrf
@@ -78,22 +78,22 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
               <div class="section-label bottom20"> <a class="section-label-a"> <i class="ion-compose i-big green-color"></i> <span class="bold" style="background:#fff;"> Sign up</span> <b></b> </a> </div>
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="First Name" required="required" type="text" value="" name="first_name" id="first_name">
+                  <input class="grey-fields full-width" placeholder="First Name" required="required" type="text" value="" name="first_name" id="first_name">
                 </div>
               </div>
               <!--row-->
               
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="Last Name" required="required" type="text" value="" name="last_name" id="last_name">
+                  <input class="grey-fields full-width" placeholder="Last Name" required="required" type="text" value="" name="last_name" id="last_name">
                 </div>
               </div>
               <!--row-->
               
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <div class="intl-tel-input">
-                    <input class="grey-fields mobile_inputs" placeholder="Mobile" required="required" data-validation-length="max12" type="text" name="contact_phone" id="contact_phone" autocomplete="off">
+                  <div class="intl-tel-input phone-input">
+                    <input class="grey-fields mobile_inputs full-width" placeholder="Mobile" required="required" data-validation-length="max12" type="text" name="contact_phone" id="contact_phone" autocomplete="off">
                     <input type="hidden" class="countryiso" name="countryiso"/>
                     <input type="hidden" class="icocode" name="icocode"/>
                   </div>
@@ -103,21 +103,21 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
               
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="Email address" required="required" type="text" value="" name="email" id="email">
+                  <input class="grey-fields full-width" placeholder="Email address" required="required" type="text" value="" name="email" id="email">
                 </div>
               </div>
               <!--row-->
               
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="Password" required="required" type="password" value="" name="password" id="password">
+                  <input class="grey-fields full-width" placeholder="Password" required="required" type="password" value="" name="password" id="password">
                 </div>
               </div>
               <!--row-->
               
               <div class="row top10">
                 <div class="col-md-12 ">
-                  <input class="grey-fields" placeholder="Confirm Password" required="required" type="password" value="" name="password_confirmation" id="password_confirmation">
+                  <input class="grey-fields full-width" placeholder="Confirm Password" required="required" type="password" value="" name="password_confirmation" id="password_confirmation">
                 </div>
               </div>
               <!--row-->

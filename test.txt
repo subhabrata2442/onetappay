@@ -1,3 +1,5 @@
 
 dddd test
 
+php artisan cache:clear
+

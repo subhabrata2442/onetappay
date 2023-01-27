@@ -175,3 +175,9 @@ p.text-small {
 	padding: 10px 15px;
 	height: 160px;
 }
+.phone-input .iti{
+	width: 100%;
+}
+.orange-text{
+	color: #f75d34;
+}

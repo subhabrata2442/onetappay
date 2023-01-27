@@ -176,13 +176,14 @@ class StoreController extends Controller {
 		
 		
 		$store_url		= url('store/'.$store_slug);
+		$checkout_url	= url('checkout/');
 		$store_table	= Table::where('merchant_id',$store_info->user_id)->get();
 		
 		//echo '<pre>';print_r($merchant_item_list);exit;
 		
 		
 		
-		return view('front.store.details', compact('title','breadcumbs','active','store_id','category_list','store_info','item_list','city','location','restaurent','calendar','next_calendar','time_slots','cartinfo','total_cart_amount','total_cart_item','store_url','store_table','merchant_item_list'));	  
+		return view('front.store.details', compact('title','breadcumbs','active','store_id','category_list','store_info','item_list','city','location','restaurent','calendar','next_calendar','time_slots','cartinfo','total_cart_amount','total_cart_item','store_url','store_table','merchant_item_list','checkout_url'));	  
     }
 	
 	public function booking_table_request(Request $request){

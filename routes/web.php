@@ -70,7 +70,12 @@ Route::prefix('profile')->name('profile.')->middleware('checkmemberauth')->group
 //Route::prefix('profile')->name('profile.')->group(function () {
 	Route::get('/', 'front\UserController@profile')->name('profile');
 	Route::post('updateClientProfile', 'front\UserController@updateClientProfile')->name('profile.save');
+	Route::post('updateClientAddress', 'front\UserController@updateClientAddress')->name('address.save');
+	
+	
 	//Route::get('/signup-success', 'front\MerchantController@success')->name('signup.success');
+	
+	Route::post('delete_address', 'front\UserController@delete_address');
 });
 
 
@@ -80,6 +85,10 @@ Route::post('addtocart', 'front\CartController@addtocart_request');
 Route::post('updatetocart', 'front\CartController@updatetocart_request');
 Route::post('deletecartitem', 'front\CartController@delete_cart_item');
 Route::get('checkout', 'front\CartController@checkout');
+Route::post('order_place', 'front\CartController@orderPlaceRequest')->name('order_place.save');
+
+Route::get('order-success', 'front\CartController@order_success');
+Route::get('order-cancel', 'front\CartController@order_cancel');
 
 
 

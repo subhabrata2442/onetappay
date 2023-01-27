@@ -10529,17 +10529,6 @@ body {
   background: #fff;
   line-height: 1.5;
 }
-body::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: url(/images/food-pattern.svg?79e55e4dbafc2bc17d2d45fbd94e278a) repeat;
-  height: 100%;
-  width: 100%;
-  opacity: 0.12;
-  z-index: -1;
-}
 
 /*--Custom-css---*/
 .img-block {
@@ -11120,26 +11109,13 @@ textarea {
   resize: none;
 }
 
-.selectOption_1 {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: rgba(255, 255, 255, 0) url(/images/downarrow.png?cf0fb579de466ce368cee5604b98ebca) center right 10px no-repeat;
-  background-size: 13px;
-  padding-right: 28px;
-  border: none;
-  width: 100%;
-}
-
 ::-webkit-scrollbar-track {
-  background-color: #fff;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-  background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -13058,7 +13034,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   text-align: center;
   padding: 0 35px;
   background: #ff6600;
-  color: #fff;
+  color: #fff !important;
   border: none;
   border-radius: 0.25rem;
   text-transform: capitalize;
@@ -13696,6 +13672,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: #000;
   font-weight: 500;
   font-size: 14px;
+  max-width: 250px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .cart-list-wrap table .crt-product-name a:hover {
   color: #ff6600;
@@ -13871,6 +13851,63 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   z-index: -1;
 }
 
+.information-wrap {
+  box-shadow: 0 5px 7px -1px rgba(94, 94, 94, 0.08);
+  background: #fff;
+  padding: 1rem;
+  height: 100%;
+}
+.information-wrap .avatar-wrap {
+  width: 130px;
+  margin: 0 auto;
+}
+.information-wrap .avatar-wrap .avatar-img {
+  width: 100%;
+  display: block;
+  height: 130px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.information-wrap .connected-wrap {
+  margin-top: 0.6rem;
+}
+
+.avatar-upload {
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  padding: 0 35px;
+  background: #ff6600;
+  color: #fff !important;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  width: 100%;
+}
+.avatar-upload:hover {
+  background: #000;
+}
+
+.btn-lft-icon i {
+  margin-right: 0.5rem;
+}
+
+.bb-none tr td {
+  border-bottom-color: #000;
+}
+.bb-none tr:not(:last-child) td {
+  border-bottom-width: 0;
+}
+
+.payment-card li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.bb-none2 tr td {
+  border-bottom-width: 0;
+}
+
 .login-reg-sec {
   padding: 60px 0;
 }
@@ -13966,6 +14003,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border: 1px solid #d0cfcf;
   border-radius: 5px;
   background: #fff;
+}
+
+.log-select-wrap {
+  margin-bottom: 10px;
+}
+.log-select-wrap .log-select-style {
+  height: 50px;
+  padding: 5px;
+  border: 1px solid #d0cfcf;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .right-icon .log-input-style {
@@ -14086,5 +14134,65 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .main-header .logo {
     flex: 0 0 200px;
     max-width: 200px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .mobile-filter {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border: none;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    border-radius: 0.4rem;
+    z-index: 5;
+  }
+  .mobile-filter i {
+    margin-right: 0.3rem;
+  }
+  .hotel-list-wrap .mobile-sort {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    position: fixed;
+    width: 75%;
+    left: 50%;
+    z-index: 5;
+    bottom: -100%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+  }
+  .hotel-list-wrap .mobile-sort .mobile-scroll {
+    height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+  .hotel-list-wrap .mobile-sort .mobile-filter-close {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30px;
+    width: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 50%;
+    top: -45px;
+    border: none;
+  }
+  .hotel-list-wrap .mobile-sort.sort_open {
+    bottom: 15px;
+  }
+  .sort-popup {
+    overflow: hidden;
+  }
+  .sort-popup .modal-backdrop {
+    z-index: 4;
+  }
+  .sort-popup .modal-backdrop.fade {
+    transition: opacity 0.9s linear;
   }
 }

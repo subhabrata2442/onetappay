@@ -1,3 +1,104 @@
+$(document).on('click','.add_new_address_btn',function(){
+	$('.address_book_sec').hide();
+	$('#new_address_book_sec').show();
+});
+
+$(document).on('click','.close_address_btn',function(){
+	$('#new_address_book_sec').hide();
+	$('.address_book_sec').show();
+});
+
+$(document).on('click', '.delete_address_btn', function() {
+    var address_id = $(this).data('id');
+
+
+    swal({
+        title: 'Are you sure?',
+        text: "Are you sure you want to remove this address?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: base_url + '/profile/delete_address',
+                data: {
+                    address_id: address_id,
+                    _token: csrf_token
+                },
+
+                type: 'post',
+                dataType: 'json',
+                beforeSend: function() {
+                    //$(".preloader").fadeIn();
+                },
+                complete: function(data) {
+                    uk_msg_sucess('Address is deleted successfully.')
+                        setTimeout(function() {
+                            window.location.href = base_url + '/profile?tab=2'
+                        }, 1000);
+                },
+                success: function(json) {}
+            });
+
+        }
+    });
+});
+
+
+
+
+
+
+$(function() {
+    $("#user_address_form").validate({
+        errorElement: "span",
+        highlight: function(element, errorClass, validClass) {
+            if ($(element).is('select')) {
+                $(element).closest("label.selectBox").addClass("error").removeClass("success");
+            } else {
+                $(element).addClass("error").removeClass("success");
+            }
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).closest(".error").removeClass("error").addClass("success");
+        },
+        invalidHandler: function(form, validator) {
+            $("#err_report").show();
+            $("#err_report").html("Few required fields are missing");
+        },
+        rules: {},
+        messages: {},
+        submitHandler: function(form) {
+            $.ajax({
+                url: form.action,
+                type: form.method,
+                data: $(form).serialize(),
+                success: function(response) {
+                    if (response[0].success == 0) {
+                        uk_msg(response[0].error_message);
+                    } else {
+                        uk_msg_sucess(response[0].success_message)
+                        /*setTimeout(function() {
+                            window.location.href = base_url + '/';
+                        }, 2000);*/
+                    }   
+                }
+            });
+        }
+    })
+});
+
+
+
+
+
+
+
+
+
 if($("#contact_phone").length !=0) {
 
 	var input 	= document.querySelector("#contact_phone");

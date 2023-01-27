@@ -85,17 +85,17 @@ body {
     font-size: 15px;
     background: #fff;
     line-height: 1.5;
-    &::after{
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: url(../images/food-pattern.svg) repeat;
-        height: 100%;
-        width: 100%;
-        opacity: .12;
-        z-index: -1;
-    }
+    // &::after{
+    //     content: "";
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     background: url(../images/food-pattern.svg) repeat;
+    //     height: 100%;
+    //     width: 100%;
+    //     opacity: .12;
+    //     z-index: -1;
+    // }
     
 }
 
@@ -679,19 +679,19 @@ textarea{
 textarea{
     resize: none;
 }
-.selectOption_1 {
-    appearance: none;
-    background: rgba(255, 255, 255, 0) url(../images/downarrow.png) center right 10px no-repeat;
-    background-size: 13px;
-    padding-right: 28px;
-    border: none;
-    width: 100%;
-}
+// .selectOption_1 {
+//     appearance: none;
+//     background: rgba(255, 255, 255, 0) url(/images/downarrow.png) center right 10px no-repeat;
+//     background-size: 13px;
+//     padding-right: 28px;
+//     border: none;
+//     width: 100%;
+// }
 ::-webkit-scrollbar-track {
     // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     // -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+    // background-color: #fff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -700,7 +700,7 @@ textarea{
 ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
-    background-color: #fff;
+    // background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb {

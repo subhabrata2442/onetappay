@@ -487,7 +487,12 @@
                 </li>
                   </ul>
               <div class="crt-book-btn-wrap cart_checkout_btn_section">
-                    <button type="button" class="crt-book-btn checkout_btn">checkout</button>
+              @if(Auth::user() && $user_type==3)
+              <a href="{{$checkout_url}}" class="crt-book-btn checkout_btn">checkout</a>
+              @else
+              <a href="{{url('/signup/?redirect_to='.$checkout_url)}}" class="crt-book-btn checkout_btn">checkout</a>
+              @endif
+                    
                   </div>
             </div>
               </div>

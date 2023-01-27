@@ -27,6 +27,17 @@ $(document).on('click',	'.sub',function(){
 	}
 });*/
 
+$(".only-numeric").bind("keypress", function (e) {
+          var keyCode = e.which ? e.which : e.keyCode
+               
+          if (!(keyCode >= 48 && keyCode <= 57)) {
+           // $(".error").css("display", "inline");
+            return false;
+          }else{
+           // $(".error").css("display", "none");
+          }
+      });
+
 var qty = 0,
     maxlim;
 $(document).on('click', '.priceControl .controls2', function() {
@@ -172,3 +183,43 @@ function addtocart(id, mid, cid) {
         }
     });
 }
+
+
+$(function() {
+    $("#order_place_form").validate({
+        errorElement: "span",
+        highlight: function(element, errorClass, validClass) {
+            if ($(element).is('select')) {
+                $(element).closest("label.selectBox").addClass("error").removeClass("success");
+            } else {
+                $(element).addClass("error").removeClass("success");
+            }
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).closest(".error").removeClass("error").addClass("success");
+        },
+        invalidHandler: function(form, validator) {
+            $("#err_report").show();
+            $("#err_report").html("Few required fields are missing");
+        },
+        rules: {},
+        messages: {},
+        submitHandler: function(form) {
+            $.ajax({
+                url: form.action,
+                type: form.method,
+                data: $(form).serialize(),
+                success: function(response) {
+                    if (response[0].success == 0) {
+                        uk_msg(response[0].error_message);
+                    } else {
+                        uk_msg_sucess(response[0].success_message)
+                        /*setTimeout(function() {
+                            window.location.href = base_url + '/';
+                        }, 2000);*/
+                    }   
+                }
+            });
+        }
+    })
+});

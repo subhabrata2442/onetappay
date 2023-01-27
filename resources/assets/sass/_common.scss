@@ -2470,6 +2470,32 @@ $breakpoints: (
         margin-right: 0.5rem;
     }
 }
+.bb-none {
+    tr{
+        td{
+            border-bottom-color: #000;
+        }
+        &:not(:last-child){
+            td{
+                border-bottom-width: 0;
+            }
+        }
+    }
+}
+.payment-card{
+    li{
+        &:not(:last-child){
+            margin-right: 0.5rem;
+        }
+    }
+}
+.bb-none2 {
+    tr{
+        td{
+            border-bottom-width: 0;
+        }
+    }
+}
 
 
 

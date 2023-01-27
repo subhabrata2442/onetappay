@@ -13893,6 +13893,21 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   margin-right: 0.5rem;
 }
 
+.bb-none tr td {
+  border-bottom-color: #000;
+}
+.bb-none tr:not(:last-child) td {
+  border-bottom-width: 0;
+}
+
+.payment-card li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.bb-none2 tr td {
+  border-bottom-width: 0;
+}
+
 .login-reg-sec {
   padding: 60px 0;
 }

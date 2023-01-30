@@ -1519,7 +1519,7 @@ $breakpoints: (
                 display: none;
             }
 
-            .collapse {
+            .when-mobile {
                 display: block;
             }
         }
@@ -2496,8 +2496,22 @@ $breakpoints: (
         }
     }
 }
-
-
+.toggle-btn {
+    border: none;
+    background-color: transparent;
+    &:not(.collapsed) i{
+        &::before{
+            content: "\f077";
+        }
+    }
+}
+.details-wrap {
+    background-color: #f3f3f3 !important;
+    padding: 0 !important;
+    // .accordion-collapse {
+    //     padding: 0 1rem 1rem;
+    // }
+}
 
 
 

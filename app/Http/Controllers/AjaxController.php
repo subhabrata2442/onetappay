@@ -220,4 +220,35 @@ class AjaxController extends Controller {
 		}
 	}
 	
+	public function ajaxpost_view_receipt($request) {
+		if (request()->isMethod('post')) {
+			$order_id = Input::get('order_id');
+			
+			$orderDetails = Common::getOrderDetails($order_id);
+			
+			
+			
+			
+			print_r($orderDetails);exit;
+			
+			exit;
+			$result = User::where('phone',$mobile)->first();
+			$return_data=[];
+			if(isset($result)){
+				$wallet_data 	= Common::getSingelData($where=['user_id'=>$result->id],$table='user_wallet',$data=['balance'],'id','ASC');
+				$balance_gross 	= isset($wallet_data->balance)? $wallet_data->balance:'0';
+				$wallet_amount = 0;
+				$wallet_amount+= $balance_gross;
+				
+				$return_data['status'] 			= 1;
+				$return_data['customer_name']	= $result->name;
+				$return_data['customer_id']		= $result->id;
+				$return_data['current_amount']	= $wallet_amount;
+			}else{
+				$return_data['status']	= 0;
+			}
+			echo json_encode($return_data);
+		}
+	}
+	
 }

@@ -140,6 +140,9 @@ Route::group(['middleware' => ['checkmerchantauth']], function () {
     Route::get('merchant_admin/merchant', 'merchant\AdminController@merchant_settings');
 	Route::post('merchant_admin/settings/save', 'merchant\AdminController@saveAdminSettings');
 	
+	Route::get('merchant_admin/incomingorders', 'merchant\OrderController@incomingorders');
+	Route::post('merchant_admin/order/save', 'merchant\OrderController@saveOrderStatusRequest')->name('order.save');
+	
 	
 	
 	# Food

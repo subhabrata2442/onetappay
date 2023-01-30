@@ -95,6 +95,10 @@
   </section>
 </footer>
 
+<div class="loader-wrap preloader">
+        <div><span class="loader-14"></span></div>
+    </div>
+
 <script src="{{ asset('public/front/js/jquery-3.6.1.min.js') }}"></script> 
 <script src="{{ asset('public/front/js/bootstrap.js') }}"></script>
 <script src="{{ asset('public/front/js/owl.carousel.min.js') }}"></script>
@@ -104,6 +108,15 @@
 <script src="{{ asset('public/front/toast/jquery.toast.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 <script src="{{ asset('public/front/js/custom.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    setTimeout(function() {
+        $(".preloader").fadeOut();
+    }, 300);
+});
+
+</script>
 
 
 @stack('scripts')

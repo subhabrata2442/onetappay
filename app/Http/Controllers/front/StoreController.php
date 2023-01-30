@@ -217,7 +217,15 @@ class StoreController extends Controller {
 		if($booking_result>0){
 			echo json_encode(array('success' => 0));
 		}else{
+			$order_info		= Common::getSingelData([], 'user_booking_table', ['booking_id'], 'booking_id', 'DESC');
+			$order_id 		= isset($order_info->order_id)?$order_info->order_id:'0';
+			$order_id		= $order_id+1;
+			$token			= date('Yd').$order_id;
+			
+			
+			
 			$booking_data = [
+				'booking_id'	=> $token,
 				'merchant_id'	=> $merchant_id,
 				'user_id'		=> $user_id,
 				'table_id'		=> $booking_table_id,

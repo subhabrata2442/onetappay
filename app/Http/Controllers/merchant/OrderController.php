@@ -36,7 +36,7 @@ class OrderController extends Controller {
 		$merchant_id = Auth::id();
 		$order_list	= Order::where('merchant_id',$merchant_id)->orderBy('order_id','DESC')->get();
 		
-		//echo '<pre>';print_r($order_list[0]->cartItems->count());exit;
+		//echo '<pre>';print_r($order_list);exit;
 		
 		return view('merchant.incomingorders', compact('title','active','breadcumbs','order_list'));
     }

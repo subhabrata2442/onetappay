@@ -125,20 +125,11 @@ class Helpers{
 		return $path && file_exists('public/upload/image/180_180/'.$path) ? asset('public/upload/image/180_180/'.$path.'?v='.time()) : asset('public/backoffice/images/no_image-150x150.png');
 	}
 	
-	public static function get_game_title($game_ids){
+	public static function get_product($product_id){
 		$result=array();
-		if($game_ids!=''){
-			$game_id_arr=explode(',',$game_ids);
-		}
-		
-		if(count($game_id_arr)>0){
-			for($i=0;count($game_id_arr)>$i;$i++){
-				$game_data	= Common::getSingelData($where=['id'=>$game_id_arr[$i]],$table='game_type', $data=['name'],'name','ASC');
-				if(isset($game_data->name)){
-					$result[]=strtoupper($game_data->name);
-				}
-			}
-		}
+		$item_data	= Common::getSingelData($where=['item_id'=>$product_id],$table='item', $data=['item_name','photo'],'item_name','ASC');
+		$result['item_name'] 	= $item_data->item_name;
+		$result['photo'] 		= $item_data->photo && file_exists('public/upload/image/180_180/'.$item_data->photo) ? asset('public/upload/image/180_180/'.$item_data->photo.'?v='.time()) : asset('public/backoffice/images/no_image-150x150.png');
 		
 		return $result;
 	}

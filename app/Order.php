@@ -22,6 +22,11 @@ class Order extends Model
     {
 		return $this->hasOne(Merchant::class,'user_id', 'merchant_id'); 
     }
+	
+	public function product_info()
+    {
+		return $this->hasOne(Item::class,'item_id', 'product_id'); 
+    }
 	/*public function articles(){
 		return $this->hasMany(Article::class, 'cat_id');
 	}*/

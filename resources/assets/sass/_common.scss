@@ -2500,6 +2500,9 @@ $breakpoints: (
 .toggle-btn {
     border: none;
     background-color: transparent;
+    text-decoration: underline;
+    color: #000;
+    font-weight: 600;
     &:not(.collapsed) i{
         &::before{
             content: "\f077";
@@ -2509,9 +2512,18 @@ $breakpoints: (
 .details-wrap {
     background-color: #f3f3f3 !important;
     padding: 0 !important;
-    // .accordion-collapse {
-    //     padding: 0 1rem 1rem;
-    // }
+    .accordion-collapse {
+        padding: 0.7rem;
+    }
+    table{
+        tbody{
+            tr{
+                td{
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
 }
 .order-user-details {
     background-color: #fff;
@@ -2524,6 +2536,75 @@ $breakpoints: (
             margin-bottom: 0.5rem;
         }
     }
+}
+.order-history-img {
+    span{
+        img{
+            width: 70px;
+            max-height: 70px;
+            min-height: 70px;
+            object-fit: cover;
+        }
+    }
+}
+.user-book-history{
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7.2px 0.8px rgba(226, 225, 224, 0.04);
+    h4{
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+    .booked-history-detls{
+        display: flex;
+        padding: 3px 0;
+        .booked-history-detls-lft{
+            flex: 0 0 150px;
+            max-width: 150px;
+            .booked-history-detls-head{
+                font-weight: 500;
+                font-size: 16px;
+                color: #000;
+                text-transform: capitalize;
+            }   
+        }
+        .booked-history-detls-rgt{
+            flex: 1 0;
+            .booked-history-detls-dtls{
+                font-weight: 500;
+                font-size: 16px;
+                color: #000;
+                .total-booked-person{
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+    + {
+        .user-book-history{
+            margin-top: 1.2rem;
+        }
+    }
+}
+.history-user-details-wrap {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+}
+.isDefaultAddress{
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    color: #fff;
+    background-color: #198754;
+    display: table-cell;
+}
+.order-status {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    color: #fff;
 }
 
 

@@ -32,13 +32,13 @@ $(document).on('click', '.delete_address_btn', function() {
                 type: 'post',
                 dataType: 'json',
                 beforeSend: function() {
-                    //$(".preloader").fadeIn();
+                    $(".preloader").fadeIn();
                 },
                 complete: function(data) {
                     uk_msg_sucess('Address is deleted successfully.')
-                        /*setTimeout(function() {
+                        setTimeout(function() {
                             window.location.href = base_url + '/profile?tab=2'
-                        }, 1000);*/
+                        }, 1000);
                 },
                 success: function(json) {}
             });
@@ -71,13 +71,13 @@ $(document).on('click', '.request_cancel_booking', function() {
                 type: 'post',
                 dataType: 'json',
                 beforeSend: function() {
-                    //$(".preloader").fadeIn();
+                    $(".preloader").fadeIn();
                 },
                 complete: function(data) {
                     uk_msg_sucess('Table booking is successfully cancel.')
-                        /*setTimeout(function() {
+                        setTimeout(function() {
                             window.location.href = base_url + '/profile?tab=4'
-                        }, 1000);*/
+                        }, 1000);
                 },
                 success: function(json) {}
             });
@@ -120,9 +120,9 @@ $(function() {
                         uk_msg(response[0].error_message);
                     } else {
                         uk_msg_sucess(response[0].success_message)
-                        /*setTimeout(function() {
-                            window.location.href = base_url + '/';
-                        }, 2000);*/
+                        setTimeout(function() {
+                            window.location.href = base_url + '/profile?tab=2'
+                        }, 2000);
                     }   
                 }
             });

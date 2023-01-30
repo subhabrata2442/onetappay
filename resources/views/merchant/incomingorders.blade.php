@@ -120,127 +120,15 @@
 </div>
 <div class="example-modal">
   <div class="modal" id="order_details_modal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="modal-title">Order Details</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span></button>
         </div>
         <div class="modal-body">
-          <div class="receipt-wrap order-list-wrap">
-            <div class="input-block">
-              <div class="label">Name :</div>
-              <div class="value">Francis James</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Merchant Name :</div>
-              <div class="value">Imelda Collier</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Telephone :</div>
-              <div class="value">18323044274r</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Address :</div>
-              <div class="value">Av. Brasil, 32045 - Bangu Rio de Janeiro RS  21860-570</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">TRN Type :</div>
-              <div class="value">Delivery</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Payment Type :</div>
-              <!--<div class="value">COD</div>-->
-              <div class="value">COD</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Reference # :</div>
-              <div class="value">7669</div>
-              <div class="clear"></div>
-            </div>
+          <div class="table-responsive" id="order_details_section">
             
-            <!-- ccr-->
-            
-            <div class="input-block">
-              <div class="label">TRN Date :</div>
-              <div class="value">Sep 21,2022 11:12:06 am</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Delivery Date :</div>
-              <div class="value"> Sep 21,2022 </div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Delivery Time :</div>
-              <div class="value"> 11:13:00 am </div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Deliver to :</div>
-              <div class="value">mk  dodoma Dodoma 12653</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Delivery Instruction :</div>
-              <div class="value"></div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Location Name :</div>
-              <div class="value">1254</div>
-              <div class="clear"></div>
-            </div>
-            <div class="input-block">
-              <div class="label">Contact Number :</div>
-              <div class="value">+255712008888</div>
-              <div class="clear"></div>
-            </div>
-            <div class="spacer-small"></div>
-            <div class="item-order-list item-row">
-              <p style="margin:0;"><b>Sabor 01</b></p>
-              <div class="a">1</div>
-              <div class="b">chicken burger(pequeno)
-                <p class="uk-text-small"><span class="base-price">$30.00</span></p>
-              </div>
-              <div class="manage">
-                <div class="c"></div>
-                <div class="d">$30.00</div>
-              </div>
-              <div class="clear"></div>
-              <div class="a"></div>
-              <div class="b uk-text-success">Sabor 01</div>
-              <div class="clear"></div>
-              <div class="a">1x</div>
-              <div class="b uk-text-muted">$5.00 ketchup</div>
-              <div class="manage">
-                <div class="d">$5.00</div>
-              </div>
-              <div class="clear"></div>
-            </div>
-            <div class="summary-wrap">
-              <div class="row">
-                <div class="col-md-6 col-xs-6 text-right ">Sub Total</div>
-                <div class="col-md-6 col-xs-6 text-right cart_subtotal">$35.00</div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 col-xs-6 text-right ">Delivery Fee</div>
-                <div class="col-md-6 col-xs-6 text-right ">$20.00</div>
-              </div>
-              <div class="row cart_total_wrap bold">
-                <div class="col-md-6 col-xs-6  text-right">Total</div>
-                <div class="col-md-6 col-xs-6  text-right cart_total">$55.00</div>
-              </div>
-              <input type="hidden" value="35" name="subtotal_order" id="subtotal_order">
-              <input type="hidden" value="35" name="subtotal_order2" id="subtotal_order2">
-              <input type="hidden" value="20" name="subtotal_extra_charge" id="subtotal_extra_charge">
-            </div>
           </div>
         </div>
         <div class="modal-footer justify-content-between">
@@ -283,7 +171,7 @@ $(document).on('click', '.view_receipt_btn', function() {
     $.ajax({
         url: prop.ajaxurl,
         type: "post",
-
+		dataType: "json",
         data: {
             order_id: order_id,
             action: 'view_receipt',
@@ -291,21 +179,9 @@ $(document).on('click', '.view_receipt_btn', function() {
         },
         beforeSend: function() {},
         success: function(response) {
-			$('#order_details_modal').show();
-            const obj_response = JSON.parse(response);
-            if (obj_response.status == '1') {
-                /*$('#danger_Alert').hide();
-                $('#customer_sec').show();
-                $('#amount_sec').show();
-                $('#current_amount_sec').show();
-                $('#btn_sec').show();
-                $('#customer_name').val(obj_response.customer_name);
-                $('#customer_id').val(obj_response.customer_id);
-                $('#current_amount').val(obj_response.current_amount);*/
-            } else {
-               // $('#order_details_modal').show();
-            }
-        },
+			$('#order_details_section').html(response.html);
+			$('#order_details_modal').modal('show');
+		},
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
         }
@@ -313,15 +189,6 @@ $(document).on('click', '.view_receipt_btn', function() {
 });
 
 
-
-
-
-
-
-
- 
-  
-  
 $(function() {
 	$(document).on('click','.delete-icon',function(){
         var id = $(this).attr("data-id");

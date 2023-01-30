@@ -66,4 +66,29 @@ class OrderController extends Controller {
 		}
 	}
 	
+	public function saveBookingStatusRequest(Request $request){
+		$validator = Validator::make($request->all(), [
+			'status'	=> 'required|string|max:255',
+			'order_id' 	=> 'required|string|max:255',
+        ]);
+		
+		$order_id=Input::post('order_id');
+		
+		if ($validator->fails()){
+			$errors=$validator->errors()->all();
+			$error_html='';
+			foreach($errors as $er){
+				$error_html .='<span>'.$er.'</span></br>';
+			}
+			Session::flash('success', $error_html);
+			return redirect('merchant_admin/food/table_booking');
+        }else{
+			$data_general['status']=Input::post('status');
+			Common::updateData($table="user_booking_table", "id", $order_id, $data_general);
+			
+			Session::flash('success', 'Successfully Saved data.');
+			return redirect('merchant_admin/food/table_booking');
+		}
+	}
+	
 }

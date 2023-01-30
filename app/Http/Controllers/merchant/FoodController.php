@@ -49,9 +49,9 @@ class FoodController extends Controller {
     }
 	
 	public function table_update($id){
-		$title 			= "Edit Category";
-        $breadcumbs 	= "Edit Category";
-        $active 		= "category";
+		$title 			= "Edit Table";
+        $breadcumbs 	= "Edit Table";
+        $active 		= "table";
 		
 		$merchant_id 	= Auth::id();
 		$data 			= Table::where('id',$id)->where('merchant_id',$merchant_id)->first();

@@ -194,6 +194,8 @@ Route::group(['middleware' => ['checkmerchantauth']], function () {
 		
 		Route::get('/table_booking', 'merchant\FoodController@tableBooking');
 		
+		Route::post('table_booking/change_status', 'merchant\OrderController@saveBookingStatusRequest');
+		
 		
 		
 		//Route::post('/store_upload', 'merchant\StoreController@store_upload')->name('store_upload');

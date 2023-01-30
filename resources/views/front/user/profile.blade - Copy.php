@@ -24,7 +24,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
             <li class="nav-item"> <a id="tab-A" href="#pane-A" class="nav-link {{ ($tab == 1) ? 'active' : '' }}" data-bs-toggle="tab" role="tab">profile</a> </li>
             <li class="nav-item"> <a id="tab-B" href="#pane-B" class="nav-link {{ ($tab == 2) ? 'active' : '' }}" data-bs-toggle="tab" role="tab">address book</a> </li>
             <li class="nav-item"> <a id="tab-C" href="#pane-C" class="nav-link {{ ($tab == 3) ? 'active' : '' }}" data-bs-toggle="tab" role="tab">order history</a> </li>
-            <li class="nav-item"> <a id="tab-D" href="#pane-D" class="nav-link {{ ($tab == 4) ? 'active' : '' }}" data-bs-toggle="tab" role="tab">Booking History</a> </li>
+            <li class="nav-item"> <a id="tab-D" href="#pane-D" class="nav-link {{ ($tab == 4) ? 'active' : '' }}" data-bs-toggle="tab" role="tab">favorites</a> </li>
             <li class="nav-item"> <a id="tab-E" href="#pane-E" class="nav-link {{ ($tab == 5) ? 'active' : '' }}" data-bs-toggle="tab" role="tab">credit cards</a> </li>
             <!--<li class="nav-item"> <a id="" href="#" class="nav-link" data-bs-toggle="tab" role="tab">my points</a> </li>-->
           </ul>
@@ -121,23 +121,11 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                             <select class="form-control log-select-style selectOption_1" name="country" id="country" required>
                               <option value="">Select Country</option>
                               
-                              
-                              
-                              
                               @foreach($countrie as $country)
-                              
-                              
-                              
                               
                               <option value="{{ $country->sortname }}">{{$country->name}}</option>
                               
-                              
-                              
-                              
                               @endforeach
-                            
-                            
-                            
                             
                             
                             </select>
@@ -186,7 +174,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                           <div class="isDefaultAddress">Default Address</div>
                           @endif </td>
                         <td class="">{{$address->city}}</td>
-                        <td><a href="javascript:;" class="btn btn-danger btn-sm delete_address_btn" data-toggle="tooltip" title="Delete" data-id="{{$address->id}}">Delete</a></td>
+                        <td class=""><a href="javascript:;" class="delete_address_btn" data-id="{{$address->id}}"><i class="fa fa-times"></i></a></td>
                       </tr>
                       @endforeach
                         </tbody>
@@ -226,25 +214,35 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                           <th>Status</th>
                             </thead>
                         <tbody>
-                        
-                        @php $count=1;@endphp
-                        @foreach($order_history as $order_row)
-                        <tr>
-                          <td>{{$count}}</td>
-                          <td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$order_row->order_id}}" aria-expanded="false" aria-controls="flush-collapse{{$order_row->order_id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$order_row->order_id_token}}</button></td>
-                          <td>{{$order_row->created_at}}</td>
-                          <td>{{$order_row->merchant_info->restaurant_name}}</td>
-                          <td>${{$order_row->gross_total}}</td>
-                          <td>{{$order_row->payment_type}}</td>
-                          <td>@if($order_row->status=='pending')<span class="label bg-yellow">Pending</span> @elseif($order_row->status=='cancel')<span class="label bg-red">Canceled</span>@else<span class="label bg-success">Accepted</span>@endif</td>
-                        </tr>
-                        <tr>
-                          <td colspan="7" class="details-wrap"><div id="flush-collapse{{$order_row->order_id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$order_row->order_id}}" data-bs-parent="#accordionFlushExample"> dgdgsgds </div></td>
-                        </tr>
-                        @php $count++;@endphp
-                        @endforeach
-                          </tbody>
-                        
+                          <tr>
+                            <!--<td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1"> <i class="fa-solid fa-chevron-down"></i> </button></td>-->
+                            
+                            <td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1"> <i class="fa-solid fa-chevron-down"></i> </button></td>
+                            
+                            
+                            <td>#02158430</td>
+                            <td>30.001.2023</td>
+                            <td>Indian Resturent</td>
+                            <td>2568.00</td>
+                            <td>Stripe</td>
+                            <td>Pending</td>
+                          </tr>
+                          <tr>
+                            <td colspan="7" class="details-wrap"><div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample"> dgdgsgds </div></td>
+                          </tr>
+                          <tr>
+                            <td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2"> <i class="fa-solid fa-chevron-down"></i> </button></td>
+                            <td>#02158430</td>
+                            <td>30.001.2023</td>
+                            <td>Indian Resturent</td>
+                            <td>2568.00</td>
+                            <td>Stripe</td>
+                            <td>Pending</td>
+                          </tr>
+                          <tr>
+                            <td colspan="7" class="details-wrap"><div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample"> dgdgsgds </div></td>
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
@@ -261,54 +259,19 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
             </div>
             <div id="pane-D" class="card tab-pane fade {{ ($tab == 4) ? 'show active' : '' }}" role="tabpanel" aria-labelledby="tab-D">
               <div class="card-header" role="tab" id="heading-D">
-                <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-D" aria-expanded="true" aria-controls="collapse-D"> Booking History </a> </h5>
+                <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-D" aria-expanded="true" aria-controls="collapse-D"> favorites </a> </h5>
               </div>
-              <div id="collapse-D" class="collapse when-mobile" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-D">
-                <div class="card-body"> @if(count($table_booking_history)>0)
-                  <div class="order-history-table">
-                    <div class="table-responsive accordion accordion-flush" id="tablebookingaccordionFlushExample">
-                      <table class="table">
-                        <thead>
-                        <th style="width: 50px;">#</th>
-                          <th>Booking ID</th>
-                          <th>Booking date</th>
-                          <th>Booking Time</th>
-                          <th>Total Person</th>
-                          <th>Status</th>
-                          <th>Action</th>
-                            </thead>
-                        <tbody>
-                        
-                        @php $count=1;@endphp
-                        @foreach($table_booking_history as $table_booking_row)
-                        <tr>
-                          <td>{{$count}}</td>
-                          <td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-t{{$order_row->id}}" aria-expanded="false" aria-controls="flush-collapse-t{{$order_row->id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$table_booking_row->booking_id}}</button></td>
-                          <td>{{$table_booking_row->date_slot}}</td>
-                          <td>{{$table_booking_row->time_slot}}</td>
-                          <td>{{$table_booking_row->total_person}}</td>
-                          <td>@if($table_booking_row->status==1)<span class="label bg-yellow">Pending</span> @elseif($table_booking_row->status==0)<span class="label bg-red">Canceled</span>@else<span class="label bg-success">Booked</span>@endif</td>
-                          <td> @if($table_booking_row->status==1) <a href="javascript:;" class="btn btn-danger btn-sm request_cancel_booking" data-toggle="tooltip" title="Cancel booking" data-booking_id="{{$table_booking_row->id}}">Cancel booking</a> @endif </td>
-                        </tr>
-                        <tr>
-                          <td colspan="7" class="details-wrap"><div id="flush-collapse-t{{$table_booking_row->id}}" class="accordion-collapse collapse" aria-labelledby="flush-collapse-t{{$table_booking_row->id}}" data-bs-parent="#tablebookingaccordionFlushExample"> dgdgsgds </div></td>
-                        </tr>
-                        @php $count++;@endphp
-                        @endforeach
-                          </tbody>
-                        
-                      </table>
-                    </div>
-                  </div>
-                  @else
+              <div id="collapse-D" class="collapse when-mobile" data-bs-parent="#content" role="tabpanel"
+                                aria-labelledby="heading-D">
+                <div class="card-body">
                   <div class="row">
                     <div class="col-12">
-                      <div class="not-comments-wrap"> <i class="fa-solid fa-cart-shopping"></i>
-                        <p>No order yet</p>
+                      <div class="not-comments-wrap"> <i class="fa-regular fa-heart"></i>
+                        <p>No favorites yet</p>
                       </div>
                     </div>
                   </div>
-                  @endif </div>
+                </div>
               </div>
             </div>
             <div id="pane-E" class="card tab-pane fade {{ ($tab == 5) ? 'show active' : '' }}" role="tabpanel" aria-labelledby="tab-E">

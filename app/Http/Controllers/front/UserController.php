@@ -14,6 +14,8 @@ use App\Item;
 use App\Category;
 use App\AddressBook;
 use App\Countrie;
+use App\Order;
+use App\BookingTable;
 
 use Input;
 use Session;
@@ -39,26 +41,18 @@ class UserController extends Controller {
 		 
 		 $address_book 	= AddressBook::where('user_id',$user_id)->get();
 		 $countrie		= Countrie::All();
-		 //echo '<pre>';print_r($address_book);exit;
 		 
-		 $cartinfo = Common::getCartProducts();
-			$total_cart_amount=0;
-			$total_cart_item=0;
-			$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
-			$grand_total		= 0;
-			$total_cart_item	= 0;
-			$total_cart_amount  = 0;
-			if($getCartTotal){
-				for($i=0;$i<count($getCartTotal);$i++){
-					$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
-				}
-				$total_cart_amount=number_format($grand_total,2,'.','');
-				$total_cart_item = count($getCartTotal);
-			}
+		 $order_history	= Order::where('user_id',$user_id)->orderBy('order_id','DESC')->get();
+		 $table_booking_history	= BookingTable::where('user_id',$user_id)->orderBy('id','DESC')->get();
+		 
+		 
+		 //echo '<pre>';print_r($table_booking_history);exit;
 		 
 		 
 		 
-		 return view('front.user.profile', compact('title','breadcumbs','active','user_info','user_logo','address_book','countrie','cartinfo'));	  
+		 
+		 
+		 return view('front.user.profile', compact('title','breadcumbs','active','user_info','user_logo','address_book','countrie','order_history','table_booking_history'));	  
     }
 	
 	public function updateClientProfile(Request $request){
@@ -208,6 +202,19 @@ class UserController extends Controller {
 		Common::deleteData($table="address_book","id", $address_id);
 		$return_data['success'] 		= 1;
 		$return_data['success_message'] = '<span>Address is deleted successfully.</span>';
+		return response()->json([$return_data]);
+		
+	}
+	
+	public function cancel_booking_table(Request $request){
+		$booking_id = Input::post('booking_id');
+		$user_id	= Session::get('user_id');
+		$data_general['status']=0;
+		
+		BookingTable::where(['user_id'=>$user_id,'id'=>$booking_id])->update(['status'=>0]);
+		
+		$return_data['success'] 		= 1;
+		$return_data['success_message'] = '<span>Table booking is successfully cancel.</span>';
 		return response()->json([$return_data]);
 		
 	}

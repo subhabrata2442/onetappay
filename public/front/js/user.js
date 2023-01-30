@@ -121,7 +121,7 @@ $(function() {
                     } else {
                         uk_msg_sucess(response[0].success_message)
                         setTimeout(function() {
-                            window.location.href = base_url + '/';
+                            window.location.href = base_url + '/profile?tab=2'
                         }, 2000);
                     }   
                 }

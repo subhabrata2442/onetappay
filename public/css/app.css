@@ -12999,7 +12999,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .responsive-tabs .card .card-header {
     display: none;
   }
-  .responsive-tabs .card .collapse {
+  .responsive-tabs .card .when-mobile {
     display: block;
   }
 }
@@ -13906,6 +13906,19 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 .bb-none2 tr td {
   border-bottom-width: 0;
+}
+
+.toggle-btn {
+  border: none;
+  background-color: transparent;
+}
+.toggle-btn:not(.collapsed) i::before {
+  content: "\f077";
+}
+
+.details-wrap {
+  background-color: #f3f3f3 !important;
+  padding: 0 !important;
 }
 
 .login-reg-sec {

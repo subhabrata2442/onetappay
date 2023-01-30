@@ -217,21 +217,21 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                     <div class="table-responsive accordion accordion-flush" id="accordionFlushExample">
                       <table class="table">
                         <thead>
-                        <th style="width: 50px;">#</th>
-                          <th>Order ID</th>
-                          <th>Order date</th>
-                          <th>Resturent Name</th>
-                          <th>Total</th>
-                          <th>Payment Mode</th>
-                          <th>Status</th>
-                            </thead>
+                          <th>#</th>
+                            <th>Order ID</th>
+                            <th>Order date</th>
+                            <th>Resturent Name</th>
+                            <th>Total</th>
+                            <th>Payment Mode</th>
+                            <th>Status</th>
+                          </thead>
                         <tbody>
                         
                         @php $count=1;@endphp
                         @foreach($order_history as $order_row)
                         <tr>
                           <td>{{$count}}</td>
-                          <td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$order_row->order_id}}" aria-expanded="false" aria-controls="flush-collapse{{$order_row->order_id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$order_row->order_id_token}}</button></td>
+                          <td><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$order_row->order_id}}" aria-expanded="false" aria-controls="flush-collapse{{$order_row->order_id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$order_row->order_id_token}}</button></td>
                           <td>{{$order_row->created_at}}</td>
                           <td>{{$order_row->merchant_info->restaurant_name}}</td>
                           <td>${{$order_row->gross_total}}</td>
@@ -239,7 +239,42 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                           <td>@if($order_row->status=='pending')<span class="label bg-yellow">Pending</span> @elseif($order_row->status=='cancel')<span class="label bg-red">Canceled</span>@else<span class="label bg-success">Accepted</span>@endif</td>
                         </tr>
                         <tr>
-                          <td colspan="7" class="details-wrap"><div id="flush-collapse{{$order_row->order_id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$order_row->order_id}}" data-bs-parent="#accordionFlushExample"> dgdgsgds </div></td>
+                          <td colspan="7" class="details-wrap">
+                            <div id="flush-collapse{{$order_row->order_id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$order_row->order_id}}" data-bs-parent="#accordionFlushExample">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <td>Image</td>
+                                    <td>Name</td>
+                                    <td>Quantity</td>
+                                    <td class="text-end">Unit Price</td>
+                                    <td class="text-end">Total</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div class="order-history-img"> 
+                                        <span class="d-block"> 
+                                          <img class="img-block" src="https://localhost/onetappay/public/upload/store/item/5954bcb006b10dbfd0bc160f6370faf3.jpeg"> 
+                                        </span> 
+                                        </div>
+                                    </td>
+                                    <td>Mandarin Wontons</td>
+                                    <td>2</td>
+                                    <td class="text-end">$11.95</td>
+                                    <td class="text-end">$11.95</td>
+                                  </tr>
+                                </tbody>
+                                <tfoot class="text-nowrap">
+                                  <tr>
+                                    <td class="text-end" colspan="4"><strong>Total :</strong></td>
+                                    <td class="text-end"><strong><span class="d-block">$ 11.95</span></strong></td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                          </td>
                         </tr>
                         @php $count++;@endphp
                         @endforeach
@@ -269,7 +304,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                     <div class="table-responsive accordion accordion-flush" id="tablebookingaccordionFlushExample">
                       <table class="table">
                         <thead>
-                        <th style="width: 50px;">#</th>
+                        <th>#</th>
                           <th>Booking ID</th>
                           <th>Booking date</th>
                           <th>Booking Time</th>
@@ -283,7 +318,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                         @foreach($table_booking_history as $table_booking_row)
                         <tr>
                           <td>{{$count}}</td>
-                          <td style="width: 50px;"><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-t{{$order_row->id}}" aria-expanded="false" aria-controls="flush-collapse-t{{$order_row->id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$table_booking_row->booking_id}}</button></td>
+                          <td><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-t{{$table_booking_row->id}}" aria-expanded="false" aria-controls="flush-collapse-t{{$table_booking_row->id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$table_booking_row->booking_id}}</button></td>
                           <td>{{$table_booking_row->date_slot}}</td>
                           <td>{{$table_booking_row->time_slot}}</td>
                           <td>{{$table_booking_row->total_person}}</td>
@@ -291,7 +326,42 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                           <td> @if($table_booking_row->status==1) <a href="javascript:;" class="btn btn-danger btn-sm request_cancel_booking" data-toggle="tooltip" title="Cancel booking" data-booking_id="{{$table_booking_row->id}}">Cancel booking</a> @endif </td>
                         </tr>
                         <tr>
-                          <td colspan="7" class="details-wrap"><div id="flush-collapse-t{{$table_booking_row->id}}" class="accordion-collapse collapse" aria-labelledby="flush-collapse-t{{$table_booking_row->id}}" data-bs-parent="#tablebookingaccordionFlushExample"> dgdgsgds </div></td>
+                          <td colspan="7" class="details-wrap">
+                            <div id="flush-collapse-t{{$table_booking_row->id}}" class="accordion-collapse collapse" aria-labelledby="flush-collapse-t{{$table_booking_row->id}}" data-bs-parent="#tablebookingaccordionFlushExample">
+                              <div class="row justify-content-center">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                  <div class="user-book-history">
+                                    <h4>booking details</h4>
+                                    <div class="booked-history-detls">
+                                      <div class="booked-history-detls-lft">
+                                        <div class="booked-history-detls-head">total person</div>
+                                      </div>
+                                          <div class="booked-history-detls-rgt">
+                                        <div class="booked-history-detls-dtls">: <span class="total-booked-person">2 person</span></div>
+                                      </div>
+                                    </div>
+                                    <div class="booked-history-detls">
+                                      <div class="booked-history-detls-lft">
+                                        <div class="booked-history-detls-head">Date</div>
+                                      </div>
+                                          <div class="booked-history-detls-rgt">
+                                        <div class="booked-history-detls-dtls">: <span class="total-booked-person">2023-02-06</span></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="user-book-history">
+                                    <h4>User Details</h4>
+                                    <div class="history-user-details-wrap">subha</div>
+                                    <div class="history-user-details-wrap">4444444444</div>
+                                  </div>
+                                  <div class="user-book-history">
+                                    <h4>Special Request</h4>
+                                    <div class="history-user-details-wrap">test</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         @php $count++;@endphp
                         @endforeach

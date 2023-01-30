@@ -2340,17 +2340,18 @@ $breakpoints: (
         .success-icon{
             height: 60px;
             width: 60px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 0.8rem;
             line-height: 58px;
             text-align: center;
             border: 1px solid #cfcfcf;
             border-radius: 50%;
             display: block;
             font-size: 22px;
-            color: #ff6600;
+            color: #00a651;
         }
         h3{
-            color: #ff6600;  
+            color: #00a651;  
+            padding-bottom: 0.1rem;
         }
     }
 }
@@ -2511,6 +2512,18 @@ $breakpoints: (
     // .accordion-collapse {
     //     padding: 0 1rem 1rem;
     // }
+}
+.order-user-details {
+    background-color: #fff;
+    border-radius: 0.4rem;
+    padding: 0.6rem;
+    height: 100%;
+    p{
+        text-align: left;
+        &:not(:last-child){
+            margin-bottom: 0.5rem;
+        }
+    }
 }
 
 

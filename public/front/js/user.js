@@ -36,9 +36,48 @@ $(document).on('click', '.delete_address_btn', function() {
                 },
                 complete: function(data) {
                     uk_msg_sucess('Address is deleted successfully.')
-                        setTimeout(function() {
+                        /*setTimeout(function() {
                             window.location.href = base_url + '/profile?tab=2'
-                        }, 1000);
+                        }, 1000);*/
+                },
+                success: function(json) {}
+            });
+
+        }
+    });
+});
+
+$(document).on('click', '.request_cancel_booking', function() {
+    var booking_id = $(this).data('booking_id');
+
+
+    swal({
+        title: 'Are you sure?',
+        text: "Are you sure you want to Cancel this booking?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: base_url + '/profile/cancel_booking_table',
+                data: {
+                    booking_id: booking_id,
+                    _token: csrf_token
+                },
+
+                type: 'post',
+                dataType: 'json',
+                beforeSend: function() {
+                    //$(".preloader").fadeIn();
+                },
+                complete: function(data) {
+                    uk_msg_sucess('Table booking is successfully cancel.')
+                        /*setTimeout(function() {
+                            window.location.href = base_url + '/profile?tab=4'
+                        }, 1000);*/
                 },
                 success: function(json) {}
             });

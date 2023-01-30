@@ -13759,17 +13759,18 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .order-success-sec .order-success .success-icon {
   height: 60px;
   width: 60px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 0.8rem;
   line-height: 58px;
   text-align: center;
   border: 1px solid #cfcfcf;
   border-radius: 50%;
   display: block;
   font-size: 22px;
-  color: #ff6600;
+  color: #00a651;
 }
 .order-success-sec .order-success h3 {
-  color: #ff6600;
+  color: #00a651;
+  padding-bottom: 0.1rem;
 }
 
 .back-to-home {
@@ -13919,6 +13920,19 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .details-wrap {
   background-color: #f3f3f3 !important;
   padding: 0 !important;
+}
+
+.order-user-details {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  padding: 0.6rem;
+  height: 100%;
+}
+.order-user-details p {
+  text-align: left;
+}
+.order-user-details p:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .login-reg-sec {

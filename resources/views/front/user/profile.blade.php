@@ -236,7 +236,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                           <td>{{$order_row->merchant_info->restaurant_name}}</td>
                           <td>${{$order_row->gross_total}}</td>
                           <td>{{$order_row->payment_type}}</td>
-                          <td>@if($order_row->status=='pending')<span class="label bg-yellow">Pending</span> @elseif($order_row->status=='cancel')<span class="label bg-red">Canceled</span>@else<span class="label bg-success">Accepted</span>@endif</td>
+                          <td>@if($order_row->status=='pending')<span class="label order-status bg-yellow">Pending</span> @elseif($order_row->status=='cancel')<span class="label order-status bg-red">Canceled</span>@else<span class="label order-status bg-success">Accepted</span>@endif</td>
                         </tr>
                         <tr>
                           <td colspan="7" class="details-wrap">

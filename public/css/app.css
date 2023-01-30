@@ -13997,6 +13997,22 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: #000;
 }
 
+.isDefaultAddress {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+  color: #fff;
+  background-color: #198754;
+  display: table-cell;
+}
+
+.order-status {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+  color: #fff;
+}
+
 .login-reg-sec {
   padding: 60px 0;
 }

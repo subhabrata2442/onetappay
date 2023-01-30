@@ -23,6 +23,8 @@
     }
     
 @endphp
+
+<input type="hidden" value="cart" id="page_id" />
     <section class="sec-gap-top sec-gap-btm">
   <div class="container-fluid left-right-gap">
         <div class="row g-4">

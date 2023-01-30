@@ -33,7 +33,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
               <div class="card-header" role="tab" id="heading-A">
                 <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A"> profile </a> </h5>
               </div>
-              <div id="collapse-A" class="collapse show" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-A">
+              <div id="collapse-A" class="collapse when-mobile show" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-A">
                 <form class="forms has-validation-callback" action="{{route('profile.profile.save')}}" method="POST" id="user_update_form" onsubmit="return false;">
                   @csrf
                   <div class="card-body">
@@ -84,7 +84,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
               <div class="card-header" role="tab" id="heading-B">
                 <h5 class="mb-0"> <a class="collapsed" data-bs-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B"> address book </a> </h5>
               </div>
-              <div id="collapse-B" class="collapse" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-B">
+              <div id="collapse-B" class="collapse when-mobile" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-B">
                 <div class="card-body">
                   <div id="new_address_book_sec" style="display:none;">
                     <form class="forms has-validation-callback" action="{{route('profile.address.save')}}" method="POST" id="user_address_form" onsubmit="return false;">
@@ -195,9 +195,97 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
               <div class="card-header" role="tab" id="heading-C">
                 <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-C" aria-expanded="true" aria-controls="collapse-C"> order history </a> </h5>
               </div>
-              <div id="collapse-C" class="collapse" data-bs-parent="#content" role="tabpanel"
-                                aria-labelledby="heading-C">
+              <div id="collapse-C" class="collapse when-mobile" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-C">
                 <div class="card-body">
+                @if(count($cartinfo)>0)
+                  <div class="row address_book_sec">
+                    <table id="table_list" class="table table-striped dataTable" aria-describedby="table_list_info">
+                      <thead>
+                        <tr role="row">
+                          <th width="40%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Address: activate to sort column descending" style="width: 260px;">Image</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Location Name: activate to sort column ascending" style="width: 250px;">Name</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Quantity</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Unit Price	</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Total</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="https://localhost/onetappay/public/upload/store/item/5954bcb006b10dbfd0bc160f6370faf3.jpeg"> </a> </div></td>
+                          <td class="text-start"><div class="crt-product-name"> <a href="javascript:;">Mandarin Wontons</a> </div></td>
+                          <td class="text-center">1</td>
+                          <td class="text-end text-nowrap">$11.95</td>
+                          <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">11.95</span></td>
+                        </tr>
+                        <tr>
+                          <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="https://localhost/onetappay/public/images/food.jpg"> </a> </div></td>
+                          <td class="text-start"><div class="crt-product-name"> <a href="javascript:;">Deep-Fried Wontons</a> </div></td>
+                          <td class="text-center">1</td>
+                          <td class="text-end text-nowrap">$7.95</td>
+                          <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">7.95</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                @else
+                <div class="order-history-table">
+                  <div class="table-responsive accordion accordion-flush" id="accordionFlushExample">
+                    <table class="table">
+                      <thead>
+                        <th style="width: 50px;">#</th>
+                        <th>Order ID</th>
+                        <th>Order date</th>
+                        <th>Resturent Name</th>
+                        <th>Total</th>
+                        <th>Payment Mode</th>
+                        <th>Status</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="width: 50px;">
+                            <button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+                              <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                          </td>
+                          <td>#02158430</td>
+                          <td>30.001.2023</td>
+                          <td>Indian Resturent</td>
+                          <td>2568.00</td>
+                          <td>Stripe</td>
+                          <td>Pending</td>
+                        </tr>
+                        <tr>
+                          <td colspan="7" class="details-wrap">
+                            <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
+                              dgdgsgds
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 50px;">
+                            <button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+                              <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                          </td>
+                          <td>#02158430</td>
+                          <td>30.001.2023</td>
+                          <td>Indian Resturent</td>
+                          <td>2568.00</td>
+                          <td>Stripe</td>
+                          <td>Pending</td>
+                        </tr>
+                        <tr>
+                          <td colspan="7" class="details-wrap">
+                            <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+                              dgdgsgds
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
                   <div class="row">
                     <div class="col-12">
                       <div class="not-comments-wrap"> <i class="fa-solid fa-cart-shopping"></i>
@@ -205,6 +293,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                       </div>
                     </div>
                   </div>
+                @endif
                 </div>
               </div>
             </div>
@@ -212,7 +301,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
               <div class="card-header" role="tab" id="heading-D">
                 <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-D" aria-expanded="true" aria-controls="collapse-D"> favorites </a> </h5>
               </div>
-              <div id="collapse-D" class="collapse" data-bs-parent="#content" role="tabpanel"
+              <div id="collapse-D" class="collapse when-mobile" data-bs-parent="#content" role="tabpanel"
                                 aria-labelledby="heading-D">
                 <div class="card-body">
                   <div class="row">
@@ -229,7 +318,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
               <div class="card-header" role="tab" id="heading-E">
                 <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-E" aria-expanded="true" aria-controls="collapse-E"> credit cards </a> </h5>
               </div>
-              <div id="collapse-E" class="collapse" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-E">
+              <div id="collapse-E" class="collapse when-mobile" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-E">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-12">

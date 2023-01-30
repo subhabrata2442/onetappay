@@ -35,7 +35,7 @@
         <h4><i class="icon fa fa-ban"></i> Alert!</h4>
         <p class="error_msg"></p>
       </div>
-      {!! Form::open(['url' => 'administrator/settings/save', 'class' => 'form_settings', 'id' => 'form_settings', 'files' => true, 'autocomplete' => 'off']) !!}
+      {!! Form::open(['url' => 'merchant_admin/settings/save', 'class' => 'form_settings', 'id' => 'form_settings', 'files' => true, 'autocomplete' => 'off']) !!}
       <div class="card card-default">
         <div class="card-header with-border">
           <h3 class="card-title">Restaurant Information</h3>
@@ -45,51 +45,51 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Restaurant name</label>
-                <input type="text" name="restaurant_name" id="restaurant_name" class="form-control" placeholder="Restaurant name" value="{{$merchant_info->restaurant_name}}">
+                <input type="text" name="restaurant_name" id="restaurant_name" class="form-control" placeholder="Restaurant name" value="{{$merchant_info->restaurant_name}}" required="required">
               </div>
               <div class="form-group">
                 <label>Restaurant phone</label>
-                <input type="text" name="restaurant_phone" id="restaurant_phone" class="form-control" placeholder="Restaurant phone" value="{{$merchant_info->restaurant_phone}}">
+                <input type="text" name="restaurant_phone" id="restaurant_phone" class="form-control" placeholder="Restaurant phone" value="{{$merchant_info->restaurant_phone}}" required="required">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Contact name</label>
-                <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Contact name" value="{{$merchant_info->contact_name}}">
+                <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Contact name" value="{{$merchant_info->contact_name}}" required="required">
               </div>
               <div class="form-group">
                 <label>Contact phone</label>
-                <input name="contact_phone" id="contact_phone" type="text" class="form-control" placeholder="Contact phone" value="{{$merchant_info->contact_phone}}">
+                <input name="contact_phone" id="contact_phone" type="text" class="form-control" placeholder="Contact phone" value="{{$merchant_info->contact_phone}}" required="required">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Contact email</label>
-                <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Contact email" value="{{$merchant_info->contact_email}}">
+                <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Contact email" value="{{$merchant_info->contact_email}}" required="required">
               </div>
               <div class="form-group">
                 <label>Delivery Distance Covered</label>
-                <input type="text" name="delivery_distance_covered" id="delivery_distance_covered" class="form-control" placeholder="Delivery Distance Covered" value="{{$merchant_info->delivery_distance_covered}}">
+                <input type="text" name="delivery_distance_covered" id="delivery_distance_covered" class="form-control" placeholder="Delivery Distance Covered" value="{{$merchant_info->delivery_distance_covered}}" required="required">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Pick Up or Delivery?</label>
                 <select class="form-control" data-validation="required" name="service" id="service">
-                  <option value="1">Delivery &amp; Pickup</option>
-                  <option value="2">Delivery Only</option>
-                  <option value="3">Pickup Only</option>
-                  <option value="4">Delivery / Pickup / Dinein</option>
-                  <option value="5">Delivery &amp; Dinein</option>
-                  <option value="6">Pickup &amp; Dinein</option>
-                  <option value="7">Dinein Only</option>
+                  <option value="1" {{ ( 1 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery &amp; Pickup</option>
+                  <option value="2" {{ ( 2 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery Only</option>
+                  <option value="3" {{ ( 3 == $merchant_info->merchant_type) ? 'selected' : '' }}>Pickup Only</option>
+                  <option value="4" {{ ( 4 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery / Pickup / Dinein</option>
+                  <option value="5" {{ ( 5 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery &amp; Dinein</option>
+                  <option value="6" {{ ( 6 == $merchant_info->merchant_type) ? 'selected' : '' }}>Pickup &amp; Dinein</option>
+                  <option value="7" {{ ( 7 == $merchant_info->merchant_type) ? 'selected' : '' }}>Dinein Only</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Distance unit</label>
-                <select class="form-control" name="distance_unit" id="distance_unit">
+                <select class="form-control" name="distance_unit" id="distance_unit" required="required">
                   <option value="mi" {{ ( 'mi' == $merchant_info->distance_unit) ? 'selected' : '' }}>Miles</option>
-                  <option value="km"> {{ ( 'km' == $merchant_info->distance_unit) ? 'selected' : '' }}Kilometers</option>
+                  <option value="km" {{ ( 'km' == $merchant_info->distance_unit) ? 'selected' : '' }}>Kilometers</option>
                 </select>
               </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Email</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Email" value="{{$user_info->email}}">
+                <input type="text" name="username" id="username" class="form-control" placeholder="Email" value="{{$user_info->email}}" required="required" readonly="readonly">
               </div>
             </div>
             <div class="col-md-6">
@@ -126,25 +126,27 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Street address</label>
-                <input type="text" name="street" id="street" class="form-control" placeholder="Enter a location" value="{{$merchant_info->street}}">
+                <input type="text" name="street" id="street" class="form-control" placeholder="Enter a location" value="{{$merchant_info->street}}" required="required">
+                <input type="hidden" name="lat" id="lat" value="{{$merchant_info->latitude}}">
+                <input type="hidden" name="lng" id="lng" value="{{$merchant_info->lontitude}}">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>City</label>
-                <input type="text" name="city" id="city" class="form-control" placeholder="City" value="{{$merchant_info->city}}">
+                <input type="text" name="city" id="city" class="form-control" placeholder="City" value="{{$merchant_info->city}}" required="required">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Post code/Zip code</label>
-                <input type="text" name="post_code" id="post_code" class="form-control" placeholder="Zip code" value="{{$merchant_info->post_code}}">
+                <input type="text" name="post_code" id="post_code" class="form-control" placeholder="Zip code" value="{{$merchant_info->post_code}}" required="required">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Country</label>
-                <select class="form-control" name="country" id="country">
+                <select class="form-control" name="country" id="country" required="required">
                  @foreach($countrie as $country)
                   <option value="{{$country->sortname}}"  {{ ( $country->sortname == $merchant_info->country_code) ? 'selected' : '' }}>{{$country->name}}</option>
                  @endforeach
@@ -156,7 +158,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>State/Region</label>
-                <input type="text" name="state" id="state" class="form-control" placeholder="Enter a location" value="{{$merchant_info->state}}">
+                <input type="text" name="state" id="state" class="form-control" placeholder="Enter a location" value="{{$merchant_info->state}}" required="required">
               </div>
             </div>
           </div>
@@ -175,7 +177,9 @@
 @push('stylesheet')
 @endpush
 
-@push('scripts') 
+@push('scripts')
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo"></script> 
 
 <!-- summernote -->
 <link rel="stylesheet" href="{{ asset('public/front/plugins/summernote/summernote-bs4.min.css') }}">
@@ -183,6 +187,64 @@
 <script src="{{ asset('public/front/plugins/summernote/summernote-bs4.min.js') }}"></script> 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> 
 <script>
+
+function fillInAddress() {
+	var place = autocomplete.getPlace();
+	
+	$('#locality').val('');
+	$('#state').val('');
+	$('#country_code').val('');
+	
+	for (var i = 0; i < place.address_components.length; i++) {
+		var addressType = place.address_components[i].types[0];
+		/*if (componentForm[addressType]) {
+		  var val = place.address_components[i][componentForm[addressType]];
+		  document.getElementById(addressType).value = val;
+		}*/
+		if (addressType == "locality") {
+			$('#locality').val(place.address_components[i][componentForm[addressType]]);
+		}
+		if (addressType == "administrative_area_level_1") {
+			$('#state').val(place.address_components[i][componentForm[addressType]]);
+		}
+		if (addressType == "country") {
+			$('#country_code').val(place.address_components[i].short_name);
+		}
+	}
+}
+
+var placeSearch, autocomplete;
+var componentForm = {
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement}     */
+    (document.getElementById('street')), {
+     // types: ['(cities)']
+    });
+
+  // When the user selects an address from the dropdown, populate the address
+  // fields in the form.
+  // Get Latitude and longitude
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    var place = autocomplete.getPlace();
+	$('#lat').val(place.geometry.location.lat());
+	$('#lng').val(place.geometry.location.lng());
+    fillInAddress();
+  });
+}
+google.maps.event.addDomListener(window, 'load', initAutocomplete);
+
+
+
+
+
 $(document).on('click', '.fetch_image', function(e) {
 $('#upload_photo').click();
 });
@@ -268,17 +330,6 @@ $(function() {
 			$("#err_report").html("Few required fields are missing");
 		},
 		rules: {
-			site_title: "required",
-			email: "required",
-			whatsapp: "required",
-			phone: "required",
-			copyright: "required",
-			admin_name: {
-				required: true,
-			},
-			admin_email: {
-				required: true,
-			},
 			password: {
 				minlength: 8
 			},
@@ -287,12 +338,7 @@ $(function() {
 				equalTo: "#password"
 			},
 		},
-		messages: {
-			site_title: "Please enter a site title",
-			phone: "Please enter a site phone no.",
-			copyright: "Please enter a copyright.",
-			email: "Please enter admin email",
-		},
+		messages: {},
 		submitHandler: function(form) {
 			form.submit();
 		}

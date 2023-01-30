@@ -110,6 +110,7 @@ class MerchantController extends Controller {
 				'ip_address'				=> $IP,
 				'distance_unit'				=> Input::post('distance_unit'),
 				'delivery_distance_covered'	=> Input::post('delivery_distance_covered'),
+				'merchant_type'				=> Input::post('service'),
 				'created_at'				=> date('Y-m-d')
                ];
 			   

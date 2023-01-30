@@ -41,7 +41,24 @@ class UserController extends Controller {
 		 $countrie		= Countrie::All();
 		 //echo '<pre>';print_r($address_book);exit;
 		 
-		 return view('front.user.profile', compact('title','breadcumbs','active','user_info','user_logo','address_book','countrie'));	  
+		 $cartinfo = Common::getCartProducts();
+			$total_cart_amount=0;
+			$total_cart_item=0;
+			$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
+			$grand_total		= 0;
+			$total_cart_item	= 0;
+			$total_cart_amount  = 0;
+			if($getCartTotal){
+				for($i=0;$i<count($getCartTotal);$i++){
+					$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
+				}
+				$total_cart_amount=number_format($grand_total,2,'.','');
+				$total_cart_item = count($getCartTotal);
+			}
+		 
+		 
+		 
+		 return view('front.user.profile', compact('title','breadcumbs','active','user_info','user_logo','address_book','countrie','cartinfo'));	  
     }
 	
 	public function updateClientProfile(Request $request){
@@ -173,6 +190,14 @@ class UserController extends Controller {
 			}
 			$return_data['success'] 	= 1;
 			$return_data['tab'] 		= 2;
+			
+			
+			
+			
+			
+			
+			
+			
 			return response()->json([$return_data]);
 		}
 	}

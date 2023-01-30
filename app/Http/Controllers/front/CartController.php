@@ -375,7 +375,7 @@ class CartController extends Controller {
 						Common::updateData($table="cart_items",$uId = "ses_id", $cart_id, $data = ['is_order' =>'Y','order_id' =>$order_id]);
 						$return['success'] 	= 1;
 						$return['token'] 	= $token;
-						$return['message'] 	= 'Success';
+						$return['message'] 	= 'Your order has been place.';
 						
 						//print_r($return);exit;
 					}else{
@@ -400,7 +400,8 @@ class CartController extends Controller {
 		
 		$token 		= Input::get('id');
 		
-		
+		Session::forget('order_token');
+		Session::forget('cart_id');
 		
 		$orderDetails = array();
 		if(isset($token)){
@@ -408,8 +409,16 @@ class CartController extends Controller {
 				$orderDetails = Common::getOrderDetails($token);
 			}
 		}
-				
-		return view('front.success_page', compact('title','breadcumbs','active','orderDetails'));
+		
+		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
+		$location		= isset($_GET['location'])?$_GET['location']:'';
+		
+		$city			= '';
+		
+		
+		//echo '<pre>';print_r($orderDetails);exit;
+			
+		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city'));
 	}
 	
 	

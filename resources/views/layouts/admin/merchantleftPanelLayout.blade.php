@@ -20,6 +20,15 @@ $merchant_type = Session::get('merchant_type');
         <li class="nav-item"> <a href="{{ url('merchant_admin/food/table_booking') }}" class="nav-link @if($active == 'table_booking') active @endif"> <i class="nav-icon fa fa-list-alt"></i>
           <p> Manage Table Booking</p>
           </a> </li>
+          
+          <li class="nav-item"> <a href="{{ url('merchant_admin/incomingorders') }}" class="nav-link @if($active == 'incomingorders') active @endif"> <i class="nav-icon fa fa-list-alt"></i>
+          <p> All Orders </p>
+          </a> </li>
+          
+          
+        
+          
+          
         <li class="nav-item"> <a href="{{ url('merchant_admin/food/category') }}" class="nav-link @if($active == 'category') active @endif"> <i class="nav-icon fa fa-list-alt"></i>
           <p> Manage Category</p>
           </a> </li>

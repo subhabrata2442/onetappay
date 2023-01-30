@@ -519,8 +519,9 @@ public static function getOrderInfo($token) {
 	
 	public static function getOrderDetails($token) {
 		$result	= array();
+		$product_data 	= array();
 		$order_result = DB::table('order as O')
-		 			->leftjoin('merchant as M', 'O.merchant_id', '=','M.merchant_id')
+		 			->leftjoin('merchant as M', 'O.merchant_id', '=','M.user_id')
 					->select('O.*','M.restaurant_name')
 		 			->where('O.order_id_token',(int)$token)
 					->where('O.order_status','1')
@@ -528,13 +529,66 @@ public static function getOrderInfo($token) {
 		
 		//echo '<pre>';print_r($order_result[0]->order_id);exit;
 		
-		$payment_order = DB::select(DB::raw("SELECT * FROM payment_order WHERE order_id = '" .(int)$order_result[0]->order_id. "'"));
+		$payment_order		= DB::select(DB::raw("SELECT * FROM payment_order WHERE order_id = '" .(int)$order_result[0]->order_id. "'"));
+		$delivery_address	= DB::select(DB::raw("SELECT * FROM order_delivery_address WHERE order_id = '" .(int)$order_result[0]->order_id. "'"));
 		
+		
+		$cart_result = DB::select(DB::raw("SELECT * FROM cart_items WHERE order_id = '" . (int)$order_result[0]->order_id . "'"));
+		
+		$grand_total		= 0;
+		$total_cart_item	= 0;
+		$total_cart_amount  = 0;
+		
+		
+		
+		if($cart_result){
+			foreach ($cart_result as $cart) {
+				$stock = true;
+				$product_result = DB::select(DB::raw("SELECT p.* FROM item p WHERE p.item_id = '" . (int)$cart->product_id . "'"));
+				if ($product_result && ($cart->qnty > 0)) {
+					$option_price 	= 0;
+					$price = $product_result[0]->price;
+					// Product Discounts
+					$discount_quantity = 0;
+					// Stock
+					$stock = false;
+					
+					$grand_total=$grand_total+$cart->grand_total;
+					$total_cart_amount=$total_cart_amount+$cart->price;
+					$total_cart_item=$total_cart_item+$cart->qnty;
+					
+					
+					$merchant_info = DB::select(DB::raw("SELECT * FROM merchant WHERE user_id = '" . (int)$product_result[0]->merchant_id . "'"));
+					$product_data[] = array(
+						'cart_id'       => $cart->id,
+						'merchant_id'	=> $product_result[0]->merchant_id,
+						'merchant_name'	=> $merchant_info[0]->restaurant_name,
+						'product_id'	=> $product_result[0]->item_id,
+						'name'          => $product_result[0]->item_name,
+						'image'         => $product_result[0]->photo,
+						'method_id'     => $cart->method_type,
+						'size_id'       => $cart->size_id,
+						'notes'			=> $cart->notes,
+						'quantity'      => $cart->qnty,
+						'stock'         => $stock,
+						'price'         => $cart->price,
+						'total'         => $cart->total_price,
+						'grand_total'   => $cart->grand_total
+					);
+				}
+			}
+		}
 		
 		$result= array(
-				'order_info'				=> $order_result,
-				'payment_order'				=> $payment_order
-			);
+			'order_info'			=> $order_result,
+			'payment_order'			=> $payment_order,
+			'delivery_address'		=> $delivery_address,
+			'product_data'			=> $product_data,
+			'grand_total'			=> $grand_total,
+			'total_cart_item'		=> $total_cart_item,
+			'total_cart_amount'		=> $total_cart_amount,
+		);
+		
 		return $result;
 	}
 	

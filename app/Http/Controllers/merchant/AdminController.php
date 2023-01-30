@@ -90,61 +90,59 @@ class AdminController extends Controller {
         return view('admin.settings_form', compact('title','active','breadcumbs','data'));
     }
 	public function saveAdminSettings(Request $request){
-		$site_title 			= Input::get('site_title');
-		$meta_title 			= Input::get('meta_title');
-		$meta_keywords 			= Input::get('meta_keywords');
-		$meta_description 		= Input::get('meta_description');
-		$email 					= Input::get('email');
-		$admin_name 			= Input::get('admin_name');
-		$admin_email 			= Input::get('admin_email');
-		$password 				= Input::get('password');
 		
-		$IP = Helpers::get_ip();
 		$validator = Validator::make($request->all(), [
-			'site_title'	=> 'required|string|max:255',
-			'email' 		=> 'required|string|email|max:255',
+			'restaurant_name'	=> 'required|string|max:255',
+			'street' 			=> 'required|string|max:255',
         ]);
+		
+		$IP 				= Helpers::get_ip();
+		
 		if ($validator->fails()){
 			$errors=$validator->errors()->all();
 			$error_html='';
 			foreach($errors as $er){
 				$error_html .='<span>'.$er.'</span></br>';
 			}
-		   $return_data['success'] = 0;
-		   $return_data['error_message'] = $error_html;
-		   return response()->json([$return_data]);
+			
+		   Session::flash('success', $error_html);
+		   return redirect('merchant_admin/merchant/');
         }else{
 			$user_id = Session::get('adminId');
-			$email_check = Common::getSingelData($where=['email'=>$admin_email],$table='users',$data=['id'],'id','ASC');
-			if(!empty($email_check)){
-				if($email_check->id!=$user_id){
-					$return_data['error_message'] 	= 'Warning: Email already exists!';
-					$return_data['success']			= 0;
-					echo json_encode($return_data);exit;
-				}
+			
+			$merchantArr = [
+				'restaurant_name'			=> Input::post('restaurant_name'),
+				'restaurant_phone'			=> Input::post('restaurant_phone'),
+				'contact_name'				=> Input::post('contact_name'),
+				'contact_phone'				=> Input::post('contact_phone'),
+				'contact_email'				=> Input::post('contact_email'),
+				'country_code'				=> Input::post('country'),
+				'street'					=> Input::post('street'),
+				'address'					=> Input::post('street'),
+				'city'						=> Input::post('city'),
+				'state'						=> Input::post('state'),
+				'post_code'					=> Input::post('post_code'),
+				'latitude'					=> Input::post('lat'),
+				'lontitude'					=> Input::post('lng'),
+				'ip_address'				=> $IP,
+				'distance_unit'				=> Input::post('distance_unit'),
+				'delivery_distance_covered'	=> Input::post('delivery_distance_covered'),
+				'merchant_type'				=> Input::post('service'),
+				'created_at'				=> date('Y-m-d')
+		   ];
+		   
+		   Common::updateData($table="merchant", "user_id", $user_id, $merchantArr);
+		   
+		   
+		   $data_general=[];
+		   if(Input::post('password')!=''){
+			   $data_general['password']=Hash::make(Input::post('password'));
+			   Common::updateData($table="users", "id", $user_id, $data_general);
 			}
-			$data_general=array(
-				'name'				=> $admin_name,
-				'email'				=> $admin_email,
-				'IP'				=> $IP,
-				'updated_at'		=> date('Y-m-d H:i:s')
-			);
+			
+			Session::flash('success', 'Successfully Saved data.');
+			return redirect('merchant_admin/merchant/');
 		}
-		if($password!=''){
-			$data_general['password']=Hash::make($password);
-		}
-		
-		//print_r($data_general);exit;
-		Common::updateData($table="users", "id", $user_id, $data_general);
-		
-		
-		Common::updateData($table="site_settings", "option_name", "site_title", array('option_value'=>$site_title));
-		Common::updateData($table="site_settings", "option_name", "meta_title", array('option_value'=>$meta_title));
-		Common::updateData($table="site_settings", "option_name", "meta_keywords", array('option_value'=>$meta_keywords));
-		Common::updateData($table="site_settings", "option_name", "meta_description", array('option_value'=>$meta_description));
-		Common::updateData($table="site_settings", "option_name", "email", array('option_value'=>$email));
-		Session::flash('success', 'Successfully Saved data.');
-		return redirect('administrator/settings/');
 	}
 	
 	public function uploadImageRequest(Request $request){

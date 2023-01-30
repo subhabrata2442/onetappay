@@ -183,3 +183,7 @@ border-radius: .2rem;
 .bg-red, .callout.callout-danger, .alert-danger, .alert-error, .label-danger, .modal-danger .modal-body {
     background-color: #dd4b39 !important;
 }
+
+.error {
+    color: #f00;
+}

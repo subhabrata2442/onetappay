@@ -76,6 +76,7 @@ Route::prefix('profile')->name('profile.')->middleware('checkmemberauth')->group
 	//Route::get('/signup-success', 'front\MerchantController@success')->name('signup.success');
 	
 	Route::post('delete_address', 'front\UserController@delete_address');
+	Route::post('cancel_booking_table', 'front\UserController@cancel_booking_table');
 });
 
 

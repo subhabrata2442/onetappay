@@ -4,11 +4,34 @@
 <section class="order-success-sec">
   <div class="container-fluid left-right-gap">
     <div class="row justify-content-center">
-      <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
+      <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 col-sm-12 col-12">
         <div class="order-success"> <span class="success-icon"><i class="fa-solid fa-check"></i></span>
           <h3>Order successful</h3>
           <p>Thank you so much for your order.</p>
-          <table class="table table-striped">
+          <div class="row g-2 mt-3">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="order-user-details">
+                <p>Customer Name : <strong>{{$orderDetails['order_info'][0]->customer_name}}</strong></p>
+                <p>Customer Email : <strong>{{$orderDetails['order_info'][0]->customer_email}}</strong></p>
+                <p>Telephone : <strong>{{$orderDetails['order_info'][0]->customer_phone}}</strong></p>
+                <p>Reference # : <strong>{{$orderDetails['order_info'][0]->order_id_token}}</strong></p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="order-user-details">
+                <p>Merchant Name : <strong>{{$orderDetails['order_info'][0]->restaurant_name}}</strong></p>
+                <p>TRN Type : <strong>Delivery</strong></p>
+                <p>Payment Type : <strong>Stripe</strong></p>
+                <p>TRN Date : <strong>{{$orderDetails['order_info'][0]->created_at}}</strong></p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="order-user-details">
+                <p>Address : <strong>{{$orderDetails['delivery_address'][0]->street}}</strong></p>
+              </div>
+            </div>
+          </div>
+          {{-- <table class="table table-striped">
             <tbody>
               <tr>
                 <td>Customer Name</td>
@@ -47,7 +70,7 @@
                 <td class="text-right"> {{$orderDetails['order_info'][0]->created_at}}</td>
               </tr>
             </tbody>
-          </table>
+          </table> --}}
           <table class="table mb-0">
             <thead>
               <tr>

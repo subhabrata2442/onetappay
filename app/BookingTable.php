@@ -14,6 +14,10 @@ class BookingTable extends Model
     {
 		return $this->hasOne(Table::class,'id', 'table_id'); 
     }
+	public function merchant()
+    {
+		return $this->hasOne(Merchant::class,'user_id', 'merchant_id'); 
+    }
 	
 	
 	

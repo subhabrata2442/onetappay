@@ -46,7 +46,7 @@ class UserController extends Controller {
 		 $table_booking_history	= BookingTable::where('user_id',$user_id)->orderBy('id','DESC')->get();
 		 
 		 
-		 //echo '<pre>';print_r($table_booking_history);exit;
+		//echo '<pre>';print_r($table_booking_history[0]->merchant->restaurant_name);exit;
 		 
 		 
 		 

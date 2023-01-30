@@ -94,10 +94,10 @@ function updateCartItem(cart_id, qty) {
         type: 'post',
         dataType: 'json',
         beforeSend: function() {
-            //$(".preloader").fadeIn();
+            $(".preloader").fadeIn();
         },
         complete: function(data) {
-            //$(".preloader").fadeOut();
+            $(".preloader").fadeOut();
         },
         success: function(json) {
 			var page_id='';
@@ -152,10 +152,10 @@ function addtocart(id, mid, cid) {
         type: 'post',
         dataType: 'json',
         beforeSend: function() {
-            //$(".preloader").fadeIn();
+            $(".preloader").fadeIn();
         },
         complete: function(data) {
-            //$(".preloader").fadeOut();
+            $(".preloader").fadeOut();
         },
         success: function(json) {
 			$('.cart_items_section').html(json.html);
@@ -218,26 +218,30 @@ $(function() {
                 url: form.action,
                 type: form.method,
                 data: $(form).serialize(),
+                beforeSend: function() {
+                    $(".preloader").fadeIn();
+                },
+                complete: function(data) {
+                    $(".preloader").fadeOut();
+                },
                 success: function(response) {
-					
-					console.log(response);
-					
+                    console.log(response);
                     if (response[0].success == 0) {
                         //uk_msg(response[0].error_message);
-						swal("Error", response[0].message, "error");
+                        swal("Error", response[0].message, "error");
                     } else {
-						swal({
-						  title: 'Success',
-						  text: response[0].message,
-						  type: 'success',
-						  showConfirmButton:false,
-						  //confirmButtonText: 'Yes, delete it!'
-						});
-						
-						 setTimeout(function() {
-							 window.location.href = base_url + '/order-success?id='+response[0].token;
-							}, 2000); 
-                    }   
+                        swal({
+                            title: 'Success',
+                            text: response[0].message,
+                            type: 'success',
+                            showConfirmButton: false,
+                            //confirmButtonText: 'Yes, delete it!'
+                        });
+
+                        setTimeout(function() {
+                            window.location.href = base_url + '/order-success?id=' + response[0].token;
+                        }, 2000);
+                    }
                 }
             });
         }

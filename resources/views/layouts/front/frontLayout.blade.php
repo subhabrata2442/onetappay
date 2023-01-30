@@ -95,6 +95,10 @@
   </section>
 </footer>
 
+<div class="loader-wrap preloader" style="display:none;">
+        <div><span class="loader-14"></span></div>
+    </div>
+
 <script src="{{ asset('public/front/js/jquery-3.6.1.min.js') }}"></script> 
 <script src="{{ asset('public/front/js/bootstrap.js') }}"></script>
 <script src="{{ asset('public/front/js/owl.carousel.min.js') }}"></script>

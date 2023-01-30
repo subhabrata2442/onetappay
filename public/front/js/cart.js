@@ -100,6 +100,15 @@ function updateCartItem(cart_id, qty) {
             //$(".preloader").fadeOut();
         },
         success: function(json) {
+			var page_id='';
+			if($('#page_id').length>0){
+				page_id =$('#page_id').val();
+			}
+			if(page_id=='checkout'){
+				 location.reload();
+				 return false;
+			}
+			
             $('.total_cart_item_count').html(json.totalItem + ' Items');
             $('#grand_total-' + cart_id).html('$' + json.item_total_price);
 			
@@ -210,16 +219,28 @@ $(function() {
                 type: form.method,
                 data: $(form).serialize(),
                 success: function(response) {
+					
+					console.log(response);
+					
                     if (response[0].success == 0) {
-                        uk_msg(response[0].error_message);
+                        //uk_msg(response[0].error_message);
+						swal("Error", response[0].message, "error");
                     } else {
-                        uk_msg_sucess(response[0].success_message)
-                        /*setTimeout(function() {
-                            window.location.href = base_url + '/';
-                        }, 2000);*/
+						swal({
+						  title: 'Success',
+						  text: response[0].message,
+						  type: 'success',
+						  showConfirmButton:false,
+						  //confirmButtonText: 'Yes, delete it!'
+						});
+						
+						 setTimeout(function() {
+							 window.location.href = base_url + '/order-success?id='+response[0].token;
+							}, 2000); 
                     }   
                 }
             });
         }
     })
 });
+

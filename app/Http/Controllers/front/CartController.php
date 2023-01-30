@@ -375,7 +375,7 @@ class CartController extends Controller {
 						Common::updateData($table="cart_items",$uId = "ses_id", $cart_id, $data = ['is_order' =>'Y','order_id' =>$order_id]);
 						$return['success'] 	= 1;
 						$return['token'] 	= $token;
-						$return['message'] 	= 'Success';
+						$return['message'] 	= 'Your order has been place.';
 						
 						//print_r($return);exit;
 					}else{
@@ -408,8 +408,32 @@ class CartController extends Controller {
 				$orderDetails = Common::getOrderDetails($token);
 			}
 		}
+		
+		
+		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
+		$location		= isset($_GET['location'])?$_GET['location']:'';
+		
+		$city			= '';
+		
+		$cartinfo = Common::getCartProducts();
+		$total_cart_amount=0;
+		$total_cart_item=0;
+		$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
+		$grand_total		= 0;
+		$total_cart_item	= 0;
+		$total_cart_amount  = 0;
+		if($getCartTotal){
+			for($i=0;$i<count($getCartTotal);$i++){
+				$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
+			}
+			$total_cart_amount=number_format($grand_total,2,'.','');
+			$total_cart_item = count($getCartTotal);
+		}
+		
+		
+		
 				
-		return view('front.success_page', compact('title','breadcumbs','active','orderDetails'));
+		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city','cartinfo','total_cart_amount'));
 	}
 	
 	

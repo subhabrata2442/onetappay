@@ -195,16 +195,52 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
               <div class="card-header" role="tab" id="heading-C">
                 <h5 class="mb-0"> <a data-bs-toggle="collapse" href="#collapse-C" aria-expanded="true" aria-controls="collapse-C"> order history </a> </h5>
               </div>
-              <div id="collapse-C" class="collapse" data-bs-parent="#content" role="tabpanel"
-                                aria-labelledby="heading-C">
+              <div id="collapse-C" class="collapse" data-bs-parent="#content" role="tabpanel" aria-labelledby="heading-C">
                 <div class="card-body">
-                  <div class="row">
+                @if(count($cartinfo)>0)
+                  <div class="row address_book_sec">
+                    <table id="table_list" class="table table-striped dataTable" aria-describedby="table_list_info">
+                      <thead>
+                        <tr role="row">
+                          <th width="40%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Address: activate to sort column descending" style="width: 260px;">Image</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Location Name: activate to sort column ascending" style="width: 250px;">Name</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Quantity</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Unit Price	</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Total</th>
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="table_list" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 132px;">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                  
+                                                      <tr>
+                    
+                    <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="https://localhost/onetappay/public/upload/store/item/5954bcb006b10dbfd0bc160f6370faf3.jpeg"> </a> </div></td>
+                    <td class="text-start"><div class="crt-product-name"> <a href="javascript:;">Mandarin Wontons</a> </div></td>
+                    <td class="text-center">1</td>
+                    <td class="text-end text-nowrap">$11.95</td>
+                    <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">11.95</span></td>
+                  </tr>
+                                                      <tr>
+                    
+                    <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="https://localhost/onetappay/public/images/food.jpg"> </a> </div></td>
+                    <td class="text-start"><div class="crt-product-name"> <a href="javascript:;">Deep-Fried Wontons</a> </div></td>
+                    <td class="text-center">1</td>
+                    <td class="text-end text-nowrap">$7.95</td>
+                    <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">7.95</span></td>
+                  </tr>
+                                      </tbody>
+                      
+                    </table>
+                  </div>
+                @else
+                <div class="row">
                     <div class="col-12">
                       <div class="not-comments-wrap"> <i class="fa-solid fa-cart-shopping"></i>
                         <p>No order yet</p>
                       </div>
                     </div>
                   </div>
+                @endif
                 </div>
               </div>
             </div>

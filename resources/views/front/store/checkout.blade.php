@@ -5,6 +5,7 @@
 @php
 $country_code=isset($default_address_book->country_code)?$default_address_book->country_code:'';
 @endphp
+<input type="hidden" value="checkout" id="page_id" />
 <section class="cart-sec-page">
   <div class="container-fluid left-right-gap">
     <div class="row">
@@ -23,7 +24,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                 <table class="table mb-0">
                   <thead class="text-nowrap">
                     <tr>
-                      <th style="width: 50px;">Delete</th>
+                      <th style="width: 50px;">#</th>
                       <th>Image</th>
                       <th class="text-start">Name</th>
                       <th class="text-center">Quantity</th>
@@ -32,25 +33,27 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                     </tr>
                   </thead>
                   <tbody>
-                  
+                  @php $count=1;@endphp
                   @foreach($cartinfo as $cart)
                   @php
                   $item_img=Helpers::item_logo($cart['image']);
                   @endphp
                   <tr>
-                    <td><button type="button" class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></button></td>
+                  <td>{{$count}}</td>
+                    <!--<td><button type="button" class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></button></td>-->
                     <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="{{$item_img}}"> </a> </div></td>
                     <td class="text-start"><div class="crt-product-name"> <a href="javascript:;">{{$cart['name']}}</a> </div></td>
                     <td class="text-center"><div class="crt-product-qty2">
-                        <div class="d-flex qty-item-add align-items-center">
-                          <button type="button" class="qty-add sub controls2"><i class="fa-solid fa-minus"></i></button>
-                          <input type="number" class="form-control qty-show count qty qtyInput2" min="1" max="20" value="{{$cart['quantity']}}">
-                          <button type="button" class="qty-add add controls2" data-id="{{$cart['cart_id']}}"><i class="fa-solid fa-plus"></i></button>
+                        <div class="d-flex qty-item-add align-items-center priceControl">
+                          <button type="button" class="qty-add sub controls2" value="-" data-id="{{$cart['cart_id']}}"><i class="fa-solid fa-minus"></i></button>
+                          <input type="number" class="form-control qty-show count qty qtyInput2" min="1" max="20" data-max-lim="20" value="{{$cart['quantity']}}">
+                          <button type="button" class="qty-add add controls2" value="+" data-id="{{$cart['cart_id']}}"><i class="fa-solid fa-plus"></i></button>
                         </div>
                       </div></td>
                     <td class="text-end text-nowrap">${{$cart['price']}}</td>
                     <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">{{$cart['grand_total']}}</span></td>
                   </tr>
+                  @php $count++;@endphp
                   @endforeach
                     </tbody>
                   

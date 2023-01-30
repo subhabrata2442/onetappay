@@ -2604,9 +2604,18 @@ $breakpoints: (
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     border-radius: 0.2rem;
+}
+.bg-success{
     color: #fff;
 }
-
+.bg-yellow {
+    background-color: yellow;
+    color: #000;
+}
+.bg-red {
+    background-color: #f00;
+    color: #000;
+}
 
 
 

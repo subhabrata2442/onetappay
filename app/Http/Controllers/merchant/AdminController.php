@@ -99,6 +99,11 @@ class AdminController extends Controller {
 		$admin_email 			= Input::get('admin_email');
 		$password 				= Input::get('password');
 		
+		
+		print_r($_POST);exit;
+		
+		
+		
 		$IP = Helpers::get_ip();
 		$validator = Validator::make($request->all(), [
 			'site_title'	=> 'required|string|max:255',

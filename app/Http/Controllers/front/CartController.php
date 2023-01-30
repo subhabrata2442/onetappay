@@ -400,7 +400,8 @@ class CartController extends Controller {
 		
 		$token 		= Input::get('id');
 		
-		
+		Session::forget('order_token');
+		Session::forget('cart_id');
 		
 		$orderDetails = array();
 		if(isset($token)){
@@ -409,31 +410,15 @@ class CartController extends Controller {
 			}
 		}
 		
-		
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		$location		= isset($_GET['location'])?$_GET['location']:'';
 		
 		$city			= '';
 		
-		$cartinfo = Common::getCartProducts();
-		$total_cart_amount=0;
-		$total_cart_item=0;
-		$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
-		$grand_total		= 0;
-		$total_cart_item	= 0;
-		$total_cart_amount  = 0;
-		if($getCartTotal){
-			for($i=0;$i<count($getCartTotal);$i++){
-				$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
-			}
-			$total_cart_amount=number_format($grand_total,2,'.','');
-			$total_cart_item = count($getCartTotal);
-		}
 		
-		
-		
-				
-		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city','cartinfo','total_cart_amount'));
+		//echo '<pre>';print_r($orderDetails);exit;
+			
+		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city'));
 	}
 	
 	

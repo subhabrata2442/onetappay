@@ -138,6 +138,7 @@ Route::group(['middleware' => ['checkmerchantauth']], function () {
 	
 	# Dashboard
     Route::get('merchant_admin/merchant', 'merchant\AdminController@merchant_settings');
+	Route::post('merchant_admin/settings/save', 'merchant\AdminController@saveAdminSettings');
 	
 	
 	

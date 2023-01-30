@@ -76,20 +76,20 @@
               <div class="form-group">
                 <label>Pick Up or Delivery?</label>
                 <select class="form-control" data-validation="required" name="service" id="service">
-                  <option value="1">Delivery &amp; Pickup</option>
-                  <option value="2">Delivery Only</option>
-                  <option value="3">Pickup Only</option>
-                  <option value="4">Delivery / Pickup / Dinein</option>
-                  <option value="5">Delivery &amp; Dinein</option>
-                  <option value="6">Pickup &amp; Dinein</option>
-                  <option value="7">Dinein Only</option>
+                  <option value="1" {{ ( 1 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery &amp; Pickup</option>
+                  <option value="2" {{ ( 2 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery Only</option>
+                  <option value="3" {{ ( 3 == $merchant_info->merchant_type) ? 'selected' : '' }}>Pickup Only</option>
+                  <option value="4" {{ ( 4 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery / Pickup / Dinein</option>
+                  <option value="5" {{ ( 5 == $merchant_info->merchant_type) ? 'selected' : '' }}>Delivery &amp; Dinein</option>
+                  <option value="6" {{ ( 6 == $merchant_info->merchant_type) ? 'selected' : '' }}>Pickup &amp; Dinein</option>
+                  <option value="7" {{ ( 7 == $merchant_info->merchant_type) ? 'selected' : '' }}>Dinein Only</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Distance unit</label>
                 <select class="form-control" name="distance_unit" id="distance_unit" required="required">
                   <option value="mi" {{ ( 'mi' == $merchant_info->distance_unit) ? 'selected' : '' }}>Miles</option>
-                  <option value="km"> {{ ( 'km' == $merchant_info->distance_unit) ? 'selected' : '' }}Kilometers</option>
+                  <option value="km" {{ ( 'km' == $merchant_info->distance_unit) ? 'selected' : '' }}>Kilometers</option>
                 </select>
               </div>
             </div>
@@ -127,8 +127,8 @@
               <div class="form-group">
                 <label>Street address</label>
                 <input type="text" name="street" id="street" class="form-control" placeholder="Enter a location" value="{{$merchant_info->street}}" required="required">
-                <input type="hidden" name="lat" id="lat">
-                <input type="hidden" name="lng" id="lng">
+                <input type="hidden" name="lat" id="lat" value="{{$merchant_info->latitude}}">
+                <input type="hidden" name="lng" id="lng" value="{{$merchant_info->lontitude}}">
               </div>
             </div>
             <div class="col-md-3">

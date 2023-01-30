@@ -187,3 +187,14 @@ border-radius: .2rem;
 .error {
     color: #f00;
 }
+.order-details-ftr .qty-number{
+	padding-right: 0.9rem;
+}
+.order-details-ftr .product-type-name h6,
+.order-details-ftr .qty-number h6,
+.order-details-ftr .prod-name h6{
+	margin-bottom: 0;
+}
+.marcheny-allorder-details-table tr td{
+	padding: 0.2rem 0.5rem;
+}

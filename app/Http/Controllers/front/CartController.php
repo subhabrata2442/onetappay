@@ -26,11 +26,11 @@ use DB;
 class CartController extends Controller {
 	
 	public function checkout(){
-		$title='checkout';
-		$breadcumbs='checkout';
-		$active='checkout';
+		$title		='checkout';
+		$breadcumbs	='checkout';
+		$active		='checkout';
 		
-		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
+		$restaurent		= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		$location		= isset($_GET['location'])?$_GET['location']:'';
 		
 		$city			= '';
@@ -54,13 +54,16 @@ class CartController extends Controller {
 		$default_address_book 	= AddressBook::where('user_id',$user_id)->where('as_default',1)->first();
 		$countrie				= Countrie::All();
 		
+		$merchant_id	= Session::get('cart_merchant_id');
+		$merchant_info	= Common::get_merchant_data($merchant_id);
+		
 		
 		
 		//$img=Helpers::item_logo('');
 		
-		//echo '<pre>';print_r($cartinfo);exit;
+		//echo '<pre>';print_r($merchant_info['merchant_name']);exit;
 		
-		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','location','city','cartinfo','total_cart_item','total_cart_amount','default_address_book','countrie'));
+		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','merchant_info','location','city','cartinfo','total_cart_item','total_cart_amount','default_address_book','countrie'));
 	}
 	
 	
@@ -260,7 +263,7 @@ class CartController extends Controller {
 			'ip_address'			=> $IP,
 			'order_id_token'		=> $token,
 			'payment_status' 		=> 0,	
-			'order_status' 			=> 1,	
+			'order_status' 			=> 0,	
 			'user_id' 				=> $user_id,
 			'customer_email' 		=> $user_info->email,
 			'customer_name' 		=> $user_info->first_name.' '.$user_info->last_name,
@@ -373,6 +376,8 @@ class CartController extends Controller {
 						
 						Session::put('last_order_token', $token);
 						Common::updateData($table="cart_items",$uId = "ses_id", $cart_id, $data = ['is_order' =>'Y','order_id' =>$order_id]);
+						Common::updateData($table="order",$uId = "order_id", $order_id, $data = ['payment_status' =>1,'order_status' =>1]);
+						
 						$return['success'] 	= 1;
 						$return['token'] 	= $token;
 						$return['message'] 	= 'Your order has been place.';

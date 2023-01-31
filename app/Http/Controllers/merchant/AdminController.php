@@ -12,6 +12,13 @@ use App\Merchant;
 use App\Item;
 use App\Category;
 use App\Countrie;
+use App\Table;
+use App\Subcategory;
+use App\SubcategoryItem;
+use App\BookingTable;
+use App\Order;
+
+
 
 use Input;
 use Session;
@@ -45,8 +52,8 @@ class AdminController extends Controller {
 		$param = array();
 		
 		
-		
-		$totalOrders	= 0;//Merchant::count();
+		$merchant_id = Auth::id();
+		$totalOrders	= Order::where('merchant_id',$merchant_id)->where('order_status',1)->orderBy('order_id','DESC')->count();
         return view('merchant.dashboard', compact('title','breadcumbs','active','totalOrders'));
     }
 	

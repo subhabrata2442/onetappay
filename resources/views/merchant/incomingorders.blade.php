@@ -67,7 +67,7 @@
                     <td>{{$order_list[0]->cartItems->count()}}</td>
                     <td>Delivery</td>
                     <td>Stripe</td>
-                    <td>{{ $row->gross_total }}</td>
+                    <td>${{ number_format($row->gross_total,2) }}</td>
                     <td>@if($row->status=='pending')<span class="label bg-yellow">Pending</span> @elseif($row->status=='cancel')<span class="label bg-red">Canceled</span>@else<span class="label bg-success">Accepted</span>@endif</td>
                     <td><a href="javascript:;" class="btn btn-success btn-sm edit_btn" data-toggle="tooltip" title="Edit" data-order_id="{{$row->order_id}}" data-status="{{$row->status}}"><i class="fa fa-edit"></i></a> <a href="javascript:;" class="btn btn-success btn-sm view_receipt_btn"  data-order_id="{{$row->order_id_token}}" data-toggle="tooltip" title="View"><i class="fa fa-eye"></i></a></td>
                     <td>{{ $row->created_at }}</td>

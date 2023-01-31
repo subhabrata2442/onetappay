@@ -34,7 +34,7 @@ class OrderController extends Controller {
         $active 		= "incomingorders";
 		
 		$merchant_id = Auth::id();
-		$order_list	= Order::where('merchant_id',$merchant_id)->orderBy('order_id','DESC')->get();
+		$order_list	= Order::where('merchant_id',$merchant_id)->where('order_status',1)->orderBy('order_id','DESC')->get();
 		
 		//echo '<pre>';print_r($order_list);exit;
 		

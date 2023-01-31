@@ -37,11 +37,11 @@ class StoreController extends Controller {
 		 $location		= isset($_GET['location'])?$_GET['location']:'';
 		 //$city			= $this->get_city($location);
 		 
-		 $store_info 	= Merchant::where('restaurant_slug',$store_slug)->first();
+		 $store_info 			= Merchant::where('restaurant_slug',$store_slug)->first();
 		 $merchant_item_list 	= Item::where('merchant_id',$store_info->user_id)->orderBy('category_id','asc')->get();
-		 $category_list = Category::where('merchant_id',$store_info->user_id)->orderBy('cat_id','asc')->get();
-		 $store_id		= $store_info->user_id;	
-		 $city			= $store_info->city;
+		 $category_list 		= Category::where('merchant_id',$store_info->user_id)->orderBy('cat_id','asc')->get();
+		 $store_id				= $store_info->user_id;	
+		 $city					= $store_info->city;
 		 
 		 $time_slots 	= TimeSlots::where('status',1)->get();
 		 $total_time_slot=count($time_slots);
@@ -55,6 +55,7 @@ class StoreController extends Controller {
 			 $items=[];
 			 $item_result 	= Item::where('merchant_id',$store_info->user_id)->where('category_id',$c_row->cat_id)->orderBy('item_id','asc')->get();
 			 foreach($item_result as $row){
+				 $photo=Helpers::item_thumb($row->photo);
 				 $items[]=array(
 				 	'item_id'			=> $row->item_id,
 				 	'item_name'			=> $row->item_name,
@@ -62,7 +63,7 @@ class StoreController extends Controller {
 					'item_description'	=> $row->item_description,
 					'price'				=> $row->price,
 					'tag'				=> $row->tag,
-					'photo'				=> $row->photo,
+					'photo'				=> $photo,
 				 );
 			 }
 			 
@@ -72,6 +73,10 @@ class StoreController extends Controller {
 				'items'			=> $items
 			 );
 		 }
+		 
+		 //echo '<pre>';print_r($item_list);exit;
+		 
+		 
 		 /*$calendar = new Calendar;
          $calendar->create();*/
 		 
@@ -179,7 +184,7 @@ class StoreController extends Controller {
 		$checkout_url	= url('checkout/');
 		$store_table	= Table::where('merchant_id',$store_info->user_id)->get();
 		
-		//echo '<pre>';print_r($merchant_item_list);exit;
+		//echo '<pre>';print_r($item_list);exit;
 		
 		
 		

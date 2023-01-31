@@ -9,18 +9,19 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
 <section class="cart-sec-page">
   <div class="container-fluid left-right-gap">
     <div class="row">
+      @if(count($cartinfo)>0)
       <div class="col-12">
         <div class="sec-wrap-heading">
-          <h3>Cart Items</h3>
+          <h3><a class="cmn-abtn2" href="{{url('/store/'.$merchant_info['restaurant_slug'])}}"><i class="fa-solid fa-reply"></i>back</a> {{$merchant_info['merchant_name']}}</h3>
         </div>
       </div>
-      @if(count($cartinfo)>0)
       <form class="forms has-validation-callback" action="{{route('order_place.save')}}" method="POST" id="order_place_form" onsubmit="return false;">
         @csrf
         <div class="col-12">
           <div class="row g-4">
             <div class="col-lg-8 col-md-8 col-sm-12 col-12">
               <div class="table-responsive cart-list-wrap code-box-wrap">
+                <h4>Cart Items</h4>
                 <table class="table mb-0">
                   <thead class="text-nowrap">
                     <tr>
@@ -36,7 +37,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                   @php $count=1;@endphp
                   @foreach($cartinfo as $cart)
                   @php
-                  $item_img=Helpers::item_logo($cart['image']);
+                  $item_img=Helpers::item_thumb($cart['image']);
                   @endphp
                   <tr>
                   <td>{{$count}}</td>

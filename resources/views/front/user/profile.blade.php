@@ -231,12 +231,23 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                         @foreach($order_history as $order_row)
                         <tr>
                           <td>{{$count}}</td>
-                          <td><button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$order_row->order_id}}" aria-expanded="false" aria-controls="flush-collapse{{$order_row->order_id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$order_row->order_id_token}}</button></td>
+                          <td>@if($order_row->order_status==1)
+                          <button class="toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$order_row->order_id}}" aria-expanded="false" aria-controls="flush-collapse{{$order_row->order_id}}"> <i class="fa-solid fa-chevron-down"></i> #{{$order_row->order_id_token}}</button>
+                           @else
+                           #{{$order_row->order_id_token}}
+                           @endif
+                          </td>
                           <td>{{$order_row->created_at}}</td>
                           <td>{{$order_row->merchant_info->restaurant_name}}</td>
                           <td>${{$order_row->gross_total}}</td>
                           <td>{{$order_row->payment_type}}</td>
-                          <td>@if($order_row->status=='pending')<span class="label order-status bg-yellow">Pending</span> @elseif($order_row->status=='cancel')<span class="label order-status bg-red">Canceled</span>@else<span class="label order-status bg-success">Accepted</span>@endif</td>
+                          <td>
+                          @if($order_row->order_status==1)
+                          	@if($order_row->status=='pending')<span class="label order-status bg-yellow">Pending</span> @elseif($order_row->status=='cancel')<span class="label order-status bg-red">Canceled</span>@else<span class="label order-status bg-success">Accepted</span>@endif
+                          @else
+                          <span class="label order-status bg-red">Payment failed</span>
+                          @endif
+                          </td>
                         </tr>
                         <tr>
                           <td colspan="7" class="details-wrap">

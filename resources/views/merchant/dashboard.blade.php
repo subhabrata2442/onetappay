@@ -36,14 +36,14 @@
               <p>Total Orders</p>
             </div>
             <div class="icon"> <i class="ion ion-bag"></i> </div>
-            <a href="{{url('merchant_admin/orders/history')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
+            <a href="{{url('merchant_admin/incomingorders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
           <div class="small-box bg-success">
             <div class="inner">
               <h3>0</h3>
-              <p>Total Cancel</p>
+              <p>Total Table Booking</p>
             </div>
             <div class="icon"> <i class="ion ion-stats-bars"></i> </div>
             <a href="{{url('merchant_admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
@@ -53,7 +53,7 @@
           <div class="small-box bg-warning">
             <div class="inner">
               <h3>0</h3>
-              <p>Total refund</p>
+              <p>Total Item</p>
             </div>
             <div class="icon"> <i class="ion ion-person-add"></i> </div>
             <a href="{{url('merchant_admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
@@ -63,7 +63,7 @@
           <div class="small-box bg-danger">
             <div class="inner">
               <h3>0</h3>
-              <p>Total Sales</p>
+              <p>Total Category</p>
             </div>
             <div class="icon"> <i class="ion ion-pie-graph"></i> </div>
             <a href="{{url('merchant_admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>

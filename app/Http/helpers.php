@@ -122,7 +122,7 @@ class Helpers{
 	
 	
 	public static function item_thumb($path){
-		return $path && file_exists('public/upload/image/180_180/'.$path) ? asset('public/upload/image/180_180/'.$path.'?v='.time()) : asset('public/backoffice/images/no_image-150x150.png');
+		return $path && file_exists('public/upload/image/180_180/'.$path) ? asset('public/upload/image/180_180/'.$path.'?v='.time()) : asset('public/images/food.jpg');
 	}
 	
 	public static function get_product($product_id){

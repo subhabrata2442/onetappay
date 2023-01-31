@@ -245,9 +245,9 @@ class FoodController extends Controller {
 		return view('merchant.food.sub-category-form', compact('title','active','breadcumbs','data'));
     }
 	public function sub_category_update($id){
-		$title 			= "Edit Category";
-        $breadcumbs 	= "Edit Category";
-        $active 		= "category";
+		$title 			= "Edit Sub Category";
+        $breadcumbs 	= "Edit Sub Category";
+        $active 		= "addon_category";
 		$merchant_id 	= Auth::id();
 		$data 			= Subcategory::where('subcat_id',$id)->where('merchant_id',$merchant_id)->first();
 		//echo '<pre>';print_r($data);exit;
@@ -380,6 +380,7 @@ class FoodController extends Controller {
 				$subcategoryItem->photo 			= $image;
 				$subcategoryItem->status 			= $status;
     			$subcategoryItem->save();
+				
 			}
 			Session::flash('success', 'Successfully Saved data.');
 		}

@@ -26,11 +26,11 @@ use DB;
 class CartController extends Controller {
 	
 	public function checkout(){
-		$title='checkout';
-		$breadcumbs='checkout';
-		$active='checkout';
+		$title		='checkout';
+		$breadcumbs	='checkout';
+		$active		='checkout';
 		
-		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
+		$restaurent		= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		$location		= isset($_GET['location'])?$_GET['location']:'';
 		
 		$city			= '';
@@ -54,13 +54,16 @@ class CartController extends Controller {
 		$default_address_book 	= AddressBook::where('user_id',$user_id)->where('as_default',1)->first();
 		$countrie				= Countrie::All();
 		
+		$merchant_id	= Session::get('cart_merchant_id');
+		$merchant_info	= Common::get_merchant_data($merchant_id);
+		
 		
 		
 		//$img=Helpers::item_logo('');
 		
-		//echo '<pre>';print_r($cartinfo);exit;
+		//echo '<pre>';print_r($merchant_info['merchant_name']);exit;
 		
-		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','location','city','cartinfo','total_cart_item','total_cart_amount','default_address_book','countrie'));
+		return view('front.store.checkout', compact('title','breadcumbs','active','restaurent','merchant_info','location','city','cartinfo','total_cart_item','total_cart_amount','default_address_book','countrie'));
 	}
 	
 	

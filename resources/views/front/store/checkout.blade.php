@@ -9,12 +9,12 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
 <section class="cart-sec-page">
   <div class="container-fluid left-right-gap">
     <div class="row">
+      @if(count($cartinfo)>0)
       <div class="col-12">
         <div class="sec-wrap-heading">
-          <h3><a class="cmn-abtn2" href="{{'/'}}"><i class="fa-solid fa-reply"></i>back</a> Indian resturent</h3>
+          <h3><a class="cmn-abtn2" href="{{url('/store/'.$merchant_info['restaurant_slug'])}}"><i class="fa-solid fa-reply"></i>back</a> {{$merchant_info['merchant_name']}}</h3>
         </div>
       </div>
-      @if(count($cartinfo)>0)
       <form class="forms has-validation-callback" action="{{route('order_place.save')}}" method="POST" id="order_place_form" onsubmit="return false;">
         @csrf
         <div class="col-12">

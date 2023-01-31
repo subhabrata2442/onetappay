@@ -595,12 +595,13 @@ public static function getOrderInfo($token) {
 	
 	public static function get_merchant_data($merchant_id) {
 		$result	= array();
-		$merchant_result = DB::select(DB::raw("SELECT M.restaurant_name,U.name,U.email FROM merchant M LEFT JOIN users as U on M.user_id = U.id WHERE M.merchant_id = '" .(int)$merchant_id. "' ORDER BY M.merchant_id ASC"));
+		$merchant_result = DB::select(DB::raw("SELECT M.restaurant_name,M.restaurant_slug,U.name,U.email FROM merchant M LEFT JOIN users as U on M.user_id = U.id WHERE M.user_id = '" .(int)$merchant_id. "' ORDER BY M.merchant_id ASC"));
 		
 		if(!empty($merchant_result)){
 			$result = array(
 				'merchant_id'		=> $merchant_id,
 				'merchant_name'		=> $merchant_result[0]->restaurant_name,
+				'restaurant_slug'	=> $merchant_result[0]->restaurant_slug,
 				'merchant_email'	=> $merchant_result[0]->email,
 			);
 		}

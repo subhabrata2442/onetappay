@@ -230,6 +230,8 @@ class AjaxController extends Controller {
 			
 			$orderDetails = Common::getOrderDetails($order_id);
 			
+			//echo '<pre>';print_r($orderDetails);exit;
+			
 			
 			$html='<table class="table table-borderless marcheny-allorder-details-table"><tbody><tr><td scope="col">Name :</td><td class="text-right">'.$orderDetails['order_info'][0]->customer_name.'</td></tr><tr><td scope="col">Telephone :</td><td class="text-right">'.$orderDetails['order_info'][0]->customer_phone.'</td></tr><tr><td scope="col">TRN Type :</td><td class="text-right">Delivery</td></tr><tr><td scope="col">Payment Type :</td><td class="text-right">'.$orderDetails['order_info'][0]->payment_type.'</td></tr><tr><td scope="col">Reference # :</td><td class="text-right">'.$orderDetails['order_info'][0]->order_id_token.'</td></tr><tr><td scope="col">TRN Date :</td><td class="text-right">'.$orderDetails['order_info'][0]->created_at.'</td></tr><tr><td scope="col">Location Name :</td><td class="text-right">'.$orderDetails['delivery_address'][0]->street.'</td></tr><tr><td scope="col">Contact Number :</td><td class="text-right">'.$orderDetails['delivery_address'][0]->contact_phone.'</td></tr><tr><td scope="col">zipcode :</td><td class="text-right">'.$orderDetails['delivery_address'][0]->zipcode.'</td></tr><tr><td colspan="2">Address :<p>'.$orderDetails['delivery_address'][0]->city.' '.$orderDetails['delivery_address'][0]->state.'</p></td></tr>';
 			
@@ -246,7 +248,7 @@ class AjaxController extends Controller {
                       </div>
                     </div>
                   </td>
-                  <td class="text-right">$'.$cart['grand_total'].'</td>
+                  <td class="text-right">$'.number_format($cart['grand_total'],2).'</td>
                 </tr>';
 			}
 			
@@ -256,7 +258,7 @@ class AjaxController extends Controller {
               <tfoot style="border-top: 1px solid;">
                 <tr>
                   <td>Sub Total</td>
-                  <td class="text-right">$'.$orderDetails['grand_total'].'</td>
+                  <td class="text-right">$'.number_format($orderDetails['grand_total'],2).'</td>
                 </tr>
                 <tr>
                   <td>Delivery Fee</td>
@@ -264,7 +266,7 @@ class AjaxController extends Controller {
                 </tr>
                 <tr>
                   <td>Total</td>
-                  <td class="text-right">$'.$orderDetails['grand_total'].'</td>
+                  <td class="text-right">$'.number_format($orderDetails['grand_total'],2).'</td>
                 </tr>
               </tfoot>
             </table>';

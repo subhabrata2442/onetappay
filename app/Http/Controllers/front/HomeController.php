@@ -79,9 +79,9 @@ class HomeController extends Controller {
 		//$city		= $this->get_city($location);
 		
 		$search_city=$location;
-		if($city!=''){
+		/*if($city!=''){
 			$search_city=$city;
-		}
+		}*/
 		
 		//print_r($search_city);exit;
 		

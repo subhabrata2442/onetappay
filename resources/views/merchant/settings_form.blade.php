@@ -98,6 +98,20 @@
       </div>
       <div class="card card-default">
         <div class="card-header with-border">
+          <h3 class="card-title">Logo</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group"> <a href="javascript:;" class="preview fetch_image"id="thumb-image"><img src="{{ $thumb_logo ?? '' }}" alt="{{ $thumb_logo ?? '' }}" width="150px"></a>
+                <input type="hidden" name="site_logo" value="{{ $logo ?? '' }}" id="input-image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card-default">
+        <div class="card-header with-border">
           <h3 class="card-title">Login Information</h3>
         </div>
         <div class="card-body">
@@ -170,7 +184,7 @@
       {!! Form::close() !!} </div>
   </section>
 </div>
-<div style="display:none;"> {{ Form::open(['route' => ['logo.save'],'class' => 'form-image-upload','id' => 'form-image-upload','files' => true]) }}
+<div style="display:none;"> {{ Form::open(['route' => ['merchant_logo.save'],'class' => 'form-image-upload','id' => 'form-image-upload','files' => true]) }}
   <input name="upload_photo" id="upload_photo" style="display:none" onchange="preview_image(this.files)" type="file">
   </form>
 </div>
@@ -180,11 +194,6 @@
 @push('scripts')
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo"></script> 
-
-<!-- summernote -->
-<link rel="stylesheet" href="{{ asset('public/front/plugins/summernote/summernote-bs4.min.css') }}">
-<!-- Summernote --> 
-<script src="{{ asset('public/front/plugins/summernote/summernote-bs4.min.js') }}"></script> 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> 
 <script>
 
@@ -304,12 +313,12 @@ $(document).ready(function() {
 </script> 
 <script>
 $(function() {
-	$('#rules').summernote({
+	/*$('#rules').summernote({
 		height: 350
 	});
 	$('#add_balance_message').summernote({
 		height: 350
-	});
+	});*/
 });
 
 $(function() {

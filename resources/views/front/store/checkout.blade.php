@@ -11,7 +11,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
     <div class="row">
       <div class="col-12">
         <div class="sec-wrap-heading">
-          <h3>Cart Items</h3>
+          <h3><a class="cmn-abtn2" href="{{'/'}}"><i class="fa-solid fa-reply"></i>back</a> Indian resturent</h3>
         </div>
       </div>
       @if(count($cartinfo)>0)
@@ -21,6 +21,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
           <div class="row g-4">
             <div class="col-lg-8 col-md-8 col-sm-12 col-12">
               <div class="table-responsive cart-list-wrap code-box-wrap">
+                <h4>Cart Items</h4>
                 <table class="table mb-0">
                   <thead class="text-nowrap">
                     <tr>

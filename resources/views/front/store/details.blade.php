@@ -420,10 +420,10 @@
                             <h5>$ {{$row['price']}}</h5>
                           </div>
                     </div>
-                        <p>Cubes of chicken tikka, folded in a creamy tomato sauce. Gluten free. Cubes of chicken tikka, folded in a creamy tomato sauce. </p>
+                        <p>{{$row['item_description']}}</p>
                       </div>
                 </div>
-                    <div class="hotel-pick-list-rgt position-relative"> <img class="img-block" src="{{ asset('public/front/images/hotels/img1.jpg')}}" alt=""> <span class="pick-add-wrap"> <a class="pick-add-btn" href="javascript:;" onclick="addtocart('{{$row['item_id']}}','{{$store_id}}','{{$c_row['cat_id']}}')">add<i class="fa-solid fa-plus"></i></a> </span> </div>
+                    <div class="hotel-pick-list-rgt position-relative"> <img class="img-block" src="{{$row['photo']}}" alt=""> <span class="pick-add-wrap"> <a class="pick-add-btn" href="javascript:;" onclick="addtocart('{{$row['item_id']}}','{{$store_id}}','{{$c_row['cat_id']}}')">add<i class="fa-solid fa-plus"></i></a> </span> </div>
                   </div>
               @endforeach
               @endif </div>

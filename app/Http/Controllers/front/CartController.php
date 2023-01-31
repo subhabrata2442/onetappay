@@ -260,7 +260,7 @@ class CartController extends Controller {
 			'ip_address'			=> $IP,
 			'order_id_token'		=> $token,
 			'payment_status' 		=> 0,	
-			'order_status' 			=> 1,	
+			'order_status' 			=> 0,	
 			'user_id' 				=> $user_id,
 			'customer_email' 		=> $user_info->email,
 			'customer_name' 		=> $user_info->first_name.' '.$user_info->last_name,
@@ -373,6 +373,8 @@ class CartController extends Controller {
 						
 						Session::put('last_order_token', $token);
 						Common::updateData($table="cart_items",$uId = "ses_id", $cart_id, $data = ['is_order' =>'Y','order_id' =>$order_id]);
+						Common::updateData($table="order",$uId = "order_id", $order_id, $data = ['payment_status' =>1,'order_status' =>1]);
+						
 						$return['success'] 	= 1;
 						$return['token'] 	= $token;
 						$return['message'] 	= 'Your order has been place.';

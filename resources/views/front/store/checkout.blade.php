@@ -36,7 +36,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                   @php $count=1;@endphp
                   @foreach($cartinfo as $cart)
                   @php
-                  $item_img=Helpers::item_logo($cart['image']);
+                  $item_img=Helpers::item_thumb($cart['image']);
                   @endphp
                   <tr>
                   <td>{{$count}}</td>

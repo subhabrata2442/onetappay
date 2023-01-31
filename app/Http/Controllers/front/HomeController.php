@@ -76,8 +76,7 @@ class HomeController extends Controller {
 		$location	= isset($_GET['location'])?$_GET['location']:'';
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		
-		//$city		= $this->get_city($location);
-		
+		$city		= $this->get_city($location);
 		$search_city=$location;
 		if($city!=''){
 			$search_city=$city;

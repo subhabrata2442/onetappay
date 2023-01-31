@@ -332,7 +332,7 @@ $tab=isset($_GET['tab'])?$_GET['tab']:1;
                           <td>{{$table_booking_row->time_slot}}</td>
                           <td>{{$table_booking_row->merchant->restaurant_name}}</td>
                           <td>{{$table_booking_row->total_person}}</td>
-                          <td>@if($table_booking_row->status==1)<span class="label bg-yellow">Pending</span> @elseif($table_booking_row->status==0)<span class="label bg-red">Canceled</span>@else<span class="label bg-success">Booked</span>@endif</td>
+                          <td>@if($table_booking_row->status==1)<span class="label order-status bg-yellow">Pending</span> @elseif($table_booking_row->status==0)<span class="label order-status bg-red">Canceled</span>@else<span class="label order-status bg-success">Booked</span>@endif</td>
                           <td> @if($table_booking_row->status==1) <a href="javascript:;" class="btn btn-danger btn-sm request_cancel_booking" data-toggle="tooltip" title="Cancel booking" data-booking_id="{{$table_booking_row->id}}">Cancel booking</a> @endif </td>
                         </tr>
                         <tr>

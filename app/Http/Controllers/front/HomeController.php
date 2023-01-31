@@ -98,10 +98,29 @@ class HomeController extends Controller {
 		}
 		
 		$store_list=$query_store_list->orderBy('merchant_id', 'desc')->get();
+		
+		
+		$cartinfo = Common::getCartProducts();
+		$total_cart_amount=0;
+		$total_cart_item=0;
+		$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
+		$grand_total		= 0;
+		$total_cart_item	= 0;
+		$total_cart_amount  = 0;
+		if($getCartTotal){
+			for($i=0;$i<count($getCartTotal);$i++){
+				$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
+			}
+			$total_cart_amount=number_format($grand_total,2,'.','');
+			$total_cart_item = count($getCartTotal);
+		}
+		
+		
+		
 		 
 		//echo '<pre>';print_r($store_list);exit;
 		
-		return view('front.search', compact('title','category_list','store_list','city','location','restaurent'));
+		return view('front.search', compact('title','category_list','store_list','city','location','restaurent','cartinfo','total_cart_amount','total_cart_item'));
     }
 	
 	

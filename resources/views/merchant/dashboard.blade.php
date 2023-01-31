@@ -42,32 +42,32 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>0</h3>
+              <h3>{{$totalTableOrders}}</h3>
               <p>Total Table Booking</p>
             </div>
             <div class="icon"> <i class="ion ion-stats-bars"></i> </div>
-            <a href="{{url('merchant_admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
+            <a href="{{url('merchant_admin/food/table_booking')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>0</h3>
+              <h3>{{$totalItem}}</h3>
               <p>Total Item</p>
             </div>
             <div class="icon"> <i class="ion ion-person-add"></i> </div>
-            <a href="{{url('merchant_admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
+            <a href="{{url('merchant_admin/food/items')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>0</h3>
+              <h3>{{$totalCategory}}</h3>
               <p>Total Category</p>
             </div>
             <div class="icon"> <i class="ion ion-pie-graph"></i> </div>
-            <a href="{{url('merchant_admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
-        </div>
+            <a href="{{url('merchant_admin/food/category')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> </div>
+        </div> 
         <!-- ./col --> 
         
       </div>

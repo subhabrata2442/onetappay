@@ -52,9 +52,13 @@ class AdminController extends Controller {
 		$param = array();
 		
 		
-		$merchant_id = Auth::id();
-		$totalOrders	= Order::where('merchant_id',$merchant_id)->where('order_status',1)->orderBy('order_id','DESC')->count();
-        return view('merchant.dashboard', compact('title','breadcumbs','active','totalOrders'));
+		$merchant_id 		= Auth::id();
+		$totalOrders		= Order::where('merchant_id',$merchant_id)->where('order_status',1)->count();
+		$totalTableOrders	= BookingTable::where('merchant_id',$merchant_id)->count();
+		$totalItem			= Item::where('merchant_id',$merchant_id)->count();
+		$totalCategory		= Category::where('merchant_id',$merchant_id)->count();
+		
+        return view('merchant.dashboard', compact('title','breadcumbs','active','totalOrders','totalTableOrders','totalItem','totalCategory'));
     }
 	
 	public function merchant_settings(){

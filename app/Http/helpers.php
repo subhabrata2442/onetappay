@@ -86,6 +86,10 @@ class Helpers{
 	public static function admin_logo($path){
 		return $path && file_exists('public/upload/logo/'.$path) ? asset('public/upload/logo/'.$path.'?v='.time()) : asset('public/images/avatar-default.png');
 	}
+	
+	public static function merchant_logo($path){
+		return $path && file_exists('public/upload/logo/thumb/'.$path) ? asset('public/upload/logo/thumb/'.$path.'?v='.time()) : asset('public/images/no_logo.jpg');
+	}
 		
 	public static function website_main_image($path){
 		return $path && file_exists('public/upload/logo/original/'.$path) ? asset('public/upload/logo/original/'.$path.'?v='.time()) : '';

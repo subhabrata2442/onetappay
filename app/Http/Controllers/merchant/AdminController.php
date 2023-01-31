@@ -72,9 +72,13 @@ class AdminController extends Controller {
 		$merchant_info 				= Common::getSingelData($where=['user_id'=>$user_id],$table='merchant',$data=['*'],'merchant_id','ASC');
 		$countrie					= Countrie::All();
 		
+		$logo 						= isset($merchant_info->logo)?$merchant_info->logo:'';
+		$thumb_logo					= Helpers::merchant_logo($logo);
 		
-		//echo '<pre>';print_r($countrie);exit;
-        return view('merchant.settings_form', compact('title','active','breadcumbs','merchant_info','user_info','countrie'));
+		
+		
+		//echo '<pre>';print_r($thumb_logo);exit;
+        return view('merchant.settings_form', compact('title','active','breadcumbs','merchant_info','user_info','countrie','logo','thumb_logo'));
     }
 	
 	
@@ -136,6 +140,7 @@ class AdminController extends Controller {
 				'latitude'					=> Input::post('lat'),
 				'lontitude'					=> Input::post('lng'),
 				'ip_address'				=> $IP,
+				'logo'						=> Input::post('site_logo'),
 				'distance_unit'				=> Input::post('distance_unit'),
 				'delivery_distance_covered'	=> Input::post('delivery_distance_covered'),
 				'merchant_type'				=> Input::post('service'),
@@ -219,8 +224,7 @@ class AdminController extends Controller {
 				$imageUrl 			= $directory.$fileName;
                 $imageAppLogo 	= $directory.'thumb/'.$fileName;
 				Image::make($image)->save($imageUrlOriginal);
-                Image::make($image)->resize(192, 25)->save($imageAppLogo);
-				//Image::make($image)->resize(150, 150)->save($imageUrl150_150);
+                Image::make($image)->resize(288, 275)->save($imageAppLogo);
                 $image_path	=	asset('public/upload/logo/thumb/'.$fileName.'?v='.time());
                 $return_data['success']	= 1;
 			}

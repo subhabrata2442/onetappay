@@ -224,7 +224,7 @@ Route::group(['middleware' => ['checkmerchantauth']], function () {
     # Settings
     Route::get('merchant_admin/settings', 'merchant\AdminController@settings');
     Route::post('merchant_admin/settings/save', 'merchant\AdminController@saveAdminSettings');
-    Route::post('merchant_admin/upload_logo', 'merchant\AdminController@upload_logo_request');
+	Route::post('merchant_admin/upload_logo', 'merchant\AdminController@uploadLogoRequest')->name('merchant_logo.save');
 
     # Password
     Route::get('merchant_admin/profile/password', 'merchant\MyaccountController@change_password');

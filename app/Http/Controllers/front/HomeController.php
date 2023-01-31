@@ -76,8 +76,7 @@ class HomeController extends Controller {
 		$location	= isset($_GET['location'])?$_GET['location']:'';
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		
-		//$city		= $this->get_city($location);
-		
+		$city		= $this->get_city($location);
 		$search_city=$location;
 		if($city!=''){
 			$search_city=$city;
@@ -108,19 +107,24 @@ class HomeController extends Controller {
 	
 	public function get_city($address){
 		$address = str_replace(" ", "+", $address);
-		
-		$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo");
-    	$data 	= json_decode($json);
-    	$status = $data->status;
-		$city	= '';
-		if($status=="OK") {
-			for ($j=0;$j<count($data->results[0]->address_components);$j++) {
-				$cn=array($data->results[0]->address_components[$j]->types[0]);
-				if(in_array("locality", $cn)) {
-					$city	= $data->results[0]->address_components[$j]->long_name;
+		try {
+			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo");
+			$data 	= json_decode($json);
+			$status = $data->status;
+			$city	= '';
+			if($status=="OK") {
+				for ($j=0;$j<count($data->results[0]->address_components);$j++) {
+					$cn=array($data->results[0]->address_components[$j]->types[0]);
+					if(in_array("locality", $cn)) {
+						$city	= $data->results[0]->address_components[$j]->long_name;
+					}
 				}
 			}
+		} catch (\Exception $e) {
+			$city='';
 		}
+		
+		
 		
 		return $city;
 	}

@@ -182,13 +182,13 @@
           </div>
         </div>
         <div class="grid-container">
-          <div class="row g-4">
+          <div class="row g-3 mt-0">
           @if(count($store_list)>0)
           	@foreach($store_list as $s_row)
             @php
             	$restaurant_img=Helpers::merchant_logo($s_row->logo);
             @endphp
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 col-12">
               <div class="hotel-box-wrap hover-scle"> <span class="hotel-box-img"> <img class="img-block" src="{{ $restaurant_img }}"> </span>
                 <div class="hotel-details">
                   <h4><a href="{{ url('store/'.$s_row->restaurant_slug) }}">{{$s_row->restaurant_name }}</a></h4>

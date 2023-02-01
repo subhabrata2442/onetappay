@@ -96,28 +96,29 @@
               </ul>
         </div>
             <div class="hotel-bookmark-list">
-          <ul class="d-flex">
-                @if(Auth::user() && $user_type==3)
-                @if(count($store_table)>0)
-                @if($p=='book_table')
-                	@if(count($merchant_item_list)>0)
-                	<li><a class="hotel-bookmark-list-btn booke_btn active_table" href="javascript:;"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
-                	@endif
-                @else
-                @if(count($merchant_item_list)>0)
-                	<li><a class="hotel-bookmark-list-btn booke_btn" href="javascript:;"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
-                @endif
-                @endif
-                @endif
-                @else
-                	@if(count($merchant_item_list)>0)
-                <li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
-                	@endif
-                @endif
-                <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-bookmark"></i>Bookmark</a></li>
-                <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-share"></i>Share</a></li>
+              <ul class="d-flex">
+                  <li><a class="hotel-bookmark-list-btn active" href="javascript:;"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
+                  @if(Auth::user() && $user_type==3)
+                  @if(count($store_table)>0)
+                  @if($p=='book_table')
+                    @if(count($merchant_item_list)>0)
+                    <li><a class="hotel-bookmark-list-btn booke_btn active_table" href="javascript:;"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
+                    @endif
+                  @else
+                  @if(count($merchant_item_list)>0)
+                    <li><a class="hotel-bookmark-list-btn booke_btn" href="javascript:;"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                  @endif
+                  @endif
+                  @endif
+                  @else
+                    @if(count($merchant_item_list)>0)
+                  <li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                    @endif
+                  @endif
+                  <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-bookmark"></i>Bookmark</a></li>
+                  <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-share"></i>Share</a></li>
               </ul>
-        </div>
+            </div>
           </div>
     </div>
       </div>

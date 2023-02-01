@@ -12444,16 +12444,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .hotel-bookmark-list {
   margin-top: 20px;
 }
-.hotel-bookmark-list ul li {
-  flex: 1 0;
-}
 .hotel-bookmark-list ul li a.hotel-bookmark-list-btn {
   color: #000;
   font-weight: 600;
   height: 42px;
   line-height: 40px;
   border: 1px solid #ff6600;
-  padding: 0 5px;
+  padding: 0 15px;
   text-align: center;
   display: block;
   border-radius: 5px;
@@ -12468,6 +12465,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: #fff;
 }
 .hotel-bookmark-list ul li a.hotel-bookmark-list-btn:hover i {
+  color: #fff;
+}
+.hotel-bookmark-list ul li a.hotel-bookmark-list-btn.active {
+  background: #ff6600;
+  color: #fff;
+}
+.hotel-bookmark-list ul li a.hotel-bookmark-list-btn.active i {
   color: #fff;
 }
 .hotel-bookmark-list ul li:not(:last-child) {

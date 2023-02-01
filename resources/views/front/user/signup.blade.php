@@ -74,7 +74,7 @@ $redirect_to 	= $_GET['redirect_to'] ?? '';
           <div class="box-grey rounded top-line-green">
             <form class="forms has-validation-callback" action="{{route('signup.save')}}" method="POST" id="user_signup_form" onsubmit="return false;">
               @csrf
-              <input type="hidden" name="signup_redirect_to" value="{{$redirect_to}}" />
+              <input type="hidden" name="signup_redirect_to" id="signup_redirect_to" value="{{$redirect_to}}" />
               <div class="section-label bottom20"> <a class="section-label-a"> <i class="ion-compose i-big green-color"></i> <span class="bold" style="background:#fff;"> Sign up</span> <b></b> </a> </div>
               <div class="row top10">
                 <div class="col-md-12 ">

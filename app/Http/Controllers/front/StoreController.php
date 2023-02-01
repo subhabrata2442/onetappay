@@ -184,7 +184,7 @@ class StoreController extends Controller {
 		$checkout_url	= url('checkout/');
 		$store_table	= Table::where('merchant_id',$store_info->user_id)->get();
 		
-		//echo '<pre>';print_r($item_list);exit;
+		//echo '<pre>';print_r($store_table);exit;
 		
 		
 		

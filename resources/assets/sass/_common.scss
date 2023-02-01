@@ -894,7 +894,7 @@ input[type=number]{
     margin-top: 20px;
     ul{
         li{
-            flex: 1 0;
+            // flex: 1 0;
             a{
                 &.hotel-bookmark-list-btn{
                     color: #000;
@@ -902,7 +902,7 @@ input[type=number]{
                     height: 42px;
                     line-height: 40px;
                     border: 1px solid #ff6600;
-                    padding: 0 5px;
+                    padding: 0 15px;
                     text-align: center;
                     display: block;
                     border-radius: 5px;
@@ -912,6 +912,13 @@ input[type=number]{
                         transition: all 300ms ease-in-out;
                     }
                     &:hover{
+                        background: #ff6600;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                    &.active{
                         background: #ff6600;
                         color: #fff;
                         i{

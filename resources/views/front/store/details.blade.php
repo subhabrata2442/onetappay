@@ -48,11 +48,12 @@
       </div>
 </section>
     <section class="hotel-info-sec">
-  <div class="container-fluid left-right-gap">
+  <div class="container-fluid left-right-gap" id="order_container">
         <div class="row g-4 justify-content-between">
       <div class="col-auto">
             <div class="hotel-name-ifo">
-          <h4>{{$store_info->restaurant_name}}</h4>
+            <!--<a class="cmn-abtn2" href="{{url('searcharea?location='.$city)}}"><i class="fa-solid fa-reply"></i>back</a>-->
+          <h4>  {{$store_info->restaurant_name}}</h4>
           <p>{{$store_info->delivery_estimation}} min • ${{$store_info->free_delivery}} Delivery Fee</p>
           <p>{{$store_info->address}} |
                 <button type="button" class="get-direc"><i class="fa-solid fa-route"></i>Get Direction</button>
@@ -96,28 +97,28 @@
               </ul>
         </div>
             <div class="hotel-bookmark-list">
-          <ul class="d-flex">
+              <ul class="d-flex">
                 @if(Auth::user() && $user_type==3)
-                @if(count($store_table)>0)
-                @if($p=='book_table')
-                	@if(count($merchant_item_list)>0)
-                	<li><a class="hotel-bookmark-list-btn booke_btn active_table" href="javascript:;"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
-                	@endif
-                @else
                 @if(count($merchant_item_list)>0)
-                	<li><a class="hotel-bookmark-list-btn booke_btn" href="javascript:;"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
-                @endif
-                @endif
-                @endif
+                  <li><a class="hotel-bookmark-list-btn @if($p !='book_table') active @endif" href="{{url($store_url.'#order_container')}}"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
+                  
+                  @if(count($store_table)>0)
+                  <li><a class="hotel-bookmark-list-btn @if($p=='book_table') active @endif" href="{{url($store_url.'/?p=book_table#order_container')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                  @endif
+                  @else
+                  @if(count($store_table)>0)
+                  <li><a class="hotel-bookmark-list-btn active" href="{{url($store_url.'/?p=book_table#order_container')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                  @endif
+                @endif    
                 @else
-                	@if(count($merchant_item_list)>0)
-                <li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
-                	@endif
+                  <li><a class="hotel-bookmark-list-btn active" href="{{url('/signup/?redirect_to='.$store_url.'/')}}"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
+                  <li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
                 @endif
-                <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-bookmark"></i>Bookmark</a></li>
-                <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-share"></i>Share</a></li>
+                
+                  <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-bookmark"></i>Bookmark</a></li>
+                  <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-share"></i>Share</a></li>
               </ul>
-        </div>
+            </div>
           </div>
     </div>
       </div>

@@ -111,8 +111,17 @@
                   @endif
                 @endif    
                 @else
-                  <li><a class="hotel-bookmark-list-btn active" href="{{url('/signup/?redirect_to='.$store_url.'/')}}"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
-                  <li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                	 @if(count($merchant_item_list)>0)
+                     	 <li><a class="hotel-bookmark-list-btn @if($p !='book_table') active @endif" href="{{url($store_url.'#order_container')}}"><i class="fa-solid fa-utensils"></i>Order Food</a></li>
+                         @if(count($store_table)>0)
+                         	<li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                         @endif
+                     @else     
+                     	@if(count($store_table)>0)
+                        	<li><a class="hotel-bookmark-list-btn" href="{{url('/signup/?redirect_to='.$store_url.'/?p=book_table')}}"><i class="fa-solid fa-utensils"></i>Book Table</a></li>
+                        @endif
+                  	 @endif
+                  
                 @endif
                 
                   <li><a class="hotel-bookmark-list-btn" href="javascript:;"><i class="fa-solid fa-bookmark"></i>Bookmark</a></li>

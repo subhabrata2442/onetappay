@@ -41,9 +41,9 @@
         <div class="login-area d-flex justify-content-between align-items-center">
           <div class="login-area-lft">
             <ul class="d-flex login-menu-wrap align-items-center">
-              <li class="show-mobile"><a href="javascript:;" class="scr_mob"><i class="fa-solid fa-magnifying-glass"></i>Search</a></li>
+              <li class="show-mobile"><a href="javascript:;" class="scr_mob"><i class="fa-solid fa-magnifying-glass"></i><span class="mob-none">Search</span></a></li>
               <li class="header-login-mobile"> 
-                <button type="button" class="header-menu-mobile d-none"><i class="fa-solid fa-circle-user"></i>Login & Signup</button>
+                <button type="button" class="header-menu-mobile d-none"><i class="fa-solid fa-user"></i></button>
                 @if(Auth::user() && $user_type==3)
                 <ul class="user-after-login d-flex align-items-center">
                   <li><a href="{{url('/profile')}}" class="reg-nav user-profile"><i class="fa-solid fa-circle-user"></i>{{$userName}}</a></li>
@@ -55,7 +55,7 @@
                   <li><a href="{{url('/merchant/signup')}}" class="reg-nav">Restaurant Signup</a></li>
                 </ul>
                 @endif </li>
-              <li class="hover-dropdown"> <a href="javascript:;" class="reg-nav position-reletive"><i class="fa-solid fa-basket-shopping"></i>cart <span class="order-count total_cart_item_blink" @php if($total_cart_item == 0){ echo 'style="display:none"'; } @endphp>{{$total_cart_item}}</span> </a>
+              <li class="hover-dropdown"> <a href="javascript:;" class="reg-nav position-reletive"><i class="fa-solid fa-basket-shopping"></i><span class="mob-none">cart</span> <span class="order-count total_cart_item_blink" @php if($total_cart_item == 0){ echo 'style="display:none"'; } @endphp>{{$total_cart_item}}</span> </a>
                 <div class="product-droplist hover-dropdown-list">
                   <div class="row justify-content-between align-items-center mb-2">
                     <div class="col-auto">

@@ -58,38 +58,47 @@
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
         <div class="location-box"> <a href="{{$popular_city[0]['link']}}">
           <h4>{{$popular_city[0]['city']}}</h4>
           <p>{{$popular_city[0]['total_restaurant']}}</p>
-          </a> </div>
-        <div class="location-box"> <a href="{{$popular_city[1]['link']}}">
-          <h4>{{$popular_city[1]['city']}}</h4>
-          <p>{{$popular_city[1]['total_restaurant']}}</p>
-          </a> </div>
-        
+          </a> 
+        </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
         <div class="location-box"> <a href="{{$popular_city[2]['link']}}">
           <h4>{{$popular_city[2]['city']}}</h4>
           <p>{{$popular_city[2]['total_restaurant']}}</p>
-          </a> </div>
-        <div class="location-box"> <a href="{{$popular_city[3]['link']}}">
-          <h4>{{$popular_city[3]['city']}}</h4>
-          <p>{{$popular_city[3]['total_restaurant']}}</p>
-          </a> </div>
-        
+          </a> 
+        </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
         <div class="location-box"> <a href="{{$popular_city[4]['link']}}">
           <h4>{{$popular_city[4]['city']}}</h4>
           <p>{{$popular_city[4]['total_restaurant']}}</p>
-          </a> </div>
+          </a> 
+        </div>        
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="location-box"> <a href="{{$popular_city[1]['link']}}">
+          <h4>{{$popular_city[1]['city']}}</h4>
+          <p>{{$popular_city[1]['total_restaurant']}}</p>
+          </a> 
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="location-box"> <a href="{{$popular_city[3]['link']}}">
+          <h4>{{$popular_city[3]['city']}}</h4>
+          <p>{{$popular_city[3]['total_restaurant']}}</p>
+          </a> 
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
         <div class="location-box"> <a href="{{$popular_city[5]['link']}}">
           <h4>{{$popular_city[5]['city']}}</h4>
           <p>{{$popular_city[5]['total_restaurant']}}</p>
-          </a> </div>
-        
+          </a> 
+        </div>
       </div>
     </div>
   </div>

@@ -14358,19 +14358,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     padding: 20px 0;
   }
 }
-@media only screen and (max-width: 1204px) {
-  .cart-wrap-details {
-    display: none;
-  }
-  .menu-booking-list-wrap {
-    flex: 0 0 65%;
-    max-width: 65%;
-  }
-  .hotel-menu-lft {
-    flex: 0 0 35%;
-    max-width: 35%;
-  }
-}
 @media only screen and (max-width: 1135px) {
   .main-header .logo {
     flex: 0 0 200px;

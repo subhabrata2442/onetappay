@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 Route::get('/', 'front\HomeController@index');
 Route::get('index', 'front\HomeController@index');
 Route::get('privacy', 'IndexController@privacy');
@@ -20,11 +20,6 @@ Route::get('surl', 'PayUController@surl_request');
 Route::get('furl', 'PayUController@furl_request');
 Route::get('hash', 'PayUController@hash_request');
 Route::get('success_page', 'PayUController@success_page');
-
-
-
-
-
 
 Auth::routes();
 Route::get('/clear-cache', function () {
@@ -211,8 +206,8 @@ Route::group(['middleware' => ['checkmerchantauth']], function () {
 		Route::get('/list', 'merchant\StoreController@store');
 		Route::get('/details/{store}', 'merchant\StoreController@store_details')->name('show');
 		Route::get('/store_delete', 'merchant\StoreController@deleteStore');
-		Route::post('/store_upload', 'merchant\StoreController@store_upload')->name('store_upload');
-		Route::post('/items_upload', 'merchant\StoreController@items_upload')->name('items_upload');
+		//Route::post('/store_upload', 'merchant\StoreController@store_upload')->name('store_upload');
+		//Route::post('/items_upload', 'merchant\StoreController@items_upload')->name('items_upload');
 		
 		//Route::match(['GET', 'POST'], '/product_upload', [ProductController::class, 'product_upload'])->name('product_upload');
 	});
@@ -240,12 +235,12 @@ Route::group(['middleware' => ['checkadminauth']], function () {
 
     # Store
 	Route::prefix('administrator/store')->name('store.')->group(function () {
+		
 		Route::get('/list', 'admin\StoreController@store');
 		Route::get('/details/{store}', 'admin\StoreController@store_details')->name('show');
 		Route::get('/store_delete', 'admin\StoreController@deleteStore');
 		Route::post('/store_upload', 'admin\StoreController@store_upload')->name('store_upload');
 		Route::post('/items_upload', 'admin\StoreController@items_upload')->name('items_upload');
-		
 		//Route::match(['GET', 'POST'], '/product_upload', [ProductController::class, 'product_upload'])->name('product_upload');
 	});
 	

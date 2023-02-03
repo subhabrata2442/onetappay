@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Common;
-use App\Merchant;
 use App\Item;
+use App\User;
+use App\Merchant;
 use App\Category;
-
 use Input;
 use Session;
 use Carbon;
@@ -42,7 +42,7 @@ class StoreController extends Controller {
         $param['per_page'] 		= $per_page;
         $param['limit_start']	= $limit_start;
 		
-		$store_list = Merchant::get();
+		$store_list = Merchant::orderBy('merchant_id','desc')->get();
 		
 		//echo '<pre>';print_r($store_list);exit;
 		
@@ -56,7 +56,7 @@ class StoreController extends Controller {
 		 
 		 $param['store_id']	= $store_id;
 		 $store_info 		= Merchant::where('merchant_id',$store_id)->first();
-		 $item_list 		= Item::where('merchant_id',$store_id)->get();
+		 $item_list 		= Item::where('merchant_id',$store_info->user_id)->get();
 		 
 		 //echo '<pre>';print_r($item_list[0]->category->category_name);exit;
 		 
@@ -92,7 +92,10 @@ class StoreController extends Controller {
 					$store_name   		= $line[0];
 					$store_url   		= $line[1];
 					$desc   			= $line[2];
-					$img_url   			= $line[3];
+					$rating   			= $line[3];
+					$img_url   			= $line[4];
+					
+					echo '<pre>';print_r($line);exit;
 					
 					if($store_name!=''){
 						$restaurant_slug	= Helpers::create_slug(trim($store_name));
@@ -140,8 +143,8 @@ class StoreController extends Controller {
 						$merchant_data 		= Merchant::where('restaurant_slug',$restaurant_slug)->first();
 						$merchant_id		= isset($merchant_data->merchant_id)?$merchant_data->merchant_id: '';
 						
-						$total_merchant_count	= Merchant::where('city','Winnipeg')->count();
-						if($total_merchant_count<6){
+						//$total_merchant_count	= Merchant::where('city','Winnipeg')->count();
+						//if($total_merchant_count<6){
 							if($merchant_id!=''){
 								$merchantData=array(
 									'restaurant_slug'  		=> $restaurant_slug,
@@ -152,11 +155,42 @@ class StoreController extends Controller {
 									'logo'  				=> $img_url,
 									'meta_data'				=> $desc
 								);
-								Merchant::where('merchant_id', $merchant_id)->update($merchantData);
+								
+								//echo '<pre>';print_r($merchantData);exit;
+								//Merchant::where('merchant_id', $merchant_id)->update($merchantData);
 							}else{
+								$user_type 			= 2;
+								$store_email		= $restaurant_slug.'@gmail.com';
+								$store_password		= '123456';
+								$IP 				= Helpers::get_ip();
+								$userArr = [
+									'user_type'			=> $user_type,
+									'name'				=> $store_name,
+									'email'				=> $store_email,
+									'password' 			=> Hash::make($store_password),
+									'raw_password'		=> $store_password,
+									'phone'				=> '',
+									'alternet_phone'	=> '',
+									'country'			=> 'CA',
+									'city'				=> 'Ottawa',
+									'status' 			=> 1,
+									'IP'				=> $IP,
+									'remember_token' 	=> '',
+									'created_at'		=> date('Y-m-d')
+								];
+								
+								//echo '<pre>';print_r($userArr);exit;
+								$user = User::create($userArr);
+								$lastInsertedId = $user->id;
+								
+								
+								
+								
 								$merchantData=array(
+									'user_id'				=> $lastInsertedId,
 									'restaurant_slug'  		=> $restaurant_slug,
 									'restaurant_name'  		=> $store_name,
+									'contact_name'  		=> $store_name,
 									'store_url'				=> $store_url,
 									'free_delivery'  		=> $free_delivery,
 									'delivery_estimation'  	=> $delivery_estimation,
@@ -164,15 +198,23 @@ class StoreController extends Controller {
 									'meta_data'				=> $desc,
 									'country_id'			=> '38',
 									'country_code'			=> 'CA',
-									'city'					=> 'Winnipeg',
-									'address'				=> '236 Edmonton St, Winnipeg, R3c 1r7',
+									'city'					=> 'Ottawa',
+									'state'					=> 'ON',
+									'address'				=> '93 Murray St, Ottawa, On K1N 5M5',
+									'street'				=> '93 Murray St, Ottawa, On K1N 5M5',
+									'post_code'				=> '5M5',
+									'latitude'				=> '45.4299231',
+									'lontitude'				=> '-75.6934121',
+									'rating'				=> $rating
 									
 								);
+								
 								//echo '<pre>';print_r($merchantData);exit;
-								$merchantData	= Merchant::create($merchantData);	
-								//echo '<pre>';print_r($merchantData);exit;					
+								//echo '<pre>';print_r($merchantData);exit;
+								Merchant::create($merchantData);	
+								echo '<pre>';print_r($merchantData);exit;					
 							}
-						}
+						//}
 					}
 				}
 			}
@@ -195,9 +237,14 @@ class StoreController extends Controller {
 					$title		= $line[0];
 					$price   	= $line[1];
 					$desc   	= $line[2];
-					$tag   		= $line[3];
-					$img   		= isset($line[4])?$line[4]:'';
-					$cat_name   = $line[5];
+					$tag   		= '';//$line[3];
+					$img   		= isset($line[3])?$line[3]:'';
+					$cat_name   = isset($line[4])?$line[4]:'';
+					
+					$title		= preg_replace("/\p{Han}+/u", '', $title);
+					$desc		= preg_replace("/\p{Han}+/u", '', $desc);
+					
+					//echo '<pre>';print_r($desc);exit;
 					
 					
 					
@@ -225,6 +272,8 @@ class StoreController extends Controller {
 								'status'  				=> 1
 							);
 							
+							//echo '<pre>';print_r($categoryData);exit;
+							
 							$categorySaveData	= Category::create($categoryData);
 							$category_id		= $categorySaveData->id;
 						}
@@ -242,7 +291,7 @@ class StoreController extends Controller {
 								'tag'  				=> $product_tag,
 								'photo'				=> $img
 							);
-							Item::where('item_id', $product_id)->update($productData);
+							//Item::where('item_id', $product_id)->update($productData);
 						}else{
 							$productData=array(
 								'merchant_id'  		=> $merchant_id,
@@ -254,6 +303,8 @@ class StoreController extends Controller {
 								'tag'  				=> $product_tag,
 								'photo'				=> $img
 							);
+							
+							//echo '<pre>';print_r($productData);exit;
 							
 							Item::create($productData);	
 							

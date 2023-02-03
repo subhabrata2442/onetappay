@@ -34,7 +34,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <!--<form method="post" action="{{ route('store.store_upload') }}" class="needs-validation" id="product_upload-form" novalidate enctype="multipart/form-data">
+              <form method="post" action="{{ route('store.store_upload') }}" class="needs-validation" id="product_upload-form" novalidate enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
                   <div class="form-group">
@@ -44,7 +44,7 @@
                     </div>
                   </div>
                 </div>
-              </form>-->
+              </form>
               <div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped tableMd">
                   <thead>
@@ -72,7 +72,7 @@
                     <td><img src="{{ $logo }}" style="width: 50px;"/></td>
                     <!--<td><a href="{{$row->store_url}}" target="_blank">{{ $row->restaurant_name }}</a></td>-->
                     <td>{{ $row->restaurant_name }}</td>
-                    <td>{{ $row->country->name }}</td>
+                    <td>{{ $row->country->name ?? '' }}</td>
                     <td>{{ $row->city }}</td>
                     <td>{{ $row->address }}</td>
                     <td>@if($row->status=='active')<span class="label label-success">Active</span>@else<span class="label label-danger">In-active</span>@endif</td>

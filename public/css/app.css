@@ -11687,7 +11687,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   font-style: italic;
 }
 .home-banner .bannar-box .banner-text-wrap h2 {
-  font-size: 3vw;
+  font-size: 2.1vw;
   padding: 8px 0;
 }
 .home-banner .bannar-box .banner-text-wrap .bannar-src {
@@ -14273,6 +14273,46 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .main-header .logo {
     flex: 0 0 200px;
     max-width: 200px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .left-right-gap {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .home-banner .plate-img {
+    display: none;
+  }
+  .home-banner .bannar-box {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  .home-banner .bannar-box .banner-text-wrap h2 {
+    text-align: center;
+  }
+  .home-banner .bannar-box .banner-text-wrap p {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .header-login-mobile {
+    position: relative;
+  }
+  .header-login-mobile .header-menu-mobile {
+    display: block !important;
+  }
+  .header-login-mobile .user-before-login {
+    position: absolute;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .home-banner .bannar-box {
+    padding-top: 80px;
+    top: 0;
+    transform: translate(-50%, 0);
+    left: 50%;
   }
 }
 @media only screen and (max-width: 767px) {

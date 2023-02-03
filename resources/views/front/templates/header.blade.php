@@ -42,7 +42,9 @@
           <div class="login-area-lft">
             <ul class="d-flex login-menu-wrap align-items-center">
               <li class="show-mobile"><a href="javascript:;" class="scr_mob"><i class="fa-solid fa-magnifying-glass"></i>Search</a></li>
-              <li> @if(Auth::user() && $user_type==3)
+              <li class="header-login-mobile"> 
+                <button type="button" class="header-menu-mobile d-none"><i class="fa-solid fa-circle-user"></i>Login & Signup</button>
+                @if(Auth::user() && $user_type==3)
                 <ul class="user-after-login d-flex align-items-center">
                   <li><a href="{{url('/profile')}}" class="reg-nav user-profile"><i class="fa-solid fa-circle-user"></i>{{$userName}}</a></li>
                   <li><a href="{{url('/logout')}}" class="reg-nav user-signout"><i class="fa-solid fa-right-from-bracket"></i>sign out</a></li>

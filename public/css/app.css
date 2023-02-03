@@ -14276,6 +14276,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 @media only screen and (max-width: 1024px) {
+  .sec-gap {
+    padding: 25px 0;
+  }
+  .sec-heading h3 {
+    font-size: 26px;
+    padding-bottom: 0;
+  }
   .left-right-gap {
     padding-left: 30px;
     padding-right: 30px;
@@ -14297,14 +14304,120 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 @media only screen and (max-width: 880px) {
+  .start-header {
+    padding: 10px 0;
+  }
+  .start-header.scroll-on {
+    padding: 7px 0;
+  }
+  .header-menu-mobile {
+    display: block !important;
+    border: 1px solid #7b7b7b;
+    line-height: 32px;
+    border-radius: 5px;
+    padding: 0 10px;
+    background-color: #fff;
+    color: #7b7b7b;
+  }
   .header-login-mobile {
     position: relative;
   }
-  .header-login-mobile .header-menu-mobile {
-    display: block !important;
-  }
-  .header-login-mobile .user-before-login {
+  .header-login-mobile .user-before-login,
+  .header-login-mobile .user-after-login {
     position: absolute;
+    display: block !important;
+    width: 200px;
+    background: #fff;
+    padding: 0.9rem;
+    box-shadow: 6.359px 10.177px 17.43px 3.57px rgba(94, 94, 94, 0.1);
+    border-radius: 4px;
+    top: 150%;
+    left: -80px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+  .header-login-mobile .user-before-login li,
+  .header-login-mobile .user-after-login li {
+    margin-right: 0;
+  }
+  .header-login-mobile .user-before-login li:not(:last-child),
+  .header-login-mobile .user-after-login li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  .header-login-mobile .user-before-login li a,
+  .header-login-mobile .user-after-login li a {
+    font-size: 14px !important;
+  }
+  .header-login-mobile .user-before-login li a.reg-nav,
+  .header-login-mobile .user-after-login li a.reg-nav {
+    background: #fd5329;
+    border-color: #fd5329 !important;
+    color: #fff !important;
+  }
+  .header-login-mobile .user-after-login li {
+    margin-right: 0 !important;
+  }
+  .header-login-mobile .user-after-login li a.user-profile {
+    max-width: 100% !important;
+    border-color: #00a651 !important;
+  }
+  .header-login-mobile:hover .user-before-login,
+  .header-login-mobile:hover .user-after-login {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  .mobile-home-header-wrap {
+    position: relative;
+  }
+  .mobile-home-header-wrap .mobile-home-header {
+    position: absolute;
+    display: block !important;
+    width: 185px;
+    background: #fff;
+    padding: 0.9rem;
+    box-shadow: 6.359px 10.177px 17.43px 3.57px rgba(94, 94, 94, 0.1);
+    border-radius: 4px;
+    top: 150%;
+    left: -80px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+  .mobile-home-header-wrap .mobile-home-header li {
+    margin-right: 0 !important;
+  }
+  .mobile-home-header-wrap .mobile-home-header li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  .mobile-home-header-wrap .mobile-home-header li a {
+    font-size: 14px !important;
+  }
+  .mobile-home-header-wrap .mobile-home-header li a.reg-nav {
+    background: #fd5329;
+    border-color: #fd5329 !important;
+    color: #fff !important;
+  }
+  .mobile-home-header-wrap .mobile-home-header li a.user-profile {
+    max-width: 100% !important;
+    background: #00a651 !important;
+    border-color: #00a651 !important;
+  }
+  .mobile-home-header-wrap .mobile-home-header li a.no-login {
+    color: #7b7b7b !important;
+  }
+  .mobile-home-header-wrap:hover .mobile-home-header {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  .hotel-list-wrap .hotel-list-lft {
+    flex: 0 0 290px;
+    max-width: 290px;
+  }
+  .small-sec-heading2 h4 {
+    font-size: 14px;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -14329,6 +14442,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     text-transform: capitalize;
     border-radius: 0.4rem;
     z-index: 5;
+    width: 110px;
   }
   .mobile-filter i {
     margin-right: 0.3rem;
@@ -14373,5 +14487,79 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .sort-popup .modal-backdrop.fade {
     transition: opacity 0.9s linear;
+  }
+}
+@media only screen and (max-width: 667px) {
+  .home-banner .bannar-box .banner-text-wrap h2 {
+    font-size: 3vw;
+  }
+  .home-banner .bannar-box .banner-text-wrap p {
+    font-size: 14px;
+  }
+  .home-banner .bannar-box .banner-text-wrap .bannar-src {
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .mob-none {
+    display: none;
+  }
+  .sec-heading h3 {
+    font-size: 18px;
+  }
+  .start-header {
+    padding: 5px 0;
+  }
+  .start-header.scroll-on {
+    padding: 3px 0;
+  }
+  .main-header .logo {
+    flex: 0 0 150px;
+    max-width: 150px;
+  }
+  .main-header .login-area {
+    padding: 0;
+  }
+  .main-header .login-area .login-area-lft .login-menu-wrap li a i {
+    margin-right: 0;
+  }
+  .main-header .login-area .login-area-lft .login-menu-wrap li a.reg-nav {
+    line-height: 28px;
+    padding: 0 8px;
+  }
+  .main-header .login-area .login-area-lft .login-menu-wrap li:not(:last-child) {
+    margin-right: 10px;
+  }
+  .main-header .login-area .login-area-lft .show-mobile a {
+    border: 1px solid #7b7b7b;
+    line-height: 28px;
+    border-radius: 5px;
+    padding: 0 8px;
+    background-color: #fff;
+  }
+  .header-menu-mobile {
+    line-height: 28px;
+    padding: 0 8px;
+  }
+  .home-banner .bannar-box {
+    padding-top: 60px;
+  }
+  .home-banner .bannar-box .banner-text-wrap p {
+    font-size: 12px;
+  }
+  .home-banner .bannar-box .banner-text-wrap .bannar-src .input-style-bnr {
+    height: 38px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .home-banner .bannar-box {
+    padding-top: 50px;
+  }
+  .home-banner .bannar-box .banner-text-wrap h2 {
+    font-size: 2.5vw;
+    padding-bottom: 2px;
+  }
+  .home-banner .bannar-box .banner-text-wrap p {
+    font-size: 10px;
   }
 }

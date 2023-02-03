@@ -29,10 +29,10 @@
       </div>
     </div>
   </div>
-</section>-
+</section>
 <section class="sec-gap-btm">
   <div class="container-fluid left-right-gap">
-    <div class="hotel-list-wrap d-flex">
+    <div class="hotel-list-wrap row">
       <button type="button" class="mobile-filter filter_btn d-md-none"><i class="fa-solid fa-utensils"></i> menu</button>
       <div class="hotel-list-lft mobile-sort">
         <div class="filter-accrodian accordion sticky-bar" id="accordionExample">

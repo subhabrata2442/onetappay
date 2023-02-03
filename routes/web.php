@@ -206,8 +206,8 @@ Route::group(['middleware' => ['checkmerchantauth']], function () {
 		Route::get('/list', 'merchant\StoreController@store');
 		Route::get('/details/{store}', 'merchant\StoreController@store_details')->name('show');
 		Route::get('/store_delete', 'merchant\StoreController@deleteStore');
-		Route::post('/store_upload', 'merchant\StoreController@store_upload')->name('store_upload');
-		Route::post('/items_upload', 'merchant\StoreController@items_upload')->name('items_upload');
+		//Route::post('/store_upload', 'merchant\StoreController@store_upload')->name('store_upload');
+		//Route::post('/items_upload', 'merchant\StoreController@items_upload')->name('items_upload');
 		
 		//Route::match(['GET', 'POST'], '/product_upload', [ProductController::class, 'product_upload'])->name('product_upload');
 	});

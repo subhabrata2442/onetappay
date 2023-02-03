@@ -126,9 +126,13 @@ class HomeController extends Controller {
 	
 	public function get_city($address){
 		$address = str_replace(" ", "+", $address);
+		
 		try {
 			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo");
 			$data 	= json_decode($json);
+			//echo '<pre>';print_r($data);exit;
+			
+			
 			$status = $data->status;
 			$city	= '';
 			if($status=="OK") {

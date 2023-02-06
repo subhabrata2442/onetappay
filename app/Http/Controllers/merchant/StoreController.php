@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\merchant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

@@ -89,18 +89,18 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <!--<form method="post" action="{{ route('store.items_upload') }}" class="needs-validation" id="items_upload-form" novalidate enctype="multipart/form-data">
+              <form method="post" action="{{ route('store.items_upload') }}" class="needs-validation" id="items_upload-form" novalidate enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
                   <div class="form-group">
                     <div class="upload-btn file-upload">
                       <label for="product_upload" class="custom-file-upload fileInfo file-drop">Upload </label>
                       <input id="product_upload_file" type="file" name="product_upload_file">
-                      <input id="merchant_id" type="hidden" name="merchant_id" value="{{ $store_info->merchant_id }}">
+                      <input id="merchant_id" type="hidden" name="merchant_id" value="{{ $store_info->user_id }}">
                     </div>
                   </div>
                 </div>
-              </form>-->
+              </form>
               <div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped tableMd">
                   <thead>

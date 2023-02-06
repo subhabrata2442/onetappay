@@ -101,7 +101,7 @@ class Helpers{
 		return $path && file_exists('public/upload/logo/thumb/'.$path) ? asset('public/upload/logo/thumb/'.$path.'?v='.time()) : asset('public/images/no_logo.png');
 	}
 	public static function category_image($path){
-		return $path && file_exists('public/upload/image/180_180/'.$path) ? asset('public/upload/image/180_180/'.$path.'?v='.time()) : asset('public/backoffice/images/no_image-150x150.png');
+		return $path && file_exists('public/upload/image/180_180/'.$path) ? asset('public/upload/image/180_180/'.$path.'?v='.time()) : asset('public/backoffice/images/cat-demo.jpg');
 	}
 	
 	public static function thumb($path){

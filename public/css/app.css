@@ -11614,8 +11614,8 @@ textarea {
 }
 
 .ftr-btm {
-  padding: 20px 0;
-  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 40px;
   background: #333333;
 }
 .ftr-btm .ftr-btm-text p {
@@ -11630,11 +11630,12 @@ textarea {
 }
 .ftr-menu-box li {
   position: relative;
+  line-height: 1;
 }
 .ftr-menu-box li a {
   color: #fff;
   font-size: 13px;
-  padding: 2px 0;
+  padding: 4px 0;
 }
 .ftr-menu-box li a .dates {
   display: block;
@@ -13033,6 +13034,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .responsive-tabs .tab-content .card .card-header h5 {
   padding-bottom: 0;
+  font-size: 15px;
 }
 .responsive-tabs .tab-content .card .card-header h5 a {
   color: #000;
@@ -13043,8 +13045,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   content: "";
   position: absolute;
   right: 9px;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   top: 5px;
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
   transform: scale(0.7) !important;
@@ -13258,6 +13260,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   font-family: "Font Awesome 6 free";
   font-weight: 900;
   left: 0;
+  line-height: 1;
   color: #00a651;
   position: absolute;
 }
@@ -13766,13 +13769,20 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .code-box-wrap .crt-chkout {
   margin-top: 1.5rem;
+  text-align: right;
 }
 .code-box-wrap .crt-chkout .cmn-abtn {
-  text-align: center;
+  display: inline-block;
+}
+.code-box-wrap .log-input-wrap .log-input-style::-moz-placeholder {
+  color: #b4b4b4;
+}
+.code-box-wrap .log-input-wrap .log-input-style::placeholder {
+  color: #b4b4b4;
 }
 
 .crt-product-qty2 {
-  max-width: 130px;
+  width: 130px;
   padding: 0 8px;
   margin: 0 auto;
 }
@@ -14071,6 +14081,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 0.2rem;
+  line-height: 1.5;
+  display: inline-block;
 }
 
 .bg-success {
@@ -14109,6 +14121,75 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   margin-bottom: 30px;
   border-bottom: #ddd 1px solid;
   padding-bottom: 15px;
+}
+
+.sec-wrap-heading h3 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width: 667px) {
+  .mobile-table-design .table thead {
+    display: none;
+  }
+  .mobile-table-design .table tbody {
+    display: block;
+    width: 100%;
+  }
+  .mobile-table-design .table tbody tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .mobile-table-design .table tbody tr td {
+    display: block;
+    width: 100%;
+    padding-left: 50%;
+    text-align: right !important;
+    position: relative;
+    border: 1px solid #ededed !important;
+  }
+  .mobile-table-design .table tbody tr td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .mobile-table-design .table tbody tr td .crt-product-img {
+    margin-left: auto;
+  }
+  .mobile-table-design .table tbody tr td .crt-product-name a {
+    margin-left: auto;
+    display: block;
+  }
+  .mobile-table-design .table tbody tr td .crt-product-qty2 {
+    margin: 0 0 auto auto;
+    padding-right: 0;
+  }
+  .mobile-table-design .table tbody tr td .crt-product-qty2 .qty-item-add .qty-show {
+    margin: 0 4px;
+  }
+  .mobile-table-design .table tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  .mobile-table-design .table tbody tr:nth-child(even) {
+    background-color: #f9f1eb;
+  }
+  .mobile-table-design .table tfoot tr {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: #f60;
+    color: #fff;
+  }
 }
 
 .login-reg-sec {
@@ -14307,6 +14388,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .header-search-bar .header-search-bar-box .search-bar-rgt {
     flex: 0 0 160px;
   }
+  .footer {
+    padding: 20px 0 0 0;
+  }
+  .ftr-btm {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 }
 @media only screen and (max-width: 1280px) {
   .hotel-menu-lft {
@@ -14445,6 +14533,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .booked-step-process-head .head-booked-wrap p .person-book-select .person-select {
     height: 30px;
   }
+  .cart-list-wrap table .crt-product-name a {
+    max-width: 150px;
+  }
 }
 @media only screen and (max-width: 1135px) {
   .main-header .logo {
@@ -14487,6 +14578,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .hotel-bookmark-list ul li a.hotel-bookmark-list-btn {
     padding: 0 10px;
     font-size: 12px;
+    height: 30px;
+    line-height: 28px;
   }
   .hotel-total-review ul li:not(:last-child) {
     margin-right: 10px;
@@ -14638,8 +14731,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     font-size: 14px;
   }
   .order-count {
-    right: -17px;
+    right: -12px;
     top: 0px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-size: 10px;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -14677,7 +14774,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     bottom: 15px;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.2rem;
     border: none;
     font-size: 0.9rem;
     text-transform: capitalize;
@@ -14735,6 +14832,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .gaust-input-wrap .gaust-input-style {
     height: 36px;
+  }
+  .responsive-tabs .tab-content .card .card-body .log-input-wrap .log-input-style {
+    height: 38px;
+  }
+  .responsive-tabs .tab-content .card .card-body .log-select-wrap .log-select-style {
+    height: 38px;
+  }
+  .responsive-tabs .tab-content .card .card-body .pro-btn-wrap .pro-btn-new {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 25px;
   }
 }
 @media only screen and (max-width: 667px) {
@@ -14801,13 +14909,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     bottom: 15px;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.2rem;
     border: none;
     font-size: 0.9rem;
     text-transform: capitalize;
     border-radius: 0.4rem;
     z-index: 5;
-    width: 150px;
+    width: 120px;
   }
   .mobile-cata-filter i {
     margin-right: 0.3rem;
@@ -14830,6 +14938,19 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     flex: 0 0 33.333%;
     max-width: 33.333%;
   }
+  .cart-list-wrap h4 {
+    font-size: 15px;
+  }
+  .cart-list-wrap table .crt-product-img a img {
+    max-height: 40px;
+    min-height: 40px;
+  }
+  .code-box-wrap .log-input-wrap .log-input-style {
+    height: 38px;
+  }
+  .code-box-wrap .log-select-wrap .log-select-style {
+    height: 38px;
+  }
 }
 @media only screen and (max-width: 575px) {
   .mob-none {
@@ -14837,12 +14958,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .sec-heading h3 {
     font-size: 18px;
-  }
-  .start-header {
-    padding: 5px 0;
-  }
-  .start-header.scroll-on {
-    padding: 3px 0;
   }
   .main-header .logo {
     flex: 0 0 150px;
@@ -14864,8 +14979,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     margin-right: 0;
   }
   .main-header .login-area .login-area-lft .login-menu-wrap li a.reg-nav {
-    line-height: 28px;
-    padding: 0 8px;
+    line-height: 24px;
+    padding: 0 6px;
   }
   .main-header .login-area .login-area-lft .login-menu-wrap li:not(:last-child) {
     margin-right: 10px;
@@ -14875,14 +14990,14 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .main-header .login-area .login-area-lft .show-mobile a {
     border: 1px solid #7b7b7b;
-    line-height: 28px;
+    line-height: 24px;
     border-radius: 5px;
-    padding: 0 8px;
+    padding: 0 6px;
     background-color: #fff;
   }
   .header-menu-mobile {
-    line-height: 28px;
-    padding: 0 8px;
+    line-height: 24px;
+    padding: 0 6px;
   }
   .home-banner .bannar-box {
     padding-top: 60px;

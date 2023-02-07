@@ -18,7 +18,7 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <h3>My Profile</h3>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-12 col-12">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="responsive-tabs mt-0">
                     <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item"> <a id="tab-A" href="#pane-A" class="nav-link {{ $tab == 1 ? 'active' : '' }}" data-bs-toggle="tab" role="tab">profile</a> </li>
@@ -382,7 +382,7 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="7" class="details-wrap">
+                                                        <td colspan="8" class="details-wrap">
                                                             <div id="flush-collapse-t{{ $table_booking_row->id }}" class="accordion-collapse collapse" aria-labelledby="flush-collapse-t{{ $table_booking_row->id }}" data-bs-parent="#tablebookingaccordionFlushExample">
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">

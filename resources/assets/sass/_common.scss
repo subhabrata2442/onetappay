@@ -1815,6 +1815,7 @@ $breakpoints: (
       .card-header{
         h5{
           padding-bottom: 0;
+          font-size: 15px;
           a{
             color: #000;
             text-transform: capitalize;
@@ -1823,8 +1824,8 @@ $breakpoints: (
               content: "";
               position: absolute;
               right: 9px;
-              height: 30px;
-              width: 30px;
+              height: 20px;
+              width: 20px;
               top: 5px;
               background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
               transform: scale(0.7) !important;
@@ -2086,12 +2087,12 @@ $breakpoints: (
 .item-veg {
   position: relative;
   padding-left: 20px;
-
   &::before {
     content: "\f192";
     font-family: "Font Awesome 6 free";
     font-weight: 900;
     left: 0;
+    line-height: 1;
     color: #00a651;
     position: absolute;
   }
@@ -2737,9 +2738,16 @@ $breakpoints: (
 
   .crt-chkout {
     margin-top: 1.5rem;
-
+    text-align: right;
     .cmn-abtn {
-      text-align: center;
+      display: inline-block;
+    }
+  }
+  .log-input-wrap {
+    .log-input-style{
+      &::placeholder{
+        color: #b4b4b4;
+      }
     }
   }
 }
@@ -2747,7 +2755,7 @@ $breakpoints: (
 // cart End
 
 .crt-product-qty2 {
-  max-width: 130px;
+  width: 130px;
   padding: 0 8px;
   margin: 0 auto;
 }
@@ -3109,6 +3117,8 @@ $breakpoints: (
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 0.2rem;
+  line-height: 1.5;
+  display: inline-block;
 }
 
 .bg-success {
@@ -3148,4 +3158,87 @@ $breakpoints: (
     padding-bottom: 15px;
   }
 }
+.sec-wrap-heading{
+  h3{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+
+// Mobile table
+.mobile-table-design {
+  @media (max-width: 667px) {
+    .table {
+      thead {
+        display: none;
+      }
+      tbody{
+        display: block;
+        width: 100%;
+        tr{
+          display: block;
+          width: 100%;
+          margin-bottom: 15px;
+          td{
+            display: block;
+            width: 100%;
+            padding-left: 50%;
+            text-align: right !important;
+            position: relative;
+            border: 1px solid #ededed !important;
+            &::before{
+              content: attr(data-label);
+              position: absolute;
+              left: 0;
+              width: 50%;
+              padding-left: 15px;
+              font-size: 14px;
+              font-weight: 600;
+              text-align: left;
+              color: #000;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            .crt-product-img{
+              margin-left: auto;
+            }
+            .crt-product-name{
+              a{
+                margin-left: auto;
+                display: block;
+              }
+            }
+            .crt-product-qty2{
+              margin: 0 0 auto auto;
+              padding-right: 0;
+              .qty-item-add{
+                .qty-show{
+                  margin: 0 4px;
+                }
+              }
+            }
+          }
+          &:nth-child(odd){
+            background-color: #fff;
+          }
+          &:nth-child(even){
+            background-color: #f9f1eb;
+          }
+        }
+      }
+      tfoot{
+        tr{
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          background: #f60;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+// Mobile table
 

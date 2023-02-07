@@ -32,8 +32,9 @@
     }
 }
 .ftr-btm {
-    padding: 20px 0;
-    margin-top: 20px;
+    // padding: 20px 0;
+    margin-bottom: 20px;
+    margin-top: 40px;
     background: #333333;
     .ftr-btm-text{
         p{
@@ -50,10 +51,11 @@
     }
     li{
         position: relative;
+        line-height: 1;
         a{
             color: #fff;
             font-size: 13px;
-            padding: 2px 0;
+            padding: 4px 0;
             .dates{
                 display: block;
                 font-size: 11px;

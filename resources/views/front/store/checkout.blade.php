@@ -19,8 +19,8 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
         @csrf
         <div class="col-12">
           <div class="row g-4">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-              <div class="table-responsive cart-list-wrap code-box-wrap">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+              <div class="table-responsive mobile-table-design cart-list-wrap code-box-wrap">
                 <h4>Cart Items</h4>
                 <table class="table mb-0">
                   <thead class="text-nowrap">
@@ -40,19 +40,19 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                   $item_img=Helpers::item_thumb($cart['image']);
                   @endphp
                   <tr>
-                  <td>{{$count}}</td>
+                  <td data-label="Sl No :">{{$count}}</td>
                     <!--<td><button type="button" class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></button></td>-->
-                    <td><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="{{$item_img}}"> </a> </div></td>
-                    <td class="text-start"><div class="crt-product-name"> <a href="javascript:;">{{$cart['name']}}</a> </div></td>
-                    <td class="text-center"><div class="crt-product-qty2">
+                    <td data-label="Image :"><div class="crt-product-img"> <a class="d-block" href="javascript:;"> <img class="img-block" src="{{$item_img}}"> </a> </div></td>
+                    <td data-label="Name :" class="text-start"><div class="crt-product-name"> <a href="javascript:;">{{$cart['name']}}</a> </div></td>
+                    <td data-label="Quantity :" class="text-center"><div class="crt-product-qty2">
                         <div class="d-flex qty-item-add align-items-center priceControl">
                           <button type="button" class="qty-add sub controls2" value="-" data-id="{{$cart['cart_id']}}"><i class="fa-solid fa-minus"></i></button>
                           <input type="number" class="form-control qty-show count qty qtyInput2" min="1" max="20" data-max-lim="20" value="{{$cart['quantity']}}">
                           <button type="button" class="qty-add add controls2" value="+" data-id="{{$cart['cart_id']}}"><i class="fa-solid fa-plus"></i></button>
                         </div>
                       </div></td>
-                    <td class="text-end text-nowrap">${{$cart['price']}}</td>
-                    <td class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">{{$cart['grand_total']}}</span></td>
+                    <td data-label="Unit Price :" class="text-end text-nowrap">${{$cart['price']}}</td>
+                    <td data-label="Total :" class="text-end text-nowrap">$<span id="product_prict_127" class="cart_product_price">{{$cart['grand_total']}}</span></td>
                   </tr>
                   @php $count++;@endphp
                   @endforeach
@@ -60,7 +60,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                   
                   <tfoot class="text-nowrap">
                     <tr>
-                      <td class="text-end" colspan="5"><strong>Total :</strong></td>
+                      <td class="text-end" colspan="5"><strong>SubTotal :</strong></td>
                       <td class="text-end"><strong><span class="d-block">$ {{$total_cart_amount}}</span></strong></td>
                     </tr>
                   </tfoot>
@@ -71,31 +71,37 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
+                      <label>Address</label>
                       <input type="text" name="street" id="street" class="form-control log-input-style" placeholder="Address" value="{{ $default_address_book->street ?? "" }} " required="required">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
+                      <label>City</label>
                       <input type="text" name="city" id="city" class="form-control log-input-style" placeholder="City" value="{{ $default_address_book->city ?? "" }} " required="required">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
+                      <label>State</label>
                       <input type="text" name="state" id="state" class="form-control log-input-style" placeholder="State" value="{{ $default_address_book->state ?? "" }} " required="required">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
+                      <label>Zip Code</label>
                       <input type="text" name="zipcode" id="zipcode" class="form-control log-input-style" placeholder="Zip Code" value="{{ $default_address_book->zipcode ?? "" }} " required="required">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-input-wrap">
+                      <label>Location</label>
                       <input type="text" name="location_name" id="location_name" class="form-control log-input-style" placeholder="Location" value="{{ $default_address_book->location_name ?? "" }} " required="required">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="log-select-wrap">
+                      <label>Country</label>
                       <select class="form-control log-select-style selectOption_1" name="country" id="country" required>
                         <option value="">Select Country</option>
                         
@@ -148,7 +154,7 @@ $country_code=isset($default_address_book->country_code)?$default_address_book->
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
               <div class="code-box-wrap sticky-bar">
                 <h4>Your cart details</h4>
                 <div class="table-responsive text-nowrap cart-list-wrap">

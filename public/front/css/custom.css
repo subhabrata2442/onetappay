@@ -1,10 +1,4 @@
-.section-grey2 {
-	background: #fff;
-	background-size: cover;
-	padding: 60px 0;
-	position: relative;
-	z-index: 1;
-}
+
 .box-grey {
 /* background: rgba(255,255,255,.8); */
 }
@@ -100,11 +94,7 @@ p.text-small {
 .main-header {
 	z-index: 3;
 }
-.section-grey2 h1 {
-	margin-bottom: 30px;
-	border-bottom: #ddd 1px solid;
-	padding-bottom: 15px;
-}
+
 .successInner {
 	max-width: 700px;
 	margin: 0 auto;
@@ -142,11 +132,7 @@ p.text-small {
 	border: 2px solid red !important;
 }
 
-.date-pick-caln .calendar {
-	margin: 0;
-	max-width: 50%;
-	flex: 0 0 50%;
-  }
+
 
   .date-pick-caln {
 	max-width: unset;

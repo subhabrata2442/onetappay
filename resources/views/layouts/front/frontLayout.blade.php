@@ -35,8 +35,8 @@
 @yield('frontContent')
 <footer class="footer">
   <div class="container-fluid left-right-gap">
-    <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="row g-2">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-12">
         <div class="ftr-about d-flex flex-column justify-content-between h-100"> <span class="ftr-logo"> <img class="img-block" src="{{ asset('public/front/images/logo-white.png') }}" alt=""> </span>
           <div class="ftr-social">
             <ul class="d-flex">

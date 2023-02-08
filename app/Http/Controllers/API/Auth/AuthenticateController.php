@@ -104,7 +104,7 @@ class AuthenticateController extends Controller{
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['error' => 'Wrong Details'], 400);
             } else {
-                if (\Auth::user()->user_type != 2) {
+                if (\Auth::user()->user_type != 3) {
                     return response()->json(['error' => 'Invalid User Type'], 400);
                 }
             }

@@ -437,7 +437,7 @@ class CartController extends Controller {
 		//echo $newstring = substr($orderDetails['payment_order'][0]->card_number, -4);exit;
 		
 		//card_number
-		//echo '<pre>';print_r($orderDetails['payment_order'][0]->raw_response);exit;
+		//echo '<pre>';print_r($orderDetails);exit;
 			
 		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city','card_number','card_type'));
 	}

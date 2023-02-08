@@ -22,6 +22,9 @@ function phoneFormat(input) {
     return input;
 }
 
+
+
+
 $(document).on('click', '.booke_btn', function(){
             $(this).toggleClass('active_table');
             if($(this).hasClass('active_table')){

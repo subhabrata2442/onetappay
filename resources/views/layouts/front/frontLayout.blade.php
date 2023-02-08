@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="{{ asset('public/front/css/images.css') }}" media="all">
 <link rel="stylesheet" href="{{ asset('public/front/css/custom.css') }}" media="all">
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyCBeYhfznD1X2nWYFXFpH6B4eJ9hGrr9_g"></script>
 <script>
  var base_url = "{{url('/')}}";
  var csrf_token = "{{csrf_token()}}";

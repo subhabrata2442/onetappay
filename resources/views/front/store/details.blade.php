@@ -114,11 +114,23 @@
                                         <li><a class="hotel-bookmark-list-btn @if ($p == 'book_table') active @endif"
                                                 href="{{ url($store_url . '/?p=book_table#order_container') }}"><i
                                                     class="fa-solid fa-utensils"></i>Book Table</a></li>
+                                    @else
+                                     <li><a class="hotel-bookmark-list-btn no_table_booking_avaible"
+                                                href="javascript:;"><i
+                                                    class="fa-solid fa-utensils"></i>Book Table</a></li>
                                     @endif
                                 @else
+                                <li><a class="hotel-bookmark-list-btn no_food_order_avaible"
+                                             href="javascript:;"><i
+                                                class="fa-solid fa-utensils"></i>Order Food</a></li>
+                                                
                                     @if (count($store_table) > 0)
                                         <li><a class="hotel-bookmark-list-btn active"
                                                 href="{{ url($store_url . '/?p=book_table#order_container') }}"><i
+                                                    class="fa-solid fa-utensils"></i>Book Table</a></li>
+                                    @else
+                                     <li><a class="hotel-bookmark-list-btn no_table_booking_avaible"
+                                                href="javascript:;"><i
                                                     class="fa-solid fa-utensils"></i>Book Table</a></li>
                                     @endif
                                 @endif
@@ -131,11 +143,22 @@
                                         <li><a class="hotel-bookmark-list-btn"
                                                 href="{{ url('/signup/?redirect_to=' . $store_url . '/?p=book_table') }}"><i
                                                     class="fa-solid fa-utensils"></i>Book Table</a></li>
+                                    @else
+                                     <li><a class="hotel-bookmark-list-btn no_table_booking_avaible"
+                                                href="javascript:;"><i
+                                                    class="fa-solid fa-utensils"></i>Book Table</a></li>
                                     @endif
                                 @else
+                                <li><a class="hotel-bookmark-list-btn no_food_order_avaible"
+                                             href="javascript:;"><i
+                                                class="fa-solid fa-utensils"></i>Order Food</a></li>
                                     @if (count($store_table) > 0)
                                         <li><a class="hotel-bookmark-list-btn"
                                                 href="{{ url('/signup/?redirect_to=' . $store_url . '/?p=book_table') }}"><i
+                                                    class="fa-solid fa-utensils"></i>Book Table</a></li>
+                                     @else
+                                     <li><a class="hotel-bookmark-list-btn no_table_booking_avaible"
+                                                href="javascript:;"><i
                                                     class="fa-solid fa-utensils"></i>Book Table</a></li>
                                     @endif
                                 @endif
@@ -1001,6 +1024,20 @@
         <script src="{{ asset('public/front/js/table_booking.js/?t=' . time()) }}"></script>
         <script src="{{ asset('public/front/js/cart.js/?t=' . time()) }}"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
+        
+        <script>
+		$(document).on('click', '.no_table_booking_avaible', function(){
+			swal("Sorry", "Table booking not available at this moment!", "error");
+		});
+		$(document).on('click', '.no_food_order_avaible', function(){
+			swal("Sorry", "Food order currently not available at this moment!", "error");
+		});
+		
+		
+		</script>
+        
+        
+        
         <script>
             $(document).on('click', '.cat_btn', function() {
                 $('.cat_btn').removeClass('active');

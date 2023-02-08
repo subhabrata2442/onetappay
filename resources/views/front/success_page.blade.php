@@ -116,8 +116,8 @@
               <tr>
                 <td class="text-start"><ul class="payment-card d-flex">
                     <li><i class="fa-brands fa-cc-stripe"></i></li>
-                    <li> <strong>visa ****3698</strong>
-                      <p>27/01/2023</p>
+                    <li> <strong>{{$card_type}} ****{{$card_number}}</strong>
+                      <p>@php echo date('d/m/Y',strtotime($orderDetails['order_info'][0]->created_at)); @endphp</p>
                     </li>
                   </ul></td>
                 <td class="text-end"><strong>${{$orderDetails['grand_total']}}</strong></td>

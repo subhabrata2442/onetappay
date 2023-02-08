@@ -28,4 +28,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
-Route::group(['namespace'=>'API'], function(){});
+Route::group(['namespace'=>'API'], function(){
+	 Route::group(['namespace'=>'Auth','prefix' => 'auth'], function(){
+		 Route::post('/login','AuthenticateController@login');
+	});
+});

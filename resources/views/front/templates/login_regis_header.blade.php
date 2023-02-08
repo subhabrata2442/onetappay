@@ -15,15 +15,16 @@
       <div class="logo"> <a href="{{url('/')}}"> <img class="img-block" src="{{ asset('public/front/images/logo-white.png') }}" alt=""> </a> </div>
       <div class="col-auto d-flex">
         <div class="login-area d-flex justify-content-between align-items-center">
-          <div class="login-area-lft">
+          <div class="login-area-lft mobile-home-header-wrap">
+            <button type="button" class="header-menu-mobile d-none"><i class="fa-solid fa-user"></i></button>
             @if(Auth::user() && $user_type==3)
-            <ul class="d-flex login-menu-wrap align-items-center">
+            <ul class="d-flex login-menu-wrap align-items-center mobile-home-header">
               <li><a href="{{url('/profile')}}" class="reg-nav user-profile"><i class="fa-solid fa-circle-user"></i>{{$userName}}</a></li>
               <li><a href="{{url('/logout')}}" class="reg-nav user-signout"><i class="fa-solid fa-right-from-bracket"></i>sign out</a></li>
               <li><a href="{{url('/merchant/signup')}}" class="reg-nav">Restaurant Signup</a></li>
             </ul>
             @else
-            <ul class="d-flex login-menu-wrap align-items-center">
+            <ul class="d-flex login-menu-wrap align-items-center mobile-home-header">
               <li><a href="{{url('/signup')}}"><i class="fa-solid fa-circle-user"></i>Login & Signup</a></li>
               <li><a href="{{url('/merchant/signup')}}" class="reg-nav">Restaurant Signup</a></li>
             </ul>

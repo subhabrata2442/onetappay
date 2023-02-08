@@ -77,10 +77,13 @@ class HomeController extends Controller {
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		
 		$city		= $this->get_city($location);
+		//print_r($city);exit;
 		$search_city=$location;
 		if($city!=''){
 			$search_city=$city;
 		}
+		
+		//echo 'ddd';exit;
 		
 		//print_r($search_city);exit;
 		
@@ -125,7 +128,9 @@ class HomeController extends Controller {
 	
 	
 	public function get_city($address){
+		//echo 'dd';exit;
 		$address = str_replace(" ", "+", $address);
+		//echo $address;exit;
 		
 		try {
 			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo");

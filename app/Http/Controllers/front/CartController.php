@@ -420,10 +420,26 @@ class CartController extends Controller {
 		
 		$city			= '';
 		
+		$card_number	= isset($orderDetails['payment_order'][0]->card_number)?substr($orderDetails['payment_order'][0]->card_number, -4):'';
+		$card_type		= '';
 		
-		//echo '<pre>';print_r($orderDetails);exit;
+		if($orderDetails['payment_order'][0]->raw_response!=''){
+			$raw_response	= json_decode($orderDetails['payment_order'][0]->raw_response,true);
+			$card_type		= isset($raw_response['payment_method_details']['card']['brand'])?$raw_response['payment_method_details']['card']['brand']:'';
+		}
+		
+		
+		
+		
+		
+		
+		
+		//echo $newstring = substr($orderDetails['payment_order'][0]->card_number, -4);exit;
+		
+		//card_number
+		//echo '<pre>';print_r($orderDetails['payment_order'][0]->raw_response);exit;
 			
-		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city'));
+		return view('front.success_page', compact('title','breadcumbs','active','orderDetails','restaurent','location','city','card_number','card_type'));
 	}
 	
 	

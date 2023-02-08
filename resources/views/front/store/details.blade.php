@@ -27,21 +27,21 @@
 <input type="hidden" value="cart" id="page_id" />
     <section class="sec-gap-top sec-gap-btm">
   <div class="container-fluid left-right-gap">
-        <div class="row g-4">
-      <div class="col-lg-7 col-md-4 col-sm-12 col-12">
+        <div class="row g-3">
+      <div class="col-lg-7 col-md-4 col-sm-4 col-4">
             <div class="hotels-img hotels-img1"> <img class="img-block" src="{{ asset('public/front/images/hotels/img7.jpg')}}" alt=""> </div>
           </div>
-      <div class="col-lg-2 col-md-4 col-sm-12 col-12">
-            <div class="row g-4">
-          <div class="col-lg-12 col-md-12 col-sm-6 col-12">
+      <div class="col-lg-2 col-md-4 col-sm-4 col-4">
+            <div class="row g-3">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="hotels-img hotels-img2"> <img class="img-block" src="{{ asset('public/front/images/first-order/first-order1.jpg')}}" alt=""> </div>
               </div>
-          <div class="col-lg-12 col-md-12 col-sm-6 col-12">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="hotels-img hotels-img2"> <img class="img-block" src="{{ asset('public/front/images/first-order/first-order2.jpg')}}" alt=""> </div>
               </div>
         </div>
           </div>
-      <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+      <div class="col-lg-3 col-md-4 col-sm-4 col-4">
             <div class="hotels-img hotels-img1"> <img class="img-block" src="{{ asset('public/front/images/collection/colection1.jpg')}}" alt=""> </div>
           </div>
     </div>
@@ -49,8 +49,8 @@
 </section>
     <section class="hotel-info-sec">
   <div class="container-fluid left-right-gap" id="order_container">
-        <div class="row g-4 justify-content-between">
-      <div class="col-auto">
+        <div class="row g-3 justify-content-between">
+      <div class="col-lg-auto col-md-6 col-sm-12">
             <div class="hotel-name-ifo">
             <!--<a class="cmn-abtn2" href="{{url('searcharea?location='.$city)}}"><i class="fa-solid fa-reply"></i>back</a>-->
           <h4>  {{$store_info->restaurant_name}}</h4>
@@ -73,9 +73,9 @@
             </span> </div>
         </div>
           </div>
-      <div class="col-auto">
+      <div class="col-lg-auto col-md-6 col-sm-12">
             <div class="hotel-total-review">
-          <ul class="d-flex">
+          <ul class="d-flex flex-wrap">
                 <li class="d-flex">
               <div class="star-total">
                     <p><strong>4.4<i class="fa-solid fa-star"></i></strong></p>

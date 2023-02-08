@@ -193,9 +193,8 @@
 
 @push('scripts')
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo"></script> 
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> 
-<script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;key=AIzaSyCBeYhfznD1X2nWYFXFpH6B4eJ9hGrr9_g"></script> 
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script><script>
 
 function fillInAddress() {
 	var place = autocomplete.getPlace();

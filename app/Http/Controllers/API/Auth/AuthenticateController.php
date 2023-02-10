@@ -126,7 +126,7 @@ class AuthenticateController extends Controller{
 
         //User::where('id', $id)->update(['device_token' => $request['device_token']]);
 
-        return response()->json(['success' => true, 'token' => $token,'user_result' => $user_result], 200);
+        return response()->json(['success' => true, 'status'=>1, 'token' => $token,'user_result' => $user_result], 200);
     }
 
    

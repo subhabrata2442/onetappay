@@ -534,7 +534,7 @@
                 <div class="booked_food"
                     @if (count($store_table) > 0) @if ($p == 'book_table')style="display:none; @endif
                     @endif">
-                    <div class="row g-4">
+                    <div class="row g-2 g-lg-3">
                         <button type="button" class="mobile-cata-filter mobile_cata_btn" style=""><i
                                 class="fa-solid fa-utensils"></i> catagory</button>
                         <div class="hotel-menu-lft cata_lft">

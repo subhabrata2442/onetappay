@@ -436,6 +436,15 @@
       }
     }
   }
+  .date-pick-caln {
+    .calendar {
+      .days {
+        .day_name {
+          font-size: 10px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1024px) {

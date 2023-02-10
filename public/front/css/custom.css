@@ -132,18 +132,6 @@ p.text-small {
 	border: 2px solid red !important;
 }
 
-
-
-  .date-pick-caln {
-	max-width: unset;
-	margin-right: calc(var(--bs-gutter-x) * -0.5);
-	margin-left: calc(var(--bs-gutter-x) * -0.5);
-	margin-bottom: 0;
-}
-
-.date-pick-caln.time-pick-wrap {
-	margin: 0;
-}
 .time-pick-wrap .time-pick-head {
 	margin: 0 0 15px 0;
 }

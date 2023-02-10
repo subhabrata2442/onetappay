@@ -13499,8 +13499,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 
 .date-pick-caln {
-  max-width: 750px;
-  margin: 0 auto 20px;
+  width: 100%;
+  margin: 0;
+}
+.date-pick-caln.time-pick-wrap {
+  margin: 0;
 }
 .date-pick-caln .calendar {
   margin: 0 10px;
@@ -14192,6 +14195,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 
+.without-login-tablebook {
+  color: #f60 !important;
+  font-size: 28px;
+  text-align: center;
+  display: block;
+}
+
 .login-reg-sec {
   padding: 60px 0;
 }
@@ -14550,6 +14560,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .hotel-pick-liswrap .hotel-pick-list .hotel-pick-list-lft .pick-hotel-desc .pick-hotel-title {
     max-width: 180px;
+  }
+  .date-pick-caln .calendar .days .day_name {
+    font-size: 10px;
   }
 }
 @media only screen and (max-width: 1024px) {

@@ -523,7 +523,7 @@
                             </div>
                         </form>
                     @else
-                        <a class="hotel-bookmark-list-btn"
+                        <a class="hotel-bookmark-list-btn without-login-tablebook"
                             href="{{ url('/signup/?redirect_to=' . $store_url . '/?p=book_table') }}">For Table Booking
                             Click
                             here to login</a>

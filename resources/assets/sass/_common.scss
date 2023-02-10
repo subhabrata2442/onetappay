@@ -2381,10 +2381,21 @@ $breakpoints: (
     color: #fff;
   }
 }
+// .date-pick-caln {
+// 	max-width: unset;
+// 	margin-right: calc(var(--bs-gutter-x) * -0.5);
+// 	margin-left: calc(var(--bs-gutter-x) * -0.5);
+// 	margin-bottom: 0;
+// }
+
 
 .date-pick-caln {
-  max-width: 750px;
-  margin: 0 auto 20px;
+  // max-width: 750px;
+  width: 100%;
+  margin: 0;
+  &.time-pick-wrap {
+    margin: 0;
+  }
 
   .calendar {
     // display: flex;
@@ -3241,4 +3252,9 @@ $breakpoints: (
   }
 }
 // Mobile table
-
+.without-login-tablebook {
+  color: #f60 !important;
+  font-size: 28px;
+  text-align: center;
+  display: block;
+}

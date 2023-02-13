@@ -26,22 +26,22 @@
   <div class="container-fluid left-right-gap">
     <div class="row g-3">
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Canada')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img1.jpg') }}" alt=""> </span>
+        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Toronto')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img1.jpg') }}" alt=""> </span>
           <h4>AI Recommendation</h4>
           </a> </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Canada')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img2.jpg') }}" alt=""> </span>
+        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Toronto')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img2.jpg') }}" alt=""> </span>
           <h4>Online Reservation</h4>
           </a> </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Canada')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img3.jpg') }}" alt=""> </span>
+        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Toronto')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img3.jpg') }}" alt=""> </span>
           <h4>Online Order Placement</h4>
           </a> </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Canada')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img4.jpg') }}" alt=""> </span>
+        <div class="table-hotel-box"> <a href="{{url('/searcharea?location=Toronto')}}"> <span class="table-hotel-box-img"> <img class="img-block" src="{{ asset('public/front/images/hotels/img4.jpg') }}" alt=""> </span>
           <h4>Split Bills with Friends</h4>
           </a> </div>
       </div>

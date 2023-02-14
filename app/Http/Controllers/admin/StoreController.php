@@ -246,7 +246,7 @@ class StoreController extends Controller {
 					
 					//echo '<pre>';print_r($desc);exit;
 					
-					
+					//echo 'dd </br>';
 					
 					if($title!=''){
 						$product_slug	= Helpers::create_slug($title);
@@ -254,13 +254,16 @@ class StoreController extends Controller {
 						$product_tag 	= $tag;
 						
 						
-						//print_r($cat_name);exit;
+						//echo $merchant_id;exit;
 						
 						
 						$category_slug	= Helpers::create_slug($cat_name);
 						$category_data 	= Category::where('category_slug',$category_slug)->where('merchant_id',$merchant_id)->first();
 						$cat_id			= isset($category_data->cat_id)?$category_data->cat_id: '';
 						
+						//echo 'cc </br>';
+						
+						//$categoryData=[];
 						if($cat_id!=''){
 							$category_id=$cat_id;
 						}else{
@@ -269,7 +272,7 @@ class StoreController extends Controller {
 								'category_name'  		=> $cat_name,
 								'category_slug'			=> $category_slug,
 								'category_description'  => $cat_name,
-								'status'  				=> 1
+								'status'  				=> 1,
 							);
 							
 							//echo '<pre>';print_r($categoryData);exit;
@@ -278,6 +281,8 @@ class StoreController extends Controller {
 							$category_id		= $categorySaveData->id;
 						}
 						
+						
+						//$category_id=1;
 						$product_data 		= Item::where('item_slug',$product_slug)->where('merchant_id',$merchant_id)->first();
 						$product_id			= isset($product_data->item_id)?$product_data->item_id: '';
 						

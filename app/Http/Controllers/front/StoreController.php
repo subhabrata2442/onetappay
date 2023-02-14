@@ -54,24 +54,26 @@ class StoreController extends Controller {
 			 
 			 $items=[];
 			 $item_result 	= Item::where('merchant_id',$store_info->user_id)->where('category_id',$c_row->cat_id)->orderBy('item_id','asc')->get();
-			 foreach($item_result as $row){
-				 $photo=Helpers::item_thumb($row->photo);
-				 $items[]=array(
-				 	'item_id'			=> $row->item_id,
-				 	'item_name'			=> $row->item_name,
-					'item_slug'			=> $row->item_slug,
-					'item_description'	=> $row->item_description,
-					'price'				=> $row->price,
-					'tag'				=> $row->tag,
-					'photo'				=> $photo,
-				 );
-			 }
 			 
-			 $item_list[]=array(
-			 	'cat_id'		=> $c_row->cat_id,
-				'category_name'	=> $c_row->category_name,
-				'items'			=> $items
-			 );
+			 if(count($item_result)>0){
+				 foreach($item_result as $row){
+					 $photo=Helpers::item_thumb($row->photo);
+					 $items[]=array(
+						'item_id'			=> $row->item_id,
+						'item_name'			=> $row->item_name,
+						'item_slug'			=> $row->item_slug,
+						'item_description'	=> $row->item_description,
+						'price'				=> $row->price,
+						'tag'				=> $row->tag,
+						'photo'				=> $photo,
+					 );
+				}
+				$item_list[]=array(
+					'cat_id'		=> $c_row->cat_id,
+					'category_name'	=> $c_row->category_name,
+					'items'			=> $items
+				);
+			 } 
 		 }
 		 
 		 //echo '<pre>';print_r($item_list);exit;

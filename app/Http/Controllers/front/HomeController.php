@@ -85,7 +85,7 @@ class HomeController extends Controller {
 		
 		//echo 'ddd';exit;
 		
-		//print_r($search_city);exit;
+		
 		
 		
 		

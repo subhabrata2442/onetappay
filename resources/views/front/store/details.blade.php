@@ -552,12 +552,12 @@
                                         <h4>Picked For You</h4>
                                     </div>
                                     <ul class="menu-catagory-list">
-                                        @if (count($category_list) > 0)
+                                        @if (count($item_list) > 0)
                                             @php($count = 0)
-                                            @foreach ($category_list as $c_row)
+                                            @foreach ($item_list as $c_row)
                                                 <li class="@if ($count == 0) active @endif cat_btn"
-                                                    data-id="{{ $c_row->cat_id }}"><a
-                                                        href="javascript:;">{{ $c_row->category_name }}</a></li>
+                                                    data-id="{{ $c_row['cat_id'] }}"><a
+                                                        href="javascript:;">{{ $c_row['category_name'] }}</a></li>
                                                 @php($count++)
                                             @endforeach
                                         @endif

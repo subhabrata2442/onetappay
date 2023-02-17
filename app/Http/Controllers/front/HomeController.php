@@ -169,10 +169,10 @@ class HomeController extends Controller {
 		$state			= '';
 		$state_code		= '';
 		$postal_code	='';
-		try {
+		//try {
 			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyCBeYhfznD1X2nWYFXFpH6B4eJ9hGrr9_g");
 			$data 	= json_decode($json);
-			echo '<pre>';print_r($data);exit;
+			//echo '<pre>';print_r($data);exit;
 			
 			$status = $data->status;
 			if($status=="OK") {
@@ -204,7 +204,7 @@ class HomeController extends Controller {
 					
 				}
 			}
-		} catch (\Exception $e) {
+		/*} catch (\Exception $e) {
 			$city			= '';
 			$country		= '';
 			$country_code	= 'CA';
@@ -213,7 +213,7 @@ class HomeController extends Controller {
 			$state_code		= '';
 			
 			$postal_code	='';
-		}
+		}*/
 		
 		
 		$result['postal_code']	= $postal_code;
@@ -226,7 +226,7 @@ class HomeController extends Controller {
 		$result['full_street']	= $full_street;
 		$result['street_number']= $street_number;
 		
-		echo '<pre>';print_r($result);exit;
+		//echo '<pre>';print_r($result);exit;
 		
 		return $result;
 	}

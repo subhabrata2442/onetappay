@@ -32,32 +32,32 @@ class HomeController extends Controller {
 		$popular_city[]=array(
 			'city'				=> 'Vancouver',
 			'total_restaurant'	=> Merchant::where('city', 'like', '%Vancouver%')->count(),
-			'link'				=> url('searcharea/?location=Vancouver')
+			'link'				=> url('searcharea/?location=Vancouver&type=city')
 		);
 		$popular_city[]=array(
 			'city'				=> 'Winnipeg',
 			'total_restaurant'	=> Merchant::where('city', 'like', '%Winnipeg%')->count(),
-			'link'				=> url('searcharea/?location=Winnipeg')
+			'link'				=> url('searcharea/?location=Winnipeg&type=city')
 		);
 		$popular_city[]=array(
 			'city'				=> 'Toronto',
 			'total_restaurant'	=> Merchant::where('city', 'like', '%Toronto%')->count(),
-			'link'				=> url('searcharea/?location=Toronto')
+			'link'				=> url('searcharea/?location=Toronto&type=city')
 		);
 		$popular_city[]=array(
 			'city'				=> 'Calgary',
 			'total_restaurant'	=> Merchant::where('city', 'like', '%Calgary%')->count(),
-			'link'				=> url('searcharea/?location=Calgary')
+			'link'				=> url('searcharea/?location=Calgary&type=city')
 		);
 		$popular_city[]=array(
 			'city'				=> 'Montreal',
 			'total_restaurant'	=> Merchant::where('city', 'like', '%Montreal%')->count(),
-			'link'				=> url('searcharea/?location=Montreal')
+			'link'				=> url('searcharea/?location=Montreal&type=city')
 		);
 		$popular_city[]=array(
 			'city'				=> 'Ottawa',
 			'total_restaurant'	=> Merchant::where('city', 'like', '%Ottawa%')->count(),
-			'link'				=> url('searcharea/?location=Ottawa')
+			'link'				=> url('searcharea/?location=Ottawa&type=city')
 		);
 		
 		
@@ -75,6 +75,7 @@ class HomeController extends Controller {
 		$title 		= "Search";
 		$location	= isset($_GET['location'])?$_GET['location']:'';
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
+		$type		= isset($_GET['type'])?$_GET['type']:'';
 		
 		$location_reasult = $this->get_city($location);
 		
@@ -84,31 +85,45 @@ class HomeController extends Controller {
 		$state			= isset($location_reasult['state'])?$location_reasult['state']:'';
 		$state_code		= isset($location_reasult['state_code'])?$location_reasult['state_code']:'';
 		$postal_code	= isset($location_reasult['postal_code'])?$location_reasult['postal_code']:'';
+		$street			= isset($location_reasult['street'])?$location_reasult['street']:'';
+		$full_street	= isset($location_reasult['full_street'])?$location_reasult['full_street']:'';
+		$street_number	= isset($location_reasult['street_number'])?$location_reasult['street_number']:'';
 		
 			
 		$category_list 	= Category::select('cat_id','category_name','photo','category_slug')->distinct('category_slug')->where('status',1)->limit(15)->offset(0)->orderBy('cat_id', 'DESC')->get();
 		
 		$query_store_list 	= Merchant::where('status', 'active');
 		
-		//if($search != '') {
-			/*$query_store_list = $query_store_list->where(function($query_store_list) use ($search) {
-				$query_store_list->where(DB::raw("city"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("street"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("state"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("post_code"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("country_code"), 'LIKE', '%' . $search . '%');
-            });*/
-        //}
-		
-		
-		
-		if($city!=''){
-			$query_store_list->where('city', 'like', '%'.$city.'%');
-		}
-		if($state!=''){
-			$query_store_list->where('state', 'like', '%'.$state.'%')->orWhere('state', 'like', '%'.$state_code.'%');
-		}
-		if($country!=''){
-			$query_store_list->where('country_code', 'like', '%'.$country.'%')->orWhere('country_code', 'like', '%'.$country_code.'%');
-		}
-		if($postal_code!=''){
-			$query_store_list->where('post_code', 'like', '%'.$postal_code.'%')->orWhere('post_code', 'like', '%'.$postal_code.'%');
+		if($type=='city'){
+			if($city!=''){
+				$query_store_list->where('city', 'like', '%'.$city.'%');
+			}
+		}else{
+			if($country_code!=''){
+				$query_store_list->where('country_code', 'like', '%'.$country_code.'%');
+			}
+			if($city!=''){
+				$query_store_list->where('city', 'like', '%'.$city.'%');
+			}
+			
+			if($state!=''){
+				$query_store_list->where('state', 'like', '%'.$state_code.'%');
+			}
+			
+			if($street_number!=''){
+				$query_store_list->where('street', 'like', '%'.$street_number.'%');
+			}
+			if($street!=''){
+				//$query_store_list->where('street', 'like', '%'.$street.'%')->orWhere('street', 'like', '%'.$full_street.'%');
+				$street_arr=explode(' ',$full_street);
+				//for($i=0;count($street_arr)>$i;$i++){
+					$query_store_list->where('street', 'like', '%'.trim($street_arr[0]).'%');
+				//}
+			}
+			
+			if($postal_code!=''){
+				//$query_store_list->where('post_code', 'like', '%'.$postal_code.'%')->orWhere('post_code', 'like', '%'.$postal_code.'%');
+			}
 		}
 		
 		if($restaurent!=''){
@@ -145,14 +160,15 @@ class HomeController extends Controller {
 	public function get_city($address){
 		$address = str_replace(" ", "+", $address);
 		
-		$city	= '';
-		$country='';
-		$country_code='';
-		
-		$state='';
-		$state_code='';
-		
-		$postal_code='';
+		$city			= '';
+		$country		= '';
+		$country_code	= '';
+		$street			= '';
+		$full_street	= '';
+		$street_number	= '';
+		$state			= '';
+		$state_code		= '';
+		$postal_code	='';
 		try {
 			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyCBeYhfznD1X2nWYFXFpH6B4eJ9hGrr9_g");
 			$data 	= json_decode($json);
@@ -162,6 +178,15 @@ class HomeController extends Controller {
 			if($status=="OK") {
 				for ($j=0;$j<count($data->results[0]->address_components);$j++) {
 					$cn=array($data->results[0]->address_components[$j]->types[0]);
+					
+					if(in_array("street_number", $cn)) {
+						$street_number	= $data->results[0]->address_components[$j]->long_name;
+					}
+					if(in_array("route", $cn)) {
+						$street			= $data->results[0]->address_components[$j]->short_name;
+						$full_street	= $data->results[0]->address_components[$j]->long_name;
+					}
+					
 					if(in_array("postal_code", $cn)) {
 						$postal_code	= $data->results[0]->address_components[$j]->long_name;
 					}
@@ -197,6 +222,9 @@ class HomeController extends Controller {
 		$result['country_code']	= $country_code;
 		$result['state']		= $state;
 		$result['state_code']	= $state_code;
+		$result['street']		= $street;
+		$result['full_street']	= $full_street;
+		$result['street_number']= $street_number;
 		
 		//echo '<pre>';print_r($result);exit;
 		

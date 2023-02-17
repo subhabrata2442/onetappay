@@ -132,8 +132,10 @@ class Helpers{
 	public static function get_product($product_id){
 		$result=array();
 		$item_data	= Common::getSingelData($where=['item_id'=>$product_id],$table='item', $data=['item_name','photo'],'item_name','ASC');
-		$result['item_name'] 	= $item_data->item_name;
-		$result['photo'] 		= $item_data->photo && file_exists('public/upload/image/180_180/'.$item_data->photo) ? asset('public/upload/image/180_180/'.$item_data->photo.'?v='.time()) : asset('public/backoffice/images/no_image-150x150.png');
+		$result['item_name'] 	= isset($item_data->item_name)?$item_data->item_name:'';
+		
+		$item_photo				= isset($item_data->photo)?$item_data->photo:'';
+		$result['photo'] 		= $item_photo && file_exists('public/upload/image/180_180/'.$item_photo) ? asset('public/upload/image/180_180/'.$item_photo.'?v='.time()) : asset('public/backoffice/images/no_image-150x150.png');
 		
 		return $result;
 	}

@@ -1027,7 +1027,7 @@
         
         <script>
 		$(document).on('click', '.no_table_booking_avaible', function(){
-			swal("Sorry", "Table booking not available at this moment!", "error");
+			swal("Sorry", "The restaurant does not offer table booking at this moment!", "error");
 		});
 		$(document).on('click', '.no_food_order_avaible', function(){
 			swal("Sorry", "Food order currently not available at this moment!", "error");

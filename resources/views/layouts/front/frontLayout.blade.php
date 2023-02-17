@@ -40,10 +40,10 @@
         <div class="ftr-about d-flex flex-column justify-content-between h-100"> <span class="ftr-logo"> <img class="img-block" src="{{ asset('public/front/images/logo-white.png') }}" alt=""> </span>
           <div class="ftr-social">
             <ul class="d-flex">
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-google-plus-g"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+              <li><a href="javascript:;"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="javascript:;"><i class="fa-brands fa-google-plus-g"></i></a></li>
+              <li><a href="javascript:;"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/ke-zhu-77268821/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
@@ -51,32 +51,32 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
         <div class="ftr-menu-box">
           <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="{{url('/about-us')}}">About us</a></li>
+            <li><a href="javascript:;">Team</a></li>
+            <li><a href="javascript:;">Careers</a></li>
+            <li><a href="javascript:;">Blog</a></li>
           </ul>
         </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
         <div class="ftr-menu-box">
           <ul>
-            <li><a href="#">Get Help</a></li>
-            <li><a href="#">Buy gift cards</a></li>
-            <li><a href="#">Add your restaurant</a></li>
-            <li><a href="#">Sign up for booking</a></li>
-            <li><a href="#">Create a business account</a></li>
-            <li><a href="#">Promotions</a></li>
+            <li><a href="javascript:;">Get Help</a></li>
+            <li><a href="javascript:;">Buy gift cards</a></li>
+            <li><a href="javascript:;">Add your restaurant</a></li>
+            <li><a href="javascript:;">Sign up for booking</a></li>
+            <li><a href="javascript:;">Create a business account</a></li>
+            <li><a href="javascript:;">Promotions</a></li>
           </ul>
         </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
         <div class="ftr-menu-box">
           <ul>
-            <li><a href="#">Restaurants near me</a></li>
-            <li><a href="#">Restaurants Login</a></li>
-            <li><a href="#">View all cities</a></li>
-            <li><a href="#">View all countries</a></li>
+            <li><a href="javascript:;">Restaurants near me</a></li>
+            <li><a href="javascript:;">Restaurants Login</a></li>
+            <li><a href="javascript:;">View all cities</a></li>
+            <li><a href="javascript:;">View all countries</a></li>
           </ul>
         </div>
       </div>
@@ -87,7 +87,7 @@
       <div class="row">
         <div class="col-12">
           <div class="ftr-btm-text">
-            <p>&copy; 2022 by Onetabpay.</p>
+            <p>&copy; 2023 by Onetabpay.</p>
           </div>
         </div>
       </div>

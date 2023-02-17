@@ -76,24 +76,39 @@ class HomeController extends Controller {
 		$location	= isset($_GET['location'])?$_GET['location']:'';
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		
-		$city		= $this->get_city($location);
-		//print_r($city);exit;
-		$search_city=$location;
-		if($city!=''){
-			$search_city=$city;
-		}
+		$location_reasult = $this->get_city($location);
 		
-		//echo 'ddd';exit;
+		$city			= isset($location_reasult['city'])?$location_reasult['city']:'';
+		$country		= isset($location_reasult['country'])?$location_reasult['country']:'';
+		$country_code	= isset($location_reasult['country_code'])?$location_reasult['country_code']:'CA';
+		$state			= isset($location_reasult['state'])?$location_reasult['state']:'';
+		$state_code		= isset($location_reasult['state_code'])?$location_reasult['state_code']:'';
+		$postal_code	= isset($location_reasult['postal_code'])?$location_reasult['postal_code']:'';
 		
-		
-		
-		
-		
+			
 		$category_list 	= Category::select('cat_id','category_name','photo','category_slug')->distinct('category_slug')->where('status',1)->limit(15)->offset(0)->orderBy('cat_id', 'DESC')->get();
 		
 		$query_store_list 	= Merchant::where('status', 'active');
-		if($search_city!=''){
-			$query_store_list->where('city', 'like', '%'.$search_city.'%')->orWhere('street', 'like', '%'.$search_city.'%');
+		
+		//if($search != '') {
+			/*$query_store_list = $query_store_list->where(function($query_store_list) use ($search) {
+				$query_store_list->where(DB::raw("city"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("street"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("state"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("post_code"), 'LIKE', '%' . $search . '%')->orWhere(DB::raw("country_code"), 'LIKE', '%' . $search . '%');
+            });*/
+        //}
+		
+		
+		
+		if($city!=''){
+			$query_store_list->where('city', 'like', '%'.$city.'%');
+		}
+		if($state!=''){
+			$query_store_list->where('state', 'like', '%'.$state.'%')->orWhere('state', 'like', '%'.$state_code.'%');
+		}
+		if($country!=''){
+			$query_store_list->where('country_code', 'like', '%'.$country.'%')->orWhere('country_code', 'like', '%'.$country_code.'%');
+		}
+		if($postal_code!=''){
+			$query_store_list->where('post_code', 'like', '%'.$postal_code.'%')->orWhere('post_code', 'like', '%'.$postal_code.'%');
 		}
 		
 		if($restaurent!=''){
@@ -128,33 +143,64 @@ class HomeController extends Controller {
 	
 	
 	public function get_city($address){
-		//echo 'dd';exit;
 		$address = str_replace(" ", "+", $address);
-		//echo $address;exit;
 		
+		$city	= '';
+		$country='';
+		$country_code='';
+		
+		$state='';
+		$state_code='';
+		
+		$postal_code='';
 		try {
-			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyB-7feg-Hv8BUptW-3NbsqhjCizcGWRrKo");
+			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyCBeYhfznD1X2nWYFXFpH6B4eJ9hGrr9_g");
 			$data 	= json_decode($json);
 			//echo '<pre>';print_r($data);exit;
 			
-			
 			$status = $data->status;
-			$city	= '';
 			if($status=="OK") {
 				for ($j=0;$j<count($data->results[0]->address_components);$j++) {
 					$cn=array($data->results[0]->address_components[$j]->types[0]);
+					if(in_array("postal_code", $cn)) {
+						$postal_code	= $data->results[0]->address_components[$j]->long_name;
+					}
 					if(in_array("locality", $cn)) {
 						$city	= $data->results[0]->address_components[$j]->long_name;
 					}
+					if(in_array("administrative_area_level_1", $cn)) {
+						$state	= $data->results[0]->address_components[$j]->long_name;
+						$state_code	= $data->results[0]->address_components[$j]->short_name;
+					}
+					if(in_array("country", $cn)) {
+						$country		= $data->results[0]->address_components[$j]->long_name;
+						$country_code	= $data->results[0]->address_components[$j]->short_name;
+					}
+					
 				}
 			}
 		} catch (\Exception $e) {
-			$city='';
+			$city			= '';
+			$country		= '';
+			$country_code	= 'CA';
+			
+			$state			= '';
+			$state_code		= '';
+			
+			$postal_code	='';
 		}
 		
 		
+		$result['postal_code']	= $postal_code;
+		$result['city']			= $city;
+		$result['country']		= $country;
+		$result['country_code']	= $country_code;
+		$result['state']		= $state;
+		$result['state_code']	= $state_code;
 		
-		return $city;
+		//echo '<pre>';print_r($result);exit;
+		
+		return $result;
 	}
 	
 	public function about_us(){

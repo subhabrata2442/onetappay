@@ -172,7 +172,7 @@ class HomeController extends Controller {
 		try {
 			$json 	= file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyCBeYhfznD1X2nWYFXFpH6B4eJ9hGrr9_g");
 			$data 	= json_decode($json);
-			//echo '<pre>';print_r($data);exit;
+			echo '<pre>';print_r($data);exit;
 			
 			$status = $data->status;
 			if($status=="OK") {

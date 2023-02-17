@@ -115,34 +115,34 @@
     </div>
     <div class="row g-3">
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="collection-box"> <a href="{{url('/searcharea?location=Canada')}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection1.jpg') }}" alt="">
+        <div class="collection-box"> <a href="{{$popular_city[2]['link']}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection1.jpg') }}" alt="">
           <div class="collection-desc">
             <h4>Restaurant</h4>
-            <p>12 Places</p>
+            <p>{{$popular_city[2]['total_restaurant']}} Places</p>
           </div>
           </a> </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="collection-box"> <a href="{{url('/searcharea?location=Canada')}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection2.jpg') }}" alt="">
+        <div class="collection-box"> <a href="{{$popular_city[2]['link']}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection2.jpg') }}" alt="">
           <div class="collection-desc">
             <h4>Cafe</h4>
-            <p>12 Places</p>
+            <p>{{$popular_city[2]['total_restaurant']}} Places</p>
           </div>
           </a> </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="collection-box"> <a href="{{url('/searcharea?location=Canada')}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection3.jpg') }}" alt="">
+        <div class="collection-box"> <a href="{{$popular_city[2]['link']}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection3.jpg') }}" alt="">
           <div class="collection-desc">
             <h4>Buffet</h4>
-            <p>12 Places</p>
+            <p>{{$popular_city[2]['total_restaurant']}} Places</p>
           </div>
           </a> </div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <div class="collection-box"> <a href="{{url('/searcharea?location=Canada')}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection4.jpg') }}" alt="">
+        <div class="collection-box"> <a href="{{$popular_city[2]['link']}}"> <img class="img-block" src="{{ asset('public/front/images/collection/colection4.jpg') }}" alt="">
           <div class="collection-desc">
             <h4>Bar</h4>
-            <p>12 Places</p>
+            <p>{{$popular_city[2]['total_restaurant']}} Places</p>
           </div>
           </a> </div>
       </div>

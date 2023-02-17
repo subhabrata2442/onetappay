@@ -226,7 +226,7 @@ class HomeController extends Controller {
 		$result['full_street']	= $full_street;
 		$result['street_number']= $street_number;
 		
-		//echo '<pre>';print_r($result);exit;
+		echo '<pre>';print_r($result);exit;
 		
 		return $result;
 	}

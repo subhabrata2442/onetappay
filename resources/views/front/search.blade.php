@@ -193,14 +193,14 @@
                 <div class="hotel-details">
                   <h4><a href="{{ url('store/'.$s_row->restaurant_slug) }}">{{$s_row->restaurant_name }}</a></h4>
                   <p>{{$s_row->address}}</p>
-                  <ul class="product-retting d-flex">
+                  <!--<ul class="product-retting d-flex">
                     <li><i class="fa-solid fa-star"></i></li>
                     <li><i class="fa-solid fa-star"></i></li>
                     <li><i class="fa-solid fa-star"></i></li>
                     <li><i class="fa-solid fa-star"></i></li>
                     <li><i class="fa-solid fa-star"></i></li>
                     <li>(36 Review)</li>
-                  </ul>
+                  </ul>-->
                   <p>{{$s_row->delivery_estimation}} min • ${{$s_row->free_delivery}} Delivery Fee</p>
                   <ul class="book-hotel d-flex">
                     <li><a href="{{ url('store/'.$s_row->restaurant_slug) }}">book table</a></li>

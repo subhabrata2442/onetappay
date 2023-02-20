@@ -275,6 +275,161 @@ class CartController extends Controller {
 		
 		$order_id=Common::insert_get_id($table="order",$data_order);
 		
+		
+		if($order_id!=''){
+			$data_order_delivery_address=array(
+				'order_id'			=> $order_id,
+				'user_id'			=> $user_id,		
+				'street'			=> $street,
+				'city'				=> $city,
+				'state'				=> $state,
+				'zipcode'			=> $zipcode,
+				'location_name' 	=> $location_name,
+				'country' 			=> $country_name,
+				'contact_phone' 	=> $user_info->phone,
+				'formatted_address'	=> $street,
+				'area_name'			=> $street,
+				'first_name'		=> $user_info->first_name,
+				'last_name' 		=> $user_info->last_name,
+				'contact_email' 	=> $user_info->email,
+				'created_at'		=> $created_at
+			);
+			
+			//print_r($data_order_delivery_address);exit;
+			
+			Common::insert_get_id($table="order_delivery_address",$data_order_delivery_address);
+			
+			$addressBookCheck=AddressBook::where('user_id',$user_id)->get();
+			if(count($addressBookCheck)==0){
+				$data_general=array(
+					'user_id'		=> $user_id,
+					'street'		=> $street,
+					'city'			=> $city,
+					'state'			=> $state,
+					'zipcode'		=> $zipcode,
+					'location_name'	=> $location_name,
+					'country_code'	=> $country_code,
+					'as_default'	=> 1,
+					'created_at'	=> $created_at
+				);
+				Common::insert_get_id($table="address_book", $data_general);
+			}	
+		}
+		
+		
+		$transactionID  = '';
+		$paidAmount     = $order_total;
+		$paidAmount     = $paidAmount;
+		$paidCurrency   = $currency;
+		$payment_status = 'paid';
+				
+		$data_payment_order=array(
+			'user_id'			=> $user_id,
+			'payment_type'		=> 'Stripe',
+			'payment_reference'	=> $transactionID,
+			'order_id'			=> $order_id,
+			'raw_response'		=> '',
+			'card_holder_name'	=> $card_holder_name,
+			'card_number'		=> $card_number,
+			'card_exp_month'	=> $card_exp_month,
+			'card_exp_year'		=> $card_exp_year,
+			'card_cvc'			=> $card_cvc,
+			'created_at'		=> $created_at
+		);
+		Common::insert_get_id($table="payment_order", $data_payment_order);
+		Session::put('last_order_token', $token);
+		Common::updateData($table="cart_items",$uId = "ses_id", $cart_id, $data = ['is_order' =>'Y','order_id' =>$order_id]);
+		Common::updateData($table="order",$uId = "order_id", $order_id, $data = ['payment_status' =>1,'order_status' =>1]);
+						
+		$return['success'] 	= 1;
+		$return['token'] 	= $token;
+		$return['message'] 	= 'Your order has been place.';
+		
+		return response()->json([$return]);
+	}
+	
+	
+	public function orderPlaceStripeRequest(Request $request){
+		//print_r($_POST);exit;
+		$street 			= Input::post('street');
+		$city 				= Input::post('city');
+		$state 				= Input::post('state');
+		$zipcode 			= Input::post('zipcode');
+		$location_name 		= Input::post('location_name');
+		$country_code 		= Input::post('country');
+		
+		$card_holder_name	= Input::post('card_holder_name');
+		$card_number 		= Input::post('card_number');
+		$card_exp_month 	= Input::post('card_exp_month');
+		$card_exp_year 		= Input::post('card_exp_year');
+		$card_cvc 			= Input::post('card_cvc');
+		
+		$country_info		= Countrie::where('sortname',$country_code)->first();
+		$country_name		= isset($country_info->name)?$country_info->name:'';
+		$IP 				= Helpers::get_ip();
+		
+		$item_number		= 1;
+		$currency 			= 'usd';
+		
+		$total_cart_amount=0;
+		$total_cart_item=0;
+		$getCartTotal = Common::cartlistingList(['*'], 'id', 'ASC');
+		$grand_total		= 0;
+		$total_cart_item	= 0;
+		$total_cart_amount  = 0;
+		if($getCartTotal){
+			for($i=0;$i<count($getCartTotal);$i++){
+				$grand_total=$grand_total+$getCartTotal[$i]->grand_total;
+			}
+			$total_cart_amount=number_format($grand_total,2,'.','');
+			$total_cart_item = count($getCartTotal);
+		}
+		
+		$order_total		= $total_cart_amount;
+		$sub_total			= $total_cart_amount;
+		$grand_total		= $total_cart_amount;
+		$tax				= 0;
+		$service_fee		= 0;
+		$discount			= 0;
+		
+		$user_id			= Session::get('user_id');
+		$cart_id			= Session::get('cart_id');
+		$merchant_id		= Session::get('cart_merchant_id');
+		
+		$order_info		= Common::getSingelData([], 'order', ['order_id'], 'order_id', 'DESC');
+		$order_id 		= isset($order_info->order_id)?$order_info->order_id:'0';
+		$order_id		= $order_id+1;
+		$token			= date('Yd').$order_id;
+		
+		$user_info 		= Common::getSingelData($where=['id'=>$user_id],$table='users',$data=['id','first_name','last_name','email','phone'],'id','ASC');
+		
+		$created_at		= date('Y-m-d H:i s');
+		
+		$data_order=array(
+			'merchant_id'			=> $merchant_id,
+			'cart_id'				=> $cart_id,		
+			'payment_type'			=> 'Stripe',
+			'sub_total'				=> $sub_total,
+			'gross_total'			=> $grand_total,
+			'status'				=> 'pending',
+			'tax' 					=> $tax,
+			'service_fee' 			=> $service_fee,
+			'discount' 				=> $discount,
+			'ip_address'			=> $IP,
+			'order_id_token'		=> $token,
+			'payment_status' 		=> 0,	
+			'order_status' 			=> 0,	
+			'user_id' 				=> $user_id,
+			'customer_email' 		=> $user_info->email,
+			'customer_name' 		=> $user_info->first_name.' '.$user_info->last_name,
+			'customer_phone' 		=> $user_info->phone,
+			'created_at'			=> date('Y-m-d h:i:s a'),
+		);
+		
+		//print_r($data_order);exit;
+		
+		$order_id=Common::insert_get_id($table="order",$data_order);
+		
 		if($order_id!=''){
 			$data_order_delivery_address=array(
 				'order_id'			=> $order_id,
@@ -414,6 +569,8 @@ class CartController extends Controller {
 				$orderDetails = Common::getOrderDetails($token);
 			}
 		}
+		
+		//echo '<pre>';print_r($orderDetails);exit;
 		
 		$restaurent	= isset($_GET['restaurent'])?$_GET['restaurent']:'';
 		$location		= isset($_GET['location'])?$_GET['location']:'';

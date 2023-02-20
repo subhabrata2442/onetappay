@@ -226,6 +226,7 @@ $(function() {
                 },
                 success: function(response) {
                     console.log(response);
+					
                     if (response[0].success == 0) {
                         //uk_msg(response[0].error_message);
                         swal("Error", response[0].message, "error");

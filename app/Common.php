@@ -527,7 +527,7 @@ public static function getOrderInfo($token) {
 					->where('O.order_status','1')
 		 			->get();
 		
-		//echo '<pre>';print_r($order_result[0]->order_id);exit;
+		//echo '<pre>';print_r($order_result);exit;
 		
 		$payment_order		= DB::select(DB::raw("SELECT * FROM payment_order WHERE order_id = '" .(int)$order_result[0]->order_id. "'"));
 		$delivery_address	= DB::select(DB::raw("SELECT * FROM order_delivery_address WHERE order_id = '" .(int)$order_result[0]->order_id. "'"));

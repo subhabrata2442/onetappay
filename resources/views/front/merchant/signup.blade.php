@@ -10,6 +10,7 @@
         <div class="col-md-8 ">
           <div class="search-wraps">
             <h1>Restaurant Signup</h1>
+            <span class="login_link">Already have an account <a href="{{url('/merchant_admin')}}">login</a> here</span>
           </div>
           <div class="box-grey round top-line-green">
             <form class="forms has-validation-callback" action="{{route('merchant.signup.save')}}" method="POST" id="merchant_form" onsubmit="return false;">
@@ -414,7 +415,7 @@
               </div>
               <!--<div class="top15">
                 <div class="section-label"> <a class="section-label-a"> <span class="bold"> Commission Type</span> <b></b> </a> </div>
-              </div>--> 
+              </div>-->
               <!--<div class="row top10">
                 <div class="col-md-3">Type</div>
                 <div class="col-md-8">
@@ -423,7 +424,7 @@
                     <option value="3">Commission+Invoice</option>
                   </select>
                 </div>
-              </div>--> 
+              </div>-->
               <!--<div class="row top10 invoice_terms_wrap">
                 <div class="col-md-3">Invoice Terms</div>
                 <div class="col-md-8">
@@ -464,19 +465,19 @@
               </div>
             </form>
           </div>
-          <!--box-grey--> 
-          
+          <!--box-grey-->
+
         </div>
-        <!--col--> 
-        
+        <!--col-->
+
       </div>
-      <!--row--> 
+      <!--row-->
     </div>
     <div class="regModel"><img class="img-block" src="{{ asset('public/front/images/logModel.jpg') }}" alt=""></div>
-    <!--container--> 
+    <!--container-->
   </div>
 </section>
-@push('scripts') 
-<script src="{{ asset('public/front/js/store.js/?t='.time()) }}"></script> 
+@push('scripts')
+<script src="{{ asset('public/front/js/store.js/?t='.time()) }}"></script>
 @endpush
 @endsection

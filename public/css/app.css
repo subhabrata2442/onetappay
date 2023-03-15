@@ -11168,6 +11168,7 @@ textarea {
 }
 .main-header .logo a {
   display: block;
+  max-width: 150px;
 }
 .main-header .logo a img {
   transition: all 0.3s ease-in-out;

@@ -11,7 +11,7 @@
 <header class="main-header start-style start-header white-header">
   <div class="container-fluid left-right-gap">
     <div class="row align-items-center justify-content-between align-items-center">
-      <div class="logo"> <a href="{{url('/')}}"> <img class="img-block" src="{{ asset('public/front/images/logo-color.png')}}" alt=""> </a> </div>
+      <div class="logo"> <a href="{{url('/')}}"> <img class="img-block" src="{{ asset('public/front/images/logo.png')}}" alt=""> </a> </div>
       <div class="header-search-bar scr_mob_slide col">
         <div class="header-search-bar-box"> {!! Form::open(['url'=>'/searcharea', 'class'=>'validate-form', 'id' => 'location-form', 'autocomplete' => 'off', 'method'=>'GET']) !!}
           <div class="row g-0">
